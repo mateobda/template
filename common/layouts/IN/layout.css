@@ -6,14 +6,23 @@
   color: #3F6D38;
 }
 
-.bda-borders-title {
+.bda-title {
   border-color: #3F6D38;
 }
 
-.bda-info__icon {
+.bda-description i {
   color: #3F6D38
 }
 
-.ipt-pagenumer .eslas {
+.bda-pagination__line {
   color: #3F6D38;
+}
+
+.popup__close {
+  background: #3F6D38;
+}
+
+
+.bda-video__image {
+  background-image: url('img/image-video-IN.png');
 }

@@ -59,6 +59,7 @@ gulp.task('watch', ['styles', 'scripts'], () => {
   })
 
   gulp.watch('BDA/*.html', browserSync.reload)
+  gulp.watch('common/**/*', browserSync.reload)
   gulp.watch('BDA/css/**/*.css', ['styles'])
   gulp.watch('BDA/js/**/*.js', ['scripts'])
 })

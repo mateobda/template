@@ -1,0 +1,32 @@
+.bda-header {
+  background: #D6D83A;
+}
+
+.bda-main-nav span {
+  color: #D6D83A;
+}
+
+.bda-title {
+  border-color: #D6D83A;
+}
+
+.bda-description i {
+  color: #D6D83A
+}
+
+.bda-pagination__line {
+  color: #D6D83A;
+}
+
+.popup__close {
+  background: #D6D83A;
+}
+
+
+.bda-video__image--cn {
+  background-image: url('img/image-video-HU.png');
+}
+
+.bda-video__image--cm {
+  background-image: url('img/image-video-LE.png');
+}
