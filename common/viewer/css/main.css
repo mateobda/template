@@ -1,0 +1,149 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+a { text-decoration: none; color: rgb(61, 105, 55); }
+
+a:hover { text-decoration: none; }
+
+a:visited, a.visited { color: rgb(93, 163, 52); }
+
+a:active, a.active { color: rgb(89, 185, 76); }
+
+#container {
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#topbar {
+  display: flex;
+	height: 70px;
+	background-color: rgb(93, 163, 52);
+}
+
+#topbar a {
+  color: rgb(255, 255, 255);
+}
+
+#sidebar {
+	width: 300px;
+  float: left;
+  padding-bottom: 10px;
+	background-color: rgb(93, 163, 52);
+	overflow-x: auto;
+}
+
+#content {
+	position: absolute;
+	left: 301px;
+	top: 71px;
+  width: auto;
+	margin: 0px;
+	padding: 0px;
+	z-index: 99;
+}
+
+.toogle-menu {
+  display: flex;
+  position: relative;
+  width: 300px;
+  height: 100%;
+  background-color: rgb(61, 105, 55);
+  text-align: center;
+}
+
+.toogle-menu__item {
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.toogle-menu__button {
+	position: absolute;
+	top: 33%;
+	right: 10%;
+  height: 25px;
+  width: 30px;
+  transition: all 0.35s ease-out;
+	cursor: pointer;
+}
+
+.toogle-menu__lines {
+  width: 100%;
+  height: 2px;
+  background: white;
+  margin: 4px auto;
+  transition: all 0.35s;
+  backface-visibility: hidden;
+}
+
+.toogle-menu__button.on .toogle-menu__lines-top {
+  transform: rotate(45deg) translate(0px, 8px);
+}
+
+.toogle-menu__button.on .toogle-menu__lines-middle {
+  opacity: 0;
+}
+
+.toogle-menu__button.on .toogle-menu__lines-bottom {
+  transform: rotate(-45deg) translate(0, -10px);
+}
+
+.nav-arrows {
+  align-self: center;
+  width: calc(100% - 300px);
+  text-align: center;
+}
+
+.nav-arrows__item:first-child {
+  margin-right: 50px;
+}
+
+.main-nav__tab {
+  position: relative;
+  padding: 15px 10px 15px 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.main-nav__tab i {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.main-nav__tab span {
+  position: absolute;
+  right: 30px;
+  bottom: 18px;
+	transition: all 0.25s ease-in;
+}
+
+.animate-arrow {
+  transform: rotate(180deg);
+}
+
+.main-nav__list {
+  margin: 0;
+  padding-left: 0;
+  background-color: #fff;
+	color: rgb(93, 163, 52);
+}
+
+.main-nav__item {
+	padding: 3px 0 3px 50px;
+	border: 1px solid rgb(93, 163, 52);
+  border-bottom: 0;
+  text-transform: uppercase;
+}
+
+.main-nav__item::before {
+	margin-right: 5px;
+	content: "•";
+}
