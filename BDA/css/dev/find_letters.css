@@ -1,32 +1,38 @@
-.bda-find-letters__container {
+.bda-word-search__container {
   display: flex;
   width: 95%;
   margin: 0 auto;
 }
 
-.bda-find-letters__content {
+.bda-word-search__content {
   width: 80%;
   padding: 20px 30px;
   border: 10px solid #d46919;
   border-radius: 0px 90px 0px 60px;
 }
 
-.bda-find-letters__content table {
+.bda-word-search__content table {
   width: 100%;
   border: none;
   border-collapse: collapse;
   text-align: center;
 }
 
-.bda-find-letters__content td {
+.bda-word-search__content td {
   border: none;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
-.bda-find-letters__words {
+.bda-word-search__content tr {
+  margin-bottom: 3px;
+}
+
+.bda-word-search__list-words {
   width: 20%;
   margin-top: 30px;
 }
 
-.bda-find-letters__word {
+.bda-word-search__word {
   margin-bottom: 5px;
 }

@@ -2,7 +2,7 @@
 
 (function ($) {
   oWs = function ($el, options) {
-
+    var idElement = $el.attr("id")
     var aciertos = 0
     var activarhover = false
     var miradorpalabras = ""
@@ -13,34 +13,7 @@
     var palabrasencontradas = new Array()
 
     $.extend(options)
-    var letras = new Array()
-    letras[0] = "A"
-    letras[1] = "B"
-    letras[2] = "C"
-    letras[3] = "D"
-    letras[4] = "E"
-    letras[5] = "F"
-    letras[6] = "G"
-    letras[7] = "H"
-    letras[8] = "I"
-    letras[9] = "J"
-    letras[10] = "K"
-    letras[11] = "L"
-    letras[12] = "M"
-    letras[13] = "N"
-    letras[14] = "Ñ"
-    letras[15] = "O"
-    letras[16] = "P"
-    letras[17] = "Q"
-    letras[18] = "R"
-    letras[19] = "S"
-    letras[20] = "T"
-    letras[21] = "U"
-    letras[22] = "V"
-    letras[23] = "W"
-    letras[24] = "X"
-    letras[25] = "Y"
-    letras[26] = "Z"
+    const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
     this.init = function () {
       var contadorpalabras = 0
@@ -116,41 +89,26 @@
             if (enquepos == i) {
 
               if (contadorletras < options.words[contadorpalabras].length) {
-                $("<td>").attr("nocruzar", "S").html(options.words[contadorpalabras].charAt(contadorletras)).appendTo($header).attr("pos", i.toString() + ";" + j.toString()).css("cursor", "pointer").hover(function () {
-                  if (activarhover) {
-                    $(this).css("color", "#C15858")
-                  }
-                }).click(function () {
+                $("<td>").attr("nocruzar", "S").html(options.words[contadorpalabras].charAt(contadorletras)).appendTo($header).attr("pos", i.toString() + ";" + j.toString()).click(function () {
                   $g.click(this)
-                }).addClass("noes").css("font-weight")
-                //}).addClass("noes").css("font-weight", "bold");
+                }).addClass("noes")
                 contadorletras++
                 enquepos++
+
               } else {
-                $("<td>").attr("nocruzar", "F").html(letras[letraelegidapos]).appendTo($header).attr("pos", i.toString() + ";" + j.toString()).css("cursor", "pointer").hover(function () {
-                  if (activarhover) {
-                    $(this).css("color", "#C15858")
-                  }
-                }).click(function () {
-                  $g.click(this);
+                $("<td>").attr("nocruzar", "F").html(letters[letraelegidapos]).appendTo($header).attr("pos", i.toString() + ";" + j.toString()).click(function () {
+                  $g.click(this)
                 }).addClass("noes")
+
               }
             } else {
-              $("<td>").attr("nocruzar", "F").html(letras[letraelegidapos]).appendTo($header).attr("pos", i.toString() + ";" + j.toString()).css("cursor", "pointer").hover(function () {
-                if (activarhover) {
-                  $(this).css("color", "#C15858")
-                }
-              }).click(function () {
+              $("<td>").attr("nocruzar", "F").html(letters[letraelegidapos]).appendTo($header).attr("pos", i.toString() + ";" + j.toString()).click(function () {
                 $g.click(this)
               }).addClass("noes")
-            }
 
+            }
           } else {
-            $("<td>").attr("nocruzar", "F").html(letras[letraelegidapos]).appendTo($header).attr("pos", i.toString() + ";" + j.toString()).css("cursor", "pointer").hover(function () {
-              if (activarhover) {
-                $(this).css("color", "#C15858")
-              }
-            }).click(function () {
+            $("<td>").attr("nocruzar", "F").html(letters[letraelegidapos]).appendTo($header).attr("pos", i.toString() + ";" + j.toString()).click(function () {
               $g.click(this)
             }).addClass("noes")
           }
@@ -179,265 +137,308 @@
       }
 
       var caminadorvertical = contadorpalabras + 1
-      var cantidadvueltas = 0
 
       for (var v = caminadorvertical; v < options.words.length; v++) {
         var pospalabra = 0
         var posyv = 0
 
         while (true) {
-          cantidadvueltas++
-
-          if (cantidadvueltas == 100) {
-            return
-          }
 
           if ((posy + options.words[v].length) < options.dificulty) {
-            posyv = posy;
+            posyv = posy
+
             for (var i = 0; i < options.words[v].length; i++) {
               if ($("td[pos='" + posx.toString() + ";" + posyv.toString() + "']").attr("nocruzar") == "S") {
                 total++
                 break
               }
+
               posyv++
             }
+
           } else {
-            total = 1;
+            total = 1
           }
+
           if (total > 0) {
-            posy = Math.floor((Math.random() * (options.dificulty + 2)) - 1);
-            posx = Math.floor((Math.random() * (options.dificulty + 2)) - 1);
+            posy = Math.floor((Math.random() * (options.dificulty + 2)) - 1)
+            posx = Math.floor((Math.random() * (options.dificulty + 2)) - 1)
+
             if (posy == -1) {
-              posy = 0;
+              posy = 0
             }
+
             if (posx == -1) {
-              posx = 0;
+              posx = 0
             }
+
           } else {
-            break;
+            break
           }
-          total = 0;
+
+          total = 0
         }
+
         for (var i = 0; i < options.words[v].length; i++) {
-          $("td[pos='" + posx.toString() + ";" + posy.toString() + "']").html(options.words[v].charAt(i)).attr("nocruzar", "S").css("font-weight");
-          //$("td[pos='" + posx.toString() + ";" + posy.toString() + "']").html(options.words[v].charAt(i)).attr("nocruzar", "S").css("font-weight", "bold");
-          posy++;
+          $("td[pos='" + posx.toString() + ";" + posy.toString() + "']").html(options.words[v].charAt(i)).attr("nocruzar", "S")
+          posy++
         }
+
       }
     }
 
-    var cantidadclicks = 0;
-    var posicionx = 0;
-    var posiciony = 0;
-    var posicionx1 = 0;
-    var posiciony1 = 0;
-    this.click = function (td) {
-      if (!dejapasar) {
-        return;
-      }
-      var $g = this;
-      cantidadclicks += 1;
+    var cantidadclicks = 0
+    var posicionx = 0
+    var posiciony = 0
+    var posicionx1 = 0
+    var posiciony1 = 0
 
+    //amarra la funcion al evento click
+    this.click = function (td) {
+      //this es el objeto instanciado
+      var $g = this
+      //el contador de clics se eleva a 1 indicando que es el primer click de la seleccion
+      cantidadclicks += 1
+      //se añade estilo a la letra clickeada para verla resaltada de gris
       $(td).css({
         color: '#fff',
-        background: '#969696'
-      });
-
+        background: '#9E9E9E'
+      })
+      //si la cantidad de clicks es 1, es el primer click
       if (cantidadclicks == 1) {
-        posicionx = $(td).attr("pos").split(";")[0];
-        posiciony = $(td).attr("pos").split(";")[1];
-        activarhover = false; //hay que cambiar aca
+        //las variables correspondientes a la posicion 1 cambian de acuerdo a los valores X y Y de al letra cliqueada
+        posicionx = $(td).attr("pos").split(";")[0]
+        posiciony = $(td).attr("pos").split(";")[1]
+
       } else {
-        posicionx1 = $(td).attr("pos").split(";")[0];
-        posiciony1 = $(td).attr("pos").split(";")[1];
-        cantidadclicks = 0;
-        activarhover = false;
-        var selecion = "";
-        var y = posiciony;
-        var x = posicionx;
-        var i = 1;
-        var total = posicionx1 - posicionx;
+        //si la cantidad de clicks es diferente de 1, es porque se clickeo la segunda letra
+        //se cargan las variables correspondientes a sus posiciones en x y y
+        posicionx1 = $(td).attr("pos").split(";")[0]
+        posiciony1 = $(td).attr("pos").split(";")[1]
+        //y el contador se hace 0 para que la proxima selección comienze desde 1
+        cantidadclicks = 0
+
+        var selecion = ""
+        var y = posiciony
+        var x = posicionx
+        var i = 1
+        var total = posicionx1 - posicionx
+        //si la diferencia entra la posicion final y la posicion inicial es menor que 0, entonces la seleccion se hizo de der a izq
         if (total < 0) {
           $(td).css({
             color: '',
             background: ''
-          });;
-          $("td[pos='" + posicionx.toString() + ";" + posiciony.toString() + "']").css({
+          })
+          $("#" + idElement + " td[pos='" + posicionx.toString() + ";" + posiciony.toString() + "']").css({
             color: '',
             background: ''
-          });
+          })
           $(".noes").css({
             color: '',
             background: ''
-          });
-          return;
+          })
+          //en este caso se anula la selección
+          return
         }
+        //Verifica la orientacion (vertica, horizontal) comparando las psiciones en y de la primera y la ultima selección
         if (posiciony != posiciony1) {
+          // --- VERTICAL ---
+
+          //si las posiciones son iguales en y, entonces el desplazamiento fue horizontal
           total = posiciony1 - posiciony
+          //se verifica que la seleccion sea de arriba hacia abajo
           if (total < 0) {
             $(td).css({
               color: '',
               background: ''
-            });
-            $("td[pos='" + posicionx.toString() + ";" + posiciony1.toString() + "']").css({
+            })
+            $("#" + idElement + " td[pos='" + posicionx.toString() + ";" + posiciony1.toString() + "']").css({
               color: '',
               background: ''
-            });
+            })
             $(".noes").css({
               color: '',
               background: ''
-            });
-            return;
+            })
+            //se anula la seleccion
+            return
           }
-          var word = '';
+
+          var word = ''
+
           while (true) {
-            var $tdlocal = $("td[pos='" + x.toString() + ";" + y.toString() + "']");
-            selecion += $tdlocal.html();
+            var $tdlocal = $("#" + idElement + " td[pos='" + x.toString() + ";" + y.toString() + "']")
+            selecion += $tdlocal.html()
+            //Una vez validada la selección, se aplican colores personalizados
             $tdlocal.css({
               color: '#fff',
               background: 'rgb(225,116,19)'
-            });
-            $tdlocal.css("font-weight", "bold");
-            $tdlocal.removeClass("noes");
-            word += $tdlocal.html();
+            })
+            //se remueve la clase 'noes'
+            $tdlocal.removeClass("noes")
+            //las letras dentro del html de cada td se concatenan en la variable word
+            word += $tdlocal.html()
+            //si la iteración  corresponde a la cantidad de letras, entonces se sale de la misma
             if (i == total + 1) {
-              break;
+              break
             }
-            y++;
-            i++;
+            y++
+            i++
           }
-          $('[name=' + word + ']').css('color', '#fff');
-          $('[name=' + word + ']').css('background-color', 'rgb(225,116,19)');
+
+          //se aplican estilos al listado de palabras
+          $('li[name=' + word + ']').css({
+            'color': '#000'
+          }).html('&#10004; ' + $('li[name=' + word + ']').html())
         } else {
-          var word = '';
+          // --- HORIZONTAL ---
+
+          var word = ''
+
           while (true) {
-            var $tdlocal = $("td[pos='" + x.toString() + ";" + y.toString() + "']");
-            selecion += $tdlocal.html();
+            var $tdlocal = $("#" + idElement + " td[pos='" + x.toString() + ";" + y.toString() + "']")
+            selecion += $tdlocal.html()
             $tdlocal.css({
               color: '#fff',
               background: 'rgb(225,116,19)'
-            });
-            $tdlocal.css("font-weight", "bold");
-            $tdlocal.removeClass("noes");
-            word += $tdlocal.html();
+            })
+            $tdlocal.removeClass("noes")
+            word += $tdlocal.html()
+
             if (i == total + 1) {
-              break;
+              break
             }
-            x++;
-            i++;
+
+            x++
+            i++
           }
-          $('[name=' + word + ']').css('color', '#fff');
-          $('[name=' + word + ']').css('background-color', 'rgb(225,116,19)');
+          $('li[name=' + word + ']').css({
+            'color': '#000'
+          }).html('&#10004; ' + $('li[name=' + word + ']').html())
         }
-        var existe = false;
+
+        var existe = false
         $.each(options.words, function () {
+
           if (selecion == this) {
-            existe = true;
-            var verificar = false;
+            existe = true
+            var verificar = false
+
             if (palabrasencontradas == 0) {
-              palabrasencontradas[0] = this;
-              aciertos += 1;
+              palabrasencontradas[0] = this
+              aciertos += 1
+
             } else {
+
               for (var i = 0; i < palabrasencontradas.length; i++) {
                 if (palabrasencontradas[i] == this) {
-                  verificar = true;
+                  verificar = true
                 }
               }
+
               if (!verificar) {
-                palabrasencontradas[palabrasencontradas.length] = this;
-                aciertos += 1;
+                palabrasencontradas[palabrasencontradas.length] = this
+                aciertos += 1
               }
+
             }
+
             cfin++;
-            var sound = new Howl({
-              urls: ['sound/success.mp3']
-            }).play();
-            console.log(cfin);
-            if (cfin == 6) {
-              $('.pop-next').trigger('click');
-            }
+
             if (!verificar) {
-              miradorpalabras += selecion + ", ";
-              // $g.cantidadpalabras();
+              miradorpalabras += selecion + ", "
             }
-            $("td[class='']").addClass("noborrar");
+
+            $("#" + idElement + " td[class='']").addClass("noborrar")
+
             if (aciertos == options.words.length) {
-              $('.pop-good').trigger('click');
-              var sound = new Howl({
-                urls: ['sound/success.mp3']
-              }).play();
-              var sound = new Howl({
-                urls: ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/win.mp3']
-              }).play();
-              $g.win();
+              $g.win()
             }
           }
-        });
+
+        })
+
         if (!existe) {
-          miserrores += 1;
-          y = posiciony;
-          x = posicionx;
-          i = 1;
-          total = posicionx1 - posicionx;
+
+          miserrores += 1
+          y = posiciony
+          x = posicionx
+          i = 1
+          total = posicionx1 - posicionx
+
           if (posiciony != posiciony1) {
+
             total = posiciony1 - posiciony
+
             while (true) {
-              var $tdlocal = $("td[pos='" + x.toString() + ";" + y.toString() + "']");
+              var $tdlocal = $("#" + idElement + " td[pos='" + x.toString() + ";" + y.toString() + "']")
+
               if (!$tdlocal.hasClass("noborrar")) {
                 selecion += $tdlocal.html();
                 $tdlocal.css({
                   color: '',
                   background: ''
-                });
-                $tdlocal.css("font-weight", "normal");
-                $tdlocal.addClass("noes");
+                })
+                $tdlocal.addClass("noes")
               }
+
               if (i == total + 1) {
-                break;
+                break
               }
-              y++;
-              i++;
+
+              y++
+              i++
             }
+
           } else {
             while (true) {
-              var $tdlocal = $("td[pos='" + x.toString() + ";" + y.toString() + "']");
+
+              var $tdlocal = $("#" + idElement + " td[pos='" + x.toString() + ";" + y.toString() + "']")
+
               if (!$tdlocal.hasClass("noborrar")) {
-                selecion += $tdlocal.html();
-                $tdlocal.css({
-                  color: '',
-                  background: ''
-                });
-                $tdlocal.css("font-weight", "normal");
-                $tdlocal.addClass("noes");
+                selecion += $tdlocal.html()
+                $tdlocal.css({ color: '', background: '' })
+                $tdlocal.addClass("noes")
               }
+
               if (i == total + 1) {
-                break;
+                break
               }
-              x++;
-              i++;
+
+              x++
+              i++
             }
           }
-          $(".noes").css({
-            color: '',
-            background: ''
-          });
+
+          $(".noes").css({ color: '', background: '' })
         }
       }
     }
+
     this.win = function () {
-      if (options.win != "") {
-        eval(options.win + "('" + miradorpalabras + "-" + miserrores + "')");
-      }
+      console.log("Ganaste bitch")
     }
+
     this.enabled = function () {
-      dejapasar = true;
+      dejapasar = true
     }
-    // this.cantidadpalabras = function () { eval("nogano('" + aciertos + "')"); eval("noganopalabras('" + miradorpalabras + "')"); }
-    this.init();
-  };
+
+    this.init()
+  }
 
   $.fn.wordSearch = function (options) {
-    new oWs(this, options).enabled()
-  };
+    let list = $("<ul>/").addClass("bda-word-search__list-words")
 
-})(jQuery);
+    $.each(options.words, function (k, v) {
+      list.append($("<li>").addClass("bda-word-search__word").attr("name", v).html(
+        v.replace(/\w\S*/g, function (txt) {
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        })
+      ))
+    })
+
+    $(this).parent().append(list)
+    new oWs(this, options).enabled()
+  }
+
+})(jQuery)
