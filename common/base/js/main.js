@@ -12,7 +12,8 @@ requirejs.config({
     'jquery-bookblock': 'vendors/jquery/jquery.bookblock',
     'jquery-easytabs': 'vendors/jquery/jquery.easytabs.custom',
     'jquerypp': 'vendors/jquery/jquerypp.custom',
-    'modernizer': 'vendors/jquery/modernizr.custom'
+    'modernizer': 'vendors/jquery/modernizr.custom',
+    'word_search': 'vendors/word_search/word_search'
   },
   waitSeconds: 0,
   /*
@@ -36,6 +37,9 @@ requirejs.config({
       deps: ['jquerypp', 'jquery']
     },
     'jquerypp': {
+      deps: ['jquery']
+    },
+    'word_search': {
       deps: ['jquery']
     },
     'sg': {
@@ -67,6 +71,7 @@ require([
   'jquery-easytabs',
   'jquery-bookblock',
   'modernizer',
+  'word_search',
   'sg-jwframe',
   'sg-attr-defaultPack',
   'sg-attr-draggable',
