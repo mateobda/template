@@ -8,7 +8,7 @@
   <title></title>
   <link href="../common/base/css/vendors.css" rel="stylesheet">
   <link href="../common/base/css/main.css" rel="stylesheet">
-  <link href="../common/layouts/CC_CP/layout.css" rel="stylesheet">
+  <link href="../common/layouts/MA/layout.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
 </head>
 
@@ -39,6 +39,14 @@
           <div class="popup__bg" id="popup__bg1"></div>
           <div class="popup__container animated fadeIn" id="popup__container1">
             <div class="popup__content">
+              <div class="bda-win-game__message bda-win-game__message--modal hide animated bounceIn">
+                <span>✔</span>
+                <strong>Felicitaciones, Presiona clic para continuar</strong>
+              </div>
+              <div class="bda-win-game__modal bda-win-game__modal--modal hide animated fadeIn"></div>
+              <div class="bda-word-search__container">
+                <div class="bda-word-search__content" id="bda-word-search__content-1"></div>
+              </div>
             </div>
             <div class="popup__close" id="close1">X<span>Cerrar</span></div>
           </div>
@@ -92,6 +100,11 @@
           </header>
 
           <section class="bda-item__content">
+            <div class="bda-win-game__message hide animated bounceIn">
+              <span>✔</span>
+              <strong>Felicitaciones, Presiona clic para continuar</strong>
+            </div>
+            <div class="bda-win-game__modal hide animated fadeIn"></div>
             <div class="bda-word-search__container">
               <div class="bda-word-search__content" id="bda-word-search__content"></div>
             </div>

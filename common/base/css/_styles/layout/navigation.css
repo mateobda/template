@@ -1,0 +1,28 @@
+.bda-main-nav span {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  font-size: 42px;
+  z-index: 101;
+  cursor: pointer;
+}
+
+#bb-nav-prev {
+  left: 20px;
+}
+
+#bb-nav-next {
+  right: 20px;
+}
+
+.bda-pagination {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: black;
+  font-size: 28px;
+}
+
+.bda-pagination__line {
+  font-weight: bold;
+}

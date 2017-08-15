@@ -24,5 +24,9 @@
 
 
 .bda-video__image {
-  background-image: url('img/image-video-IN.png');
+  background-image: url('img/image-video-IN.jpg');
+}
+
+.bda-word-search__content {
+  border-color: #3F6D38;
 }

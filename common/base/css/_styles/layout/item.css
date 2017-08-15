@@ -1,0 +1,15 @@
+.bb-bookblock {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bda-item__content {
+  width: 90%;
+  height: 480px;
+  margin: 20px auto 0;
+}
+
+.bda-item__content--alt {
+  height: 520px;
+}

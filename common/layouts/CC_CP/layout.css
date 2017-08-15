@@ -23,9 +23,13 @@
 }
 
 .bda-video__image--cp {
-  background-image: url('img/image-video-CP.png');
+  background-image: url('img/image-video-CP.jpg');
 }
 
 .bda-video__image--cc {
-  background-image: url('img/image-video-CC.png');
+  background-image: url('img/image-video-CC.jpg');
+}
+
+.bda-word-search__content {
+  border-color: #d46919;
 }
