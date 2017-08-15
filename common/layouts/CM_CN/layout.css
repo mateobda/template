@@ -33,3 +33,34 @@
 .bda-word-search__content {
   border-color: #73AB40;
 }
+
+
+/*Tabs horizontal color*/
+
+.bda-tab-Hor-text.active,
+.bda-tab-Hor-num.active {
+  background: #4f6b3b;
+  border-color: #4f6b3b;
+}
+
+.bda-cont_tab-Hor {
+  border-top: 8px solid #4f6b3b;
+}
+
+.bda-tab-Hor-text,
+.bda-tab-Hor-num {
+  background: #73AB40;
+  ;
+}
+
+
+/*Tabs vertical colors*/
+
+.bda-tab-Ver.active {
+  background: #4f6b3b;
+  border-color: #4f6b3b;
+}
+
+.bda-tab-Ver {
+  background: #73AB40;
+}

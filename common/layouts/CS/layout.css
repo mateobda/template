@@ -29,3 +29,26 @@
 .bda-word-search__content {
   border-color: #C76A1F;
 }
+/*Tabs horizontal color*/
+.bda-tab-Hor-text.active,
+.bda-tab-Hor-num.active {
+    background: #a2591e;   
+    border-color: #a2591e;
+}
+.bda-cont_tab-Hor {
+    border-top: 8px solid #a2591e;
+}
+.bda-tab-Hor-text ,
+.bda-tab-Hor-num  {    
+    background: #C76A1F  
+}
+
+/*Tabs vertical colors*/
+.bda-tab-Ver.active {
+    background: #a2591e;   
+    border-color: #a2591e;
+}
+
+.bda-tab-Ver {    
+    background:#C76A1F;   
+}

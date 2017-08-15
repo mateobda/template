@@ -10,4 +10,14 @@ function init() {
     words: ['cultura', 'paz'],
     colorWord: "#B71017"
   })
+
+  $('#bda-tab-container').easytabs({
+
+    updateHash: false
+  })
+
+  $('#bda-tab-container-ver').easytabs({
+
+    updateHash: false
+  })
 }

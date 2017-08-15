@@ -30,3 +30,34 @@
 .bda-word-search__content {
   border-color: #3F6D38;
 }
+
+
+/*Tabs Horizaontal colors*/
+
+.bda-tab-Hor-text.active,
+.bda-tab-Hor-num.active {
+  background: #294a24;
+  border-color: #294a24;
+}
+
+.bda-cont_tab-Hor {
+  border-top: 8px solid #294a24;
+}
+
+.bda-tab-Hor-text,
+.bda-tab-Hor-num {
+  background: #3F6D38
+}
+
+
+
+/*Tabs vertical colors*/
+
+.bda-tab-Ver.active {
+  background: #294a24;
+  border-color: #294a24;
+}
+
+.bda-tab-Ver {
+  background: #3F6D38;
+}
