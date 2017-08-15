@@ -2,12 +2,13 @@
 
 (function ($) {
   oWs = function ($el, options) {
+
     var idElement = $el.attr("id")
-    var aciertos = 0
-    var activarhover = false
+    var successWord = 0
     var miradorpalabras = ""
     var miserrores = 0
     var dejapasar = false
+
 
     $t = $("<table>")
     var palabrasencontradas = new Array()
@@ -20,37 +21,27 @@
       var comienzoy = Math.floor((Math.random() * (options.dificulty + 0)) + 0)
       var comienzoyar = new Array()
 
-      for (var i = 0; i < options.words.length; i++) {
-
+      options.words.forEach((element, index) => {
         while (true) {
-
           var cc = Math.floor((Math.random() * (options.dificulty + 0)) + 0)
           var existe = false
 
-          for (var j = 0; j < options.words.length; j++) {
+          options.words.forEach((element, index) => {
+            if (comienzoyar[j] == cc) existe = true
+          })
 
-            if (comienzoyar[j] == cc) {
-              existe = true
-            }
-          }
           if (!existe) {
-            comienzoyar[i] = cc
+            comienzoyar[index] = cc
             break
           }
-
         }
-
-      }
-
-      comienzoyar = comienzoyar.sort(function (a, b) {
-        return a - b
       })
+
+      comienzoyar = comienzoyar.sort((a, b) => a - b)
 
       var totalvertical = options.words.length / 2
 
-      if (totalvertical > 2) {
-        totalvertical = totalvertical - 1
-      }
+      if (totalvertical > 2) totalvertical = totalvertical - 1
 
       for (var j = 0; j < options.dificulty + 1; j++) {
         $header = $("<tr>")
@@ -63,26 +54,18 @@
           enquepos = Math.floor((Math.random() * enquepos))
         }
 
-        if (enquepos == -1) {
-          enquepos = 0
-        }
+        if (enquepos == -1) enquepos = 0
 
         for (var i = 0; i < options.dificulty + 1; i++) {
           var pos = Math.floor((Math.random() * (options.dificulty + 3)) - 1)
           var letraelegidapos = Math.floor(Math.random() * 14)
           var $g = this
 
-          if (pos == -1) {
-            pos = 0
-          }
+          if (pos == -1) pos = 0
 
-          if (comienzoy == -1) {
-            comienzoy = 0
-          }
+          if (comienzoy == -1) comienzoy = 0
 
-          if (comienzox == -1) {
-            comienzox = 0
-          }
+          if (comienzox == -1) comienzox = 0
 
           if (comienzoyar[contadorpalabras] == j) {
             //Aca pongo las palabras que vienen de la DB.
@@ -118,9 +101,7 @@
         $el.append($t)
 
         if (j == comienzoyar[contadorpalabras]) {
-          if (contadorpalabras < totalvertical) {
-            contadorpalabras++
-          }
+          if (contadorpalabras < totalvertical) contadorpalabras++
         }
       }
 
@@ -128,13 +109,9 @@
       var posx = Math.floor((Math.random() * (options.dificulty + 2)) - 1)
       var total = 0
 
-      if (posy == -1) {
-        posy = 0
-      }
+      if (posy == -1) posy = 0
 
-      if (posx == -1) {
-        posx = 0
-      }
+      if (posx == -1) posx = 0
 
       var caminadorvertical = contadorpalabras + 1
 
@@ -164,13 +141,9 @@
             posy = Math.floor((Math.random() * (options.dificulty + 2)) - 1)
             posx = Math.floor((Math.random() * (options.dificulty + 2)) - 1)
 
-            if (posy == -1) {
-              posy = 0
-            }
+            if (posy == -1) posy = 0
 
-            if (posx == -1) {
-              posx = 0
-            }
+            if (posx == -1) posx = 0
 
           } else {
             break
@@ -183,7 +156,6 @@
           $("td[pos='" + posx.toString() + ";" + posy.toString() + "']").html(options.words[v].charAt(i)).attr("nocruzar", "S")
           posy++
         }
-
       }
     }
 
@@ -193,9 +165,9 @@
     var posicionx1 = 0
     var posiciony1 = 0
 
-    //amarra la funcion al evento click
+    // Amarra la funcion al evento click
     this.click = function (td) {
-      //this es el objeto instanciado
+      // This es el objeto instanciado
       var $g = this
       //el contador de clics se eleva a 1 indicando que es el primer click de la seleccion
       cantidadclicks += 1
@@ -223,16 +195,18 @@
         var x = posicionx
         var i = 1
         var total = posicionx1 - posicionx
-        //si la diferencia entra la posicion final y la posicion inicial es menor que 0, entonces la seleccion se hizo de der a izq
+        //si la diferencia entre la posicion final y la posicion inicial es menor que 0, entonces la seleccion se hizo de der a izq
         if (total < 0) {
           $(td).css({
             color: '',
             background: ''
           })
+
           $("#" + idElement + " td[pos='" + posicionx.toString() + ";" + posiciony.toString() + "']").css({
             color: '',
             background: ''
           })
+
           $(".noes").css({
             color: '',
             background: ''
@@ -252,10 +226,12 @@
               color: '',
               background: ''
             })
+
             $("#" + idElement + " td[pos='" + posicionx.toString() + ";" + posiciony1.toString() + "']").css({
               color: '',
               background: ''
             })
+
             $(".noes").css({
               color: '',
               background: ''
@@ -272,24 +248,21 @@
             //Una vez validada la selección, se aplican colores personalizados
             $tdlocal.css({
               color: '#fff',
-              background: 'rgb(225,116,19)'
+              background: options.colorWord
             })
-            //se remueve la clase 'noes'
+            // Se remueve la clase 'noes'
             $tdlocal.removeClass("noes")
-            //las letras dentro del html de cada td se concatenan en la variable word
+            //Las letras dentro del html de cada td se concatenan en la variable word
             word += $tdlocal.html()
             //si la iteración  corresponde a la cantidad de letras, entonces se sale de la misma
-            if (i == total + 1) {
-              break
-            }
+            if (i == total + 1) break
+
             y++
             i++
           }
+          // Se aplican estilos al listado de palabras
+          $(`li[name='${word}']`).addClass("bda-word-search__word--correct")
 
-          //se aplican estilos al listado de palabras
-          $('li[name=' + word + ']').css({
-            'color': '#000'
-          }).html('&#10004; ' + $('li[name=' + word + ']').html())
         } else {
           // --- HORIZONTAL ---
 
@@ -300,21 +273,17 @@
             selecion += $tdlocal.html()
             $tdlocal.css({
               color: '#fff',
-              background: 'rgb(225,116,19)'
+              background: options.colorWord
             })
             $tdlocal.removeClass("noes")
             word += $tdlocal.html()
 
-            if (i == total + 1) {
-              break
-            }
+            if (i == total + 1) break
 
             x++
             i++
           }
-          $('li[name=' + word + ']').css({
-            'color': '#000'
-          }).html('&#10004; ' + $('li[name=' + word + ']').html())
+          $(`li[name='${word}']`).addClass("bda-word-search__word--correct")
         }
 
         var existe = false
@@ -326,7 +295,7 @@
 
             if (palabrasencontradas == 0) {
               palabrasencontradas[0] = this
-              aciertos += 1
+              successWord += 1
 
             } else {
 
@@ -338,20 +307,18 @@
 
               if (!verificar) {
                 palabrasencontradas[palabrasencontradas.length] = this
-                aciertos += 1
+                successWord += 1
               }
 
             }
 
             cfin++;
 
-            if (!verificar) {
-              miradorpalabras += selecion + ", "
-            }
+            if (!verificar) miradorpalabras += selecion + ", "
 
-            $("#" + idElement + " td[class='']").addClass("noborrar")
+            $(`#${idElement}td[class='']`).addClass("noborrar")
 
-            if (aciertos == options.words.length) {
+            if (successWord == options.words.length) {
               $g.win()
             }
           }
@@ -382,9 +349,7 @@
                 $tdlocal.addClass("noes")
               }
 
-              if (i == total + 1) {
-                break
-              }
+              if (i == total + 1) break
 
               y++
               i++
@@ -397,31 +362,38 @@
 
               if (!$tdlocal.hasClass("noborrar")) {
                 selecion += $tdlocal.html()
-                $tdlocal.css({ color: '', background: '' })
+                $tdlocal.css({
+                  color: '',
+                  background: ''
+                })
                 $tdlocal.addClass("noes")
               }
 
-              if (i == total + 1) {
-                break
-              }
+              if (i == total + 1) break
 
               x++
               i++
             }
           }
 
-          $(".noes").css({ color: '', background: '' })
+          $(".noes").css({
+            color: '',
+            background: ''
+          })
         }
       }
     }
 
     this.win = function () {
-      console.log("Ganaste bitch")
+      $(".bda-win-game__modal, .bda-win-game__message").removeClass("hide")
+
+      $(".bda-win-game__modal, .bda-win-game__message").click(() => {
+        $(".bda-win-game__modal").addClass("hide")
+        $(".bda-win-game__message").addClass("hide")
+      })
     }
 
-    this.enabled = function () {
-      dejapasar = true
-    }
+    this.enabled = () => dejapasar = true
 
     this.init()
   }
@@ -430,11 +402,7 @@
     let list = $("<ul>/").addClass("bda-word-search__list-words")
 
     $.each(options.words, function (k, v) {
-      list.append($("<li>").addClass("bda-word-search__word").attr("name", v).html(
-        v.replace(/\w\S*/g, function (txt) {
-          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        })
-      ))
+      list.append($("<li class='bda-word-search__word'>").attr("name", v).html(`<span>${v.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())}</span>`))
     })
 
     $(this).parent().append(list)

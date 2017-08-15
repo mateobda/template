@@ -1,0 +1,100 @@
+.bda-word-search__container {
+  display: flex;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.bda-word-search__content {
+  width: 80%;
+  padding: 20px 30px;
+  border: 10px solid #000;
+  border-radius: 0px 90px 0px 60px;
+}
+
+.bda-word-search__content table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.bda-word-search__content td {
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.bda-word-search__list-words {
+  width: 20%;
+  margin-top: 30px;
+  list-style-type: none;
+}
+
+.bda-word-search__word span {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.bda-word-search__word::before {
+  content: "❯";
+  margin-right: 10px;
+}
+
+.bda-word-search__word--correct::before {
+  margin-right: 10px;
+  color: #4CAF50;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  content: "✔";
+}
+
+.bda-word-search__word--correct span {
+  text-decoration: line-through;
+}
+
+.bda-win-game__message {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  text-align: center;
+  z-index: 115;
+  cursor: pointer;
+}
+
+.bda-win-game__message strong {
+  display: inline-block;
+  position: absolute;
+  top: 95px;
+  left: 0;
+  font-size: 28px;
+}
+
+.bda-win-game__message span,
+.bda-win-game__message strong {
+	color: #4CAF50;
+}
+
+.bda-win-game__message span {
+  font-size: 130px;
+}
+
+.bda-win-game__modal {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 112;
+	background: rgba(255,255,255,.9);
+}
+
+.bda-win-game__message--modal {
+  top: 35%;
+  left: 25%;
+  width: 55%;
+}
+
+.bda-win-game__modal--modal {
+  width: 78%;
+  height: 78%;
+}
