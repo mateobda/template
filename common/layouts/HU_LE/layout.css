@@ -30,3 +30,33 @@
 .bda-video__image--cm {
   background-image: url('img/image-video-LE.png');
 }
+
+
+/*Tabs horizontal color*/
+
+.bda-tab-Hor-text.active,
+.bda-tab-Hor-num.active {
+  background: #a3a52d;
+  border-color: #a3a52d;
+}
+
+.bda-cont_tab-Hor {
+  border-top: 8px solid #a3a52d;
+}
+
+.bda-tab-Hor-text,
+.bda-tab-Hor-num {
+  background: #D6D83A
+}
+
+
+/*Tabs vertical colors*/
+
+.bda-tab-Ver.active {
+  background: #a3a52d;
+  border-color: #a3a52d;
+}
+
+.bda-tab-Ver {
+  background: #D6D83A;
+}

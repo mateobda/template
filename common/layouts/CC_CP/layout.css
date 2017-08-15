@@ -29,3 +29,27 @@
 .bda-video__image--cc {
   background-image: url('img/image-video-CC.png');
 }
+
+/*Tabs horizontal color*/
+.bda-tab-Hor-text.active,
+.bda-tab-Hor-num.active {
+    background: #C76A1F;   
+    border-color: #C76A1F;
+}
+.bda-cont_tab-Hor {
+    border-top: 8px solid #C76A1F;
+}
+.bda-tab-Hor-text ,
+.bda-tab-Hor-num  {    
+    background: rgb(225, 116, 19);   
+}
+
+/*Tabs vertical colors*/
+.bda-tab-Ver.active {
+    background: #C76A1F;   
+    border-color: #C76A1F;
+}
+
+.bda-tab-Ver {    
+    background: rgb(225, 116, 19);   
+}

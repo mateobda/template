@@ -76,12 +76,12 @@ require([
   'sg-attr-defaultPack',
   'sg-attr-draggable',
   'sg-tag-defaultPack',
-], function () {
+], function() {
   sg.setStage("#stage")
   sg.setScaleMode("showall")
   sg.setLoadingImage("../common/base/img/loader.gif")
 
-  sg.init(function () {
+  sg.init(function() {
     const $items = $('.bb-item'),
       count = $items.length
 
@@ -117,7 +117,7 @@ require([
       pagination(index, $element)
     })
 
-    var Page = (function () {
+    var Page = (function() {
       var $bookBlock = $('#bb-bookblock'),
         $items = $bookBlock.children(),
         itemsCount = $items.length,
@@ -134,9 +134,7 @@ require([
           }
         }),
         $navNext = $('#bb-nav-next'),
-        $navPrev = $('#bb-nav-prev').addClass('off'),
-        $navFirst = $('#bb-nav-first').addClass('off'),
-        $navLast = $('#bb-nav-last')
+        $navPrev = $('#bb-nav-prev').addClass('off')
 
       function init() {
         itemsCount == 1 ? $navNext.addClass("off") : ""
@@ -146,11 +144,6 @@ require([
         $navNext.on('click touchstart', () => {
           $('body').trigger('page-changed')
           bb.next()
-          return false
-        })
-
-        $navFirst.on('click touchstart', () => {
-          bb.jump(1)
           return false
         })
       }
@@ -179,18 +172,12 @@ require([
         if (current === 0) {
           $navNext.removeClass('off')
           $navPrev.addClass('off')
-          $navFirst.addClass('off')
-          $navLast.removeClass('off')
         } else if (isLastPage) {
           $navNext.addClass('off')
-          $navLast.addClass('off')
           $navPrev.removeClass('off')
-          $navFirst.removeClass('off')
         } else {
           $navNext.removeClass('off')
           $navPrev.removeClass('off')
-          $navLast.removeClass('off')
-          $navFirst.removeClass('off')
         }
       }
 
@@ -214,7 +201,7 @@ require([
       //   $iframe.attr('src', '')
       // }
 
-      $(document).on('click', '.bda-video__image', function (event) {
+      $(document).on('click', '.bda-video__image', function(event) {
         event.preventDefault()
         let $poster = $(this)
         let $wrapper = $poster.closest('.bda-video__container')
@@ -225,44 +212,55 @@ require([
       // Drag & Drop Begin
       sg.setDraggable(
         ".drop", {
-          success: function () {
+          success: function() {
             sg.sound("success")
             $(this).addClass('drag_bda')
           },
-          fail: function () {},
+          fail: function() {},
           revert: true
         }
       )
       // Drag & Drop End
 
       // PopUp Begin
-      $('.bda-btn--popup').click(function () {
+      $('.bda-btn--popup').click(function() {
         let elementIndex = $(this).attr("data-pop")
 
         $(`#popup__container${elementIndex}`).css('display', 'block')
         $(`#popup__bg${elementIndex}`).css('display', 'block')
+        $navPrev.addClass('off')
+        $navNext.addClass('off')
 
-        $(document).keydown(function (event) {
+        $(document).keydown(function(event) {
           if (event.keyCode == 27) {
             $(`#popup__container${elementIndex}`).css('display', 'none')
             $(`#popup__bg${elementIndex}`).css('display', 'none')
+             if ((current + 1) == itemsCount) {
+              updateNavigation(itemsCount - 1)
+             } else {
+              updateNavigation()
+             }
           }
         })
 
         $(`#close${elementIndex}`).click(() => {
           $(`#popup__container${elementIndex}`).css('display', 'none')
           $(`#popup__bg${elementIndex}`).css('display', 'none')
+
+           if ((current + 1) == itemsCount) {
+            updateNavigation(itemsCount - 1)
+           } else {
+            updateNavigation()
+           }
         })
       })
       // PopUp End
 
-      $('#bda-tab-container').easytabs({
-        animate: false,
-        updateHash: false
-      })
+     
 
-      $('.bda-btn-validate').click(function () {
-        $(".bda-input-exercise").each(function (index, value) {
+
+      $('.bda-btn-validate').click(function() {
+        $(".bda-input-exercise").each(function(index, value) {
           const t = $(this)
           t.removeClass("ok").removeClass("err")
           let res = t.data("res")
