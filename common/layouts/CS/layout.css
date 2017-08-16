@@ -29,26 +29,26 @@
 .bda-word-search__content {
   border-color: #C76A1F;
 }
-/*Tabs horizontal color*/
-.bda-tab-Hor-text.active,
-.bda-tab-Hor-num.active {
-    background: #a2591e;   
-    border-color: #a2591e;
-}
-.bda-cont_tab-Hor {
-    border-top: 8px solid #a2591e;
-}
-.bda-tab-Hor-text ,
-.bda-tab-Hor-num  {    
-    background: #C76A1F  
+
+/* Tabs horizontal color */
+.bda-tabs-hor__tab.active {
+  background: #a2591e;
 }
 
-/*Tabs vertical colors*/
-.bda-tab-Ver.active {
-    background: #a2591e;   
-    border-color: #a2591e;
+.bda-tabs-hor__content {
+  border-top: 8px solid #a2591e;
 }
 
-.bda-tab-Ver {    
-    background:#C76A1F;   
+.bda-tabs-hor__tab {
+  background: #C76A1F;
+}
+
+/* Tabs vertical colors*/
+.bda-tabs-ver__tab.active {
+  background: #a2591e;
+  border-color: #a2591e;
+}
+
+.bda-tabs-ver__tab {
+  background: #C76A1F;
 }

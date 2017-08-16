@@ -1,0 +1,61 @@
+/* horizontal*/
+.bda-tabs__container,
+.bda-tabs-hor__list-tabs {
+  margin: 0;
+  padding: 0;
+}
+
+.bda-tabs-hor__tab {
+  display: inline-block;
+  width: 19%;
+  border: none;
+  border-radius: 20px 20px 0 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+.bda-tabs-hor__tab--number {
+  width: auto;
+  font-size: 16px;
+}
+
+.bda-tabs-hor__tab a {
+  display: block;
+  padding: 5px 25px;
+  outline: none;
+  color: #fff;
+  text-decoration: none;
+  line-height: 20px;
+}
+
+.bda-tabs-hor__content {
+  padding: 25px 10px 0;
+  height: 475px;
+  overflow-y: auto;
+}
+
+/* vertical */
+.bda-tabs-ver__content {
+  padding: 10px 10px 0 30px;
+  height: 475px;
+  text-align: justify;
+  overflow-y: auto;
+}
+
+.bda-tabs-ver__tab {
+  width: 100%;
+  margin-top: 10px;
+  padding: 7px;
+  border-radius: 20px 0 20px 0;
+  text-align: center;
+  list-style-type: none;
+}
+
+.bda-tabs-ver__tab a {
+  line-height: 2em;
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  line-height: 20px;
+}
