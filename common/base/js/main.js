@@ -235,11 +235,11 @@ require([
           if (event.keyCode == 27) {
             $(`#popup__container${elementIndex}`).css('display', 'none')
             $(`#popup__bg${elementIndex}`).css('display', 'none')
-             if ((current + 1) == itemsCount) {
+            if ((current + 1) == itemsCount) {
               updateNavigation(itemsCount - 1)
-             } else {
+            } else {
               updateNavigation()
-             }
+            }
           }
         })
 
@@ -247,31 +247,51 @@ require([
           $(`#popup__container${elementIndex}`).css('display', 'none')
           $(`#popup__bg${elementIndex}`).css('display', 'none')
 
-           if ((current + 1) == itemsCount) {
+          if ((current + 1) == itemsCount) {
             updateNavigation(itemsCount - 1)
-           } else {
+          } else {
             updateNavigation()
-           }
+          }
         })
       })
       // PopUp End
 
-     
 
 
-      $('.bda-btn-validate').click(function() {
-        $(".bda-input-exercise").each(function(index, value) {
+
+      /*** Frases START ***/
+      $(".validate-phrase").on("click", function() {
+        const phrases = `.phrase-${$(this).data("group")}`
+        let nphrases = $(phrases).length
+        let respuestasCorrectas = 0
+        $(phrases).each(function(index, value) {
           const t = $(this)
-          t.removeClass("ok").removeClass("err")
-          let res = t.data("res")
-          let respuesta = t.val()
-          if (res == respuesta) {
-            t.addClass("ok")
+          let response = t.data("res")
+          let inputUser = t.val()
+          t.removeClass("success").removeClass("error")
+          if (response == inputUser) {
+            respuestasCorrectas++
+            t.addClass("success")
           } else {
-            t.addClass("err")
+            t.addClass("error")
+            t.val("")
+          }
+          if (respuestasCorrectas === nphrases) {
+            t.addClass("success")
+            $(".bda-bg-modal, .error-modal").addClass("hide")
+            $(".bda-bg-modal, .success-modal").removeClass("hide")
+          } else {
+            $(".bda-bg-modal, .success-modal").addClass("hide")
+            $(".bda-bg-modal, .error-modal").removeClass("hide")
           }
         })
       })
+      $(".bda-bg-modal, .success-modal, .error-modal").click(function() {
+        $(".success-modal").addClass("hide")
+        $(".error-modal").addClass("hide")
+        $(".bda-bg-modal").addClass("hide")
+      })
+      /*** Frases END ***/
 
       bb.jump(location.hash.substr(1))
 
