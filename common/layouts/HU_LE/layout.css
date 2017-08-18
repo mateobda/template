@@ -24,39 +24,36 @@
 
 
 .bda-video__image--cn {
-  background-image: url('img/image-video-HU.png');
+  background-image: url('img/image-video-HU.jpg');
 }
 
 .bda-video__image--cm {
-  background-image: url('img/image-video-LE.png');
+  background-image: url('img/image-video-LE.jpg');
 }
 
+.bda-word-search__content {
+  border-color: #D6D83A;
+}
 
-/*Tabs horizontal color*/
-
-.bda-tab-Hor-text.active,
-.bda-tab-Hor-num.active {
+/* Tabs horizontal color */
+.bda-tabs-hor__tab.active {
   background: #a3a52d;
-  border-color: #a3a52d;
 }
 
-.bda-cont_tab-Hor {
+.bda-tabs-hor__content {
   border-top: 8px solid #a3a52d;
 }
 
-.bda-tab-Hor-text,
-.bda-tab-Hor-num {
-  background: #D6D83A
+.bda-tabs-hor__tab {
+  background: #D6D83A;
 }
 
-
-/*Tabs vertical colors*/
-
-.bda-tab-Ver.active {
+/* Tabs vertical colors*/
+.bda-tabs-ver__tab.active {
   background: #a3a52d;
   border-color: #a3a52d;
 }
 
-.bda-tab-Ver {
+.bda-tabs-ver__tab {
   background: #D6D83A;
 }

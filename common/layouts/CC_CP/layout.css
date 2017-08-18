@@ -23,33 +23,36 @@
 }
 
 .bda-video__image--cp {
-  background-image: url('img/image-video-CP.png');
+  background-image: url('img/image-video-CP.jpg');
 }
 
 .bda-video__image--cc {
-  background-image: url('img/image-video-CC.png');
+  background-image: url('img/image-video-CC.jpg');
 }
 
-/*Tabs horizontal color*/
-.bda-tab-Hor-text.active,
-.bda-tab-Hor-num.active {
-    background: #C76A1F;   
-    border-color: #C76A1F;
-}
-.bda-cont_tab-Hor {
-    border-top: 8px solid #C76A1F;
-}
-.bda-tab-Hor-text ,
-.bda-tab-Hor-num  {    
-    background: rgb(225, 116, 19);   
+.bda-word-search__content {
+  border-color: #d46919;
 }
 
-/*Tabs vertical colors*/
-.bda-tab-Ver.active {
-    background: #C76A1F;   
-    border-color: #C76A1F;
+/* Tabs horizontal color */
+.bda-tabs-hor__tab.active {
+  background: #B0520C;
 }
 
-.bda-tab-Ver {    
-    background: rgb(225, 116, 19);   
+.bda-tabs-hor__content {
+  border-top: 8px solid #B0520C;
+}
+
+.bda-tabs-hor__tab {
+  background: #d46919;
+}
+
+/* Tabs vertical colors*/
+.bda-tabs-ver__tab.active {
+  background: #B0520C;
+  border-color: #B0520C;
+}
+
+.bda-tabs-ver__tab {
+  background: #d46919;
 }

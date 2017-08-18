@@ -19,7 +19,12 @@
 
 .bda-phrases-short__description {
   margin-right: 30px;
-  height: 450px;
+  height: 433px;
+  overflow-y: auto;
+}
+.bda-phrases-short__description--tab {
+  margin-right: 30px;
+  height: 344px;
   overflow-y: auto;
 }
 
@@ -37,8 +42,7 @@
   outline: none;
 }
 .bda-phrases-short__list {
-    height: 450px;
-    overflow-y: auto;
+  height: 433px;
 }
 .bda-phrases__input::-webkit-outer-spin-button,
 .bda-phrases__input::-webkit-inner-spin-button {
@@ -47,12 +51,13 @@
 }
 
 .bda-phrases-short__content ol {
-  line-height: 24px;
+  line-height: 16px;
 
 }
 
 .bda-phrases-short__content ol li {
- margin-bottom: 10px;
+ margin-bottom: 11px;
+ list-style-type:decimal;
 }
 
 .success {
@@ -62,6 +67,7 @@
 .error {
   border: 1px solid #ff6347;
 }
+
 
 .bda-container-box__exercises {
   text-align: right;

@@ -12,7 +12,7 @@ const plumber = require('gulp-plumber')
 const sourcemaps = require('gulp-sourcemaps')
 const htmlmin = require('gulp-htmlmin')
 const cssmin = require('gulp-cssmin')
-const importCss = require('gulp-import-css')
+const cssimport = require("gulp-cssimport")
 const gulpif = require('gulp-if')
 const path = require('path')
 const nameOVA = path.basename(__dirname)
@@ -33,7 +33,14 @@ gulp.task('styles', () => {
 
 gulp.task('vendors', () => {
   return gulp.src('common/base/css/_vendors/vendors.css')
-  .pipe(importCss())
+  .pipe(cssimport())
+  .pipe(cssmin())
+  .pipe(gulp.dest('common/base/css/'))
+})
+
+gulp.task('styles:common', () => {
+  return gulp.src('common/base/css/_styles/main.css')
+  .pipe(cssimport())
   .pipe(cssmin())
   .pipe(gulp.dest('common/base/css/'))
 })
@@ -53,9 +60,7 @@ gulp.task('scripts', () => {
 gulp.task('watch', ['styles', 'scripts'], () => {
   browserSync.init({
     startPath: 'BDA',
-    server: {
-      baseDir: '.'
-    }
+    server: { baseDir: '.' }
   })
 
   gulp.watch('BDA/*.html', browserSync.reload)
