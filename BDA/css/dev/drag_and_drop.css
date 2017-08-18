@@ -18,7 +18,8 @@
 }
 
 .popup__content .bda-item__content-drag-and-drop,
-.popup__content .bda-item__content-drag-and-drop--vertical {
+.popup__content .bda-item__content-drag-and-drop--vertical,
+.popup__content .bda-item__content-drag-and-drop--words {
   padding-top: 60px;
 }
 
