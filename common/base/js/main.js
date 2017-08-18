@@ -78,7 +78,7 @@ require([
 
   sg.init(function() {
     const $items = $('.bb-item'),
-      count = $items.length
+    count = $items.length
 
     window.triggered = false
 
@@ -101,7 +101,7 @@ require([
 
     function pagination(index, $element) {
       let paginationNumber = `<span>${index + 1}<span class="bda-pagination__line"> | </span>${count}</span>`,
-        paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
+      paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
       paginationContainer.appendTo($element)
     }
 
@@ -129,7 +129,8 @@ require([
           }
         }),
         $navNext = $('#bb-nav-next'),
-        $navPrev = $('#bb-nav-prev').addClass('off')
+        $navPrev = $('#bb-nav-prev').addClass('off'),
+        $successGames = '<div class="success-modal hide animated rubberBand"><span>&#10004;</span><strong>Felicitaciones, Presiona clic para continuar</strong></div><div class="bda-bg-modal hide animated fadeIn"></div>'
 
       function init() {
         itemsCount == 1 ? $navNext.addClass("off") : ""
@@ -186,9 +187,19 @@ require([
       // Drag & Drop Begin
       sg.setDraggable(
         ".drop", {
-          success: function() {
-            sg.sound("success")
+          success: function () {
             $(this).addClass('drag_bda')
+            $(this).addClass('drag_bda--success')
+            var nWords = $(this).siblings().length + 1
+            var matches = $(this).siblings('.drag_bda--success').length + 1
+            if (nWords === matches){
+              $(this).closest(".bb-item").prepend($successGames)
+              $(".bda-bg-modal, .success-modal").removeClass("hide")
+            }
+            $(".bda-bg-modal, .success-modal").click(function () {
+              $(".success-modal").addClass("hide")
+              $(".bda-bg-modal").addClass("hide")
+            })
           },
           fail: function() {},
           revert: true
