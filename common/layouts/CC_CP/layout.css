@@ -23,11 +23,38 @@
 }
 
 .bda-video__image--cp {
-  background-image: url('img/image-video-CP.png');
+  background-image: url('img/image-video-CP.jpg');
 }
 
 .bda-video__image--cc {
-  background-image: url('img/image-video-CC.png');
+  background-image: url('img/image-video-CC.jpg');
+}
+
+.bda-word-search__content {
+  border-color: #d46919;
+}
+
+/* Tabs horizontal color */
+.bda-tabs-hor__tab.active {
+  background: #B0520C;
+}
+
+.bda-tabs-hor__content {
+  border-top: 8px solid #B0520C;
+}
+
+.bda-tabs-hor__tab {
+  background: #d46919;
+}
+
+/* Tabs vertical colors*/
+.bda-tabs-ver__tab.active {
+  background: #B0520C;
+  border-color: #B0520C;
+}
+
+.bda-tabs-ver__tab {
+  background: #d46919;
 }
 
 .drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
