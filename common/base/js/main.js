@@ -7,12 +7,11 @@ requirejs.config({
     'sg-attr-defaultPack': 'vendors/sg/sg.attr.defaultPack-1.2',
     'sg-attr-draggable': 'vendors/sg/sg.attr.draggable-1.2',
     'sg-tag-defaultPack': 'vendors/sg/sg.tag.defaultPack-1.5',
-    'youtube-api': 'vendors/jquery/youtube_api',
     'jquery-ui': 'vendors/jquery/jquery-ui-1.10.4.custom.min',
     'jquery-bookblock': 'vendors/jquery/jquery.bookblock',
     'jquery-easytabs': 'vendors/jquery/jquery.easytabs.custom',
     'jquerypp': 'vendors/jquery/jquerypp.custom',
-    'modernizer': 'vendors/jquery/modernizr.custom',
+    'modernizr': 'vendors/jquery/modernizr.custom',
     'word_search': 'vendors/word_search/word_search'
   },
   waitSeconds: 0,
@@ -27,10 +26,7 @@ requirejs.config({
     'jquery-easytabs': {
       deps: ['jquery']
     },
-    'modernizer': {
-      deps: ['jquery']
-    },
-    'youtube-api': {
+    'modernizr': {
       deps: ['jquery']
     },
     'jquery-bookblock': {
@@ -66,11 +62,10 @@ requirejs.config({
 require([
   'jquery',
   'sg',
-  'youtube-api',
   'jquery-ui',
   'jquery-easytabs',
   'jquery-bookblock',
-  'modernizer',
+  'modernizr',
   'word_search',
   'sg-jwframe',
   'sg-attr-defaultPack',
@@ -123,8 +118,8 @@ require([
         itemsCount = $items.length,
         current = 0,
         bb = $('#bb-bookblock').bookblock({
-          speed: 800,
-          perspective: 2000,
+          speed: 600,
+          perspective: 5000,
           shadowSides: 0.8,
           shadowFlip: 0.4,
           onEndFlip: (old, page, isLimit) => {
@@ -142,31 +137,10 @@ require([
         $navPrev.on('click touchstart', () => bb.prev())
 
         $navNext.on('click touchstart', () => {
-          $('body').trigger('page-changed')
           bb.next()
           return false
         })
       }
-
-      $(document).off('keydown').keydown((e) => {
-        const keyCode = e.keyCode || e.which,
-          arrow = {
-            left: 37,
-            up: 38,
-            right: 39,
-            down: 40
-          }
-
-        switch (keyCode) {
-          case arrow.left:
-            bb.prev()
-            break
-          case arrow.right:
-            $('body').trigger('page-changed')
-            bb.next()
-            break
-        }
-      })
 
       function updateNavigation(isLastPage) {
         if (current === 0) {
@@ -256,9 +230,6 @@ require([
       })
       // PopUp End
 
-     
-
-
       $('.bda-btn-validate').click(function() {
         $(".bda-input-exercise").each(function(index, value) {
           const t = $(this)
@@ -275,9 +246,7 @@ require([
 
       bb.jump(location.hash.substr(1))
 
-      return {
-        init: init
-      }
+      return { init: init }
     })()
 
     Page.init()

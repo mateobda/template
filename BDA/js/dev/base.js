@@ -1,14 +1,12 @@
 function init() {
   $("#bda-word-search__content").wordSearch({
-    dificulty: 6,
-    words: ['cultura', 'paz'],
-    colorWord: "#d46919"
+    dificulty: 8,
+    words: ['cultura', 'paz']
   })
 
   $("#bda-word-search__content-1").wordSearch({
-    dificulty: 6,
-    words: ['cultura', 'paz'],
-    colorWord: "#B71017"
+    dificulty: 8,
+    words: ['hola', 'mundo']
   })
 
   $('#bda-tab-container').easytabs({

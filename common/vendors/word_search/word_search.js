@@ -248,7 +248,7 @@
             //Una vez validada la selección, se aplican colores personalizados
             $tdlocal.css({
               color: '#fff',
-              background: options.colorWord
+              background: '#4CAF50'
             })
             // Se remueve la clase 'noes'
             $tdlocal.removeClass("noes")
@@ -273,7 +273,7 @@
             selecion += $tdlocal.html()
             $tdlocal.css({
               color: '#fff',
-              background: options.colorWord
+              background: '#4CAF50'
             })
             $tdlocal.removeClass("noes")
             word += $tdlocal.html()
