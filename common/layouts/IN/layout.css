@@ -53,3 +53,7 @@
 .bda-tabs-ver__tab {
   background: #3F6D38;
 }
+
+.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+  background-color: #3F6D38;
+}

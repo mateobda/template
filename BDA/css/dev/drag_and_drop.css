@@ -1,0 +1,136 @@
+.bda-item__content-drag-and-drop {
+  height: 480px;
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+
+.bda-item__content-drag-and-drop--vertical,
+.bda-item__content-drag-and-drop--words {
+  display:flex;
+  flex-flow: row nowrap;
+}
+
+.bda-item__content-drag-and-drop--text {
+  display:flex;
+  flex-flow: row nowrap;
+  padding: 30px;
+}
+
+.popup__content .bda-item__content-drag-and-drop,
+.popup__content .bda-item__content-drag-and-drop--vertical,
+.popup__content .bda-item__content-drag-and-drop--words {
+  padding-top: 60px;
+}
+
+.drag-and-drop__drag {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.drag-and-drop__drag--vertical,
+.drag-and-drop__drag--words {
+  height:480px;
+  width: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.drag-and-drop__drag--words {
+  flex-flow: column nowrap;
+}
+
+.drag-and-drop__drag--text-fill {
+  height: 480px;
+  width: 80%;
+  text-align: justify;
+  padding-right: 30px;
+}
+
+.drag-and-drop__drag--text-words {
+  height: 480px;
+  width: 20%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.drag_bda, .drag {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin: 5px 0px;
+  font-size: 16px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  /*background: #000;*/
+  text-align: center;
+  color: #fff;
+  height: 170px;
+  width: 170px;
+  cursor: pointer;
+}
+
+.drag {
+  background-color: #999999;
+  cursor: default;
+}
+
+.drag_bda span, .drag span {
+  margin: 5px 5px;
+}
+
+.drag_bda img, .drag img {
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  height: 170px;
+  width: auto;
+}
+
+.drag_bda--text, .drag--text {
+  display:inline-block;
+  margin: 5px 0px;
+  font-size: 16px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  /*background: #C76A1F;*/
+  text-align: center;
+  padding: 9px;
+  color: #fff;
+  height: 40px;
+  width: 170px;
+  cursor: pointer;
+}
+
+.drag--text {
+  background-color: #fff;
+  color: black;
+}
+
+.bda-item__content-drag-and-drop--text .drag_bda--success {
+  padding-top: 20px;
+  color: black;
+  background: white;
+}
+
+.drag--words,
+.drag_bda--words {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin: 5px 0px;
+  font-size: 16px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  /*background: #999;*/
+  text-align: center;
+  color: #fff;
+  height: 55px;
+  width: 400px;
+  cursor: pointer;
+}
+
+.drag_bda--words {
+  /*background-color: #C76A1F*/
+}

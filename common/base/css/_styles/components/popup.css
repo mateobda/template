@@ -18,7 +18,8 @@
   top: 10%;
   left: 5%;
   width: 85%;
-  height: 85%;
+  height: auto;
+  max-height: 85%;
   border-radius: 0 60px 0 60px;
   background-color: #fff;
   color: #000;

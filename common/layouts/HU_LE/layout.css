@@ -1,38 +1,38 @@
 .bda-header {
-  background: #D6D83A;
+  background: #c0c142;
 }
 
 .bda-main-nav span {
-  color: #D6D83A;
+  color: #c0c142;
 }
 
 .bda-title {
-  border-color: #D6D83A;
+  border-color: #c0c142;
 }
 
 .bda-description i {
-  color: #D6D83A
+  color: #c0c142
 }
 
 .bda-pagination__line {
-  color: #D6D83A;
+  color: #c0c142;
 }
 
 .popup__close {
-  background: #D6D83A;
+  background: #c0c142;
 }
 
 
-.bda-video__image--cn {
+.bda-video__image--hu {
   background-image: url('img/image-video-HU.jpg');
 }
 
-.bda-video__image--cm {
+.bda-video__image--le {
   background-image: url('img/image-video-LE.jpg');
 }
 
 .bda-word-search__content {
-  border-color: #D6D83A;
+  border-color: #c0c142;
 }
 
 /* Tabs horizontal color */
@@ -45,7 +45,7 @@
 }
 
 .bda-tabs-hor__tab {
-  background: #D6D83A;
+  background: #c0c142;
 }
 
 /* Tabs vertical colors*/
@@ -55,5 +55,9 @@
 }
 
 .bda-tabs-ver__tab {
-  background: #D6D83A;
+  background: #c0c142;
+}
+
+.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+  background-color: #D6D83A;
 }
