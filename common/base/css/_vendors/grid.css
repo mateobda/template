@@ -113,6 +113,10 @@ Site - dallasbass.com
 .col-7-12 {
 	width: 58.33%
 }
+.col-2-5-12{
+      width: 21.667%;
+
+}
 /* Pushing blocks */
 .push-2-3, .push-8-12 {
 	margin-left: 66.66%;
