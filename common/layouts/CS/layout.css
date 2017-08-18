@@ -25,3 +25,7 @@
 .bda-video__image {
   background-image: url('img/image-video-CS.png');
 }
+
+.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+  background-color: #C76A1F;
+}

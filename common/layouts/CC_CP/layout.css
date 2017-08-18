@@ -29,3 +29,7 @@
 .bda-video__image--cc {
   background-image: url('img/image-video-CC.png');
 }
+
+.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+  background-color: #d46919;
+}

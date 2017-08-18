@@ -83,7 +83,7 @@ require([
 
   sg.init(function () {
     const $items = $('.bb-item'),
-      count = $items.length
+    count = $items.length
 
     window.triggered = false
 
@@ -106,7 +106,7 @@ require([
 
     function pagination(index, $element) {
       let paginationNumber = `<span>${index + 1}<span class="bda-pagination__line"> | </span>${count}</span>`,
-        paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
+      paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
       paginationContainer.appendTo($element)
     }
 
@@ -119,24 +119,25 @@ require([
 
     var Page = (function () {
       var $bookBlock = $('#bb-bookblock'),
-        $items = $bookBlock.children(),
-        itemsCount = $items.length,
-        current = 0,
-        bb = $('#bb-bookblock').bookblock({
-          speed: 800,
-          perspective: 2000,
-          shadowSides: 0.8,
-          shadowFlip: 0.4,
-          onEndFlip: (old, page, isLimit) => {
-            current = page
-            updateNavigation(isLimit)
-            window.triggered = true
-          }
-        }),
-        $navNext = $('#bb-nav-next'),
-        $navPrev = $('#bb-nav-prev').addClass('off'),
-        $navFirst = $('#bb-nav-first').addClass('off'),
-        $navLast = $('#bb-nav-last')
+      $items = $bookBlock.children(),
+      itemsCount = $items.length,
+      current = 0,
+      bb = $('#bb-bookblock').bookblock({
+        speed: 800,
+        perspective: 2000,
+        shadowSides: 0.8,
+        shadowFlip: 0.4,
+        onEndFlip: (old, page, isLimit) => {
+          current = page
+          updateNavigation(isLimit)
+          window.triggered = true
+        }
+      }),
+      $navNext = $('#bb-nav-next'),
+      $navPrev = $('#bb-nav-prev').addClass('off'),
+      $navFirst = $('#bb-nav-first').addClass('off'),
+      $navLast = $('#bb-nav-last'),
+      $successGames = '<div class="success-modal hide animated rubberBand"><span>&#10004;</span><strong>Felicitaciones, Presiona clic para continuar</strong></div><div class="bda-bg-modal hide animated fadeIn"></div>'
 
       function init() {
         itemsCount == 1 ? $navNext.addClass("off") : ""
@@ -157,21 +158,21 @@ require([
 
       $(document).off('keydown').keydown((e) => {
         const keyCode = e.keyCode || e.which,
-          arrow = {
-            left: 37,
-            up: 38,
-            right: 39,
-            down: 40
-          }
+        arrow = {
+          left: 37,
+          up: 38,
+          right: 39,
+          down: 40
+        }
 
         switch (keyCode) {
           case arrow.left:
-            bb.prev()
-            break
+          bb.prev()
+          break
           case arrow.right:
-            $('body').trigger('page-changed')
-            bb.next()
-            break
+          $('body').trigger('page-changed')
+          bb.next()
+          break
         }
       })
 
@@ -223,11 +224,32 @@ require([
       // Video End
 
       // Drag & Drop Begin
+      // sg.setDraggable(
+      //   ".drop", {
+      //     success: function () {
+      //       $(this).addClass('drag_bda')
+      //       $(this).addClass('drag_bda--text--success')
+      //       console.log($('#drag-and-drop--words-1').children('.drag-and-drop__drag--words').children('.drop'))
+      //     },
+      //     fail: function () {},
+      //     revert: true
+      //   }
+      // )
       sg.setDraggable(
         ".drop", {
           success: function () {
-            sg.sound("success")
             $(this).addClass('drag_bda')
+            $(this).addClass('drag_bda--success')
+            var nWords = $(this).siblings().length + 1
+            var matches = $(this).siblings('.drag_bda--success').length + 1
+            if (nWords === matches){
+              $(this).closest(".bb-item").prepend($successGames)
+              $(".bda-bg-modal, .success-modal").removeClass("hide")
+            }
+            $(".bda-bg-modal, .success-modal").click(function () {
+              $(".success-modal").addClass("hide")
+              $(".bda-bg-modal").addClass("hide")
+            })
           },
           fail: function () {},
           revert: true

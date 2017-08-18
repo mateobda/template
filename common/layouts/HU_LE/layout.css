@@ -30,3 +30,7 @@
 .bda-video__image--cm {
   background-image: url('img/image-video-LE.png');
 }
+
+.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+  background-color: #D6D83A;
+}
