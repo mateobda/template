@@ -56,3 +56,25 @@
 .drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
   background-color: #B71017;
 }
+/*cc*/
+.popup__container--cc {
+  border: 1px solid #B71017;
+  background: #fff;
+}
+.popup__close--cc{
+  border: solid 1px #B71017;
+  background: #B71017;
+
+}
+.cc{
+  border: solid 3px #B71017;
+  color: #8e0f14;
+}
+
+/*header*/
+.icon-asignatura::before {
+  content: "\63";
+}
+.bda-header__title::before{
+  content: "Matemáticas"
+}

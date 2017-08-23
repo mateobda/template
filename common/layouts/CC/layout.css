@@ -1,0 +1,86 @@
+.bda-header {
+  background: #d46919;
+}
+
+.bda-main-nav span {
+  color: #d46919;
+}
+
+.bda-title {
+  border-color: #d46919;
+}
+
+.bda-description i {
+  color: #d46919
+}
+
+.bda-pagination__line {
+  color: #d46919;
+}
+
+.popup__close {
+  background: #d46919;
+}
+
+.bda-video__image {
+  background-image: url('img/image-video-CC.jpg');
+}
+
+.bda-word-search__content {
+  border-color: #d46919;
+}
+
+/* Tabs horizontal color */
+.bda-tabs-hor__tab.active {
+  background: #B0520C;
+}
+
+.bda-tabs-hor__content {
+  border-top: 8px solid #B0520C;
+}
+
+.bda-tabs-hor__tab {
+  background: #d46919;
+}
+
+/* Tabs vertical colors*/
+.bda-tabs-ver__tab.active {
+  background: #B0520C;
+  border-color: #B0520C;
+}
+
+.bda-tabs-ver__tab {
+  background: #d46919;
+}
+
+.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+  background-color: #d46919;
+}
+
+/*cc*/
+.popup__container--cc {
+  border: 1px solid #d46919;
+  background: #fff;
+}
+.popup__close--cc{
+  border: solid 1px #d46919;
+  background: #d46919;
+
+}
+.cc{
+  border: solid 3px #d46919;
+  color: #B0520C;
+}
+
+/*HEADER*/
+
+.icon-asignatura {
+  background-image: url('/common/base/img/icon-catedra-convivencia.png');
+  width: 93px;
+  height: 93px;
+  background-size: cover;
+}
+
+.bda-header__title::before{
+  content: "Cátedra de convivencia"
+}

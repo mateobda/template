@@ -129,15 +129,41 @@ require([
         }),
         $navNext = $('#bb-nav-next'),
         $navPrev = $('#bb-nav-prev').addClass('off'),
-        $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
+        $successGames = '<div class="success-modal hide animated rubberBand"><span>&#10004;</span><strong>Felicitaciones, Presiona clic para continuar</strong></div><div class="bda-bg-modal hide animated fadeIn"></div>'
+
+      function saiv(orientation) {
+        console.log(orientation)
+        $(orientation.origin).find("iframe").each(function (k, v) {
+          if ($(v).hasClass("bda-video__iframe")) {
+            $(v).parent().removeClass('bda-video--active')
+            $(v).attr("src", "")
+          } else {
+            $(v).attr("src", "")
+          }
+        })
+
+        $(orientation.destination).find("iframe").each(function (k, v) {
+          if (!$(v).hasClass("bda-video__iframe")) {
+            $(v).attr("src", $(v).data("src"))
+          }
+        })
+
+        $(orientation.destination).find("img").each(function (k, v) {
+          if ($(v).data('src') != undefined) {
+            $(v).attr('src', $(v).data('src'))
+          }
+        })
+      }
 
       function init() {
         itemsCount == 1 ? $navNext.addClass("off") : ""
 
-        $navPrev.on('click touchstart', () => bb.prev())
+        $navPrev.on('click touchstart', () => {
+          saiv(bb.prev())
+        })
 
         $navNext.on('click touchstart', () => {
-          bb.next()
+          saiv(bb.next())
           return false
         })
       }
@@ -185,6 +211,16 @@ require([
       })
       // Video End
 
+      // Iframe fullscreen Begin
+      $('iframe').attr({
+        allowfullscreen: 'allowfullscreen',
+        mozallowfullscreen: 'mozallowfullscreen',
+        msallowfullscreen: 'msallowfullscreen',
+        oallowfullscreen: 'oallowfullscreen',
+        webkitallowfullscreen: 'webkitallowfullscreen'
+      })
+      // Iframe fullscreen End
+
       // Drag & Drop Begin
       sg.setDraggable(
         ".drag-and-drop__item-drop", {
@@ -208,17 +244,30 @@ require([
       // Drag & Drop End
 
       // PopUp Begin
-      $('.bda-btn--popup').on('click', function () {
+      $('.bda-btn--popup').click(function () {
         let elementIndex = $(this).attr("data-pop")
+        const container = $(`#popup__container${elementIndex}`)
+        var video = container.find('.bda-video__iframe')
+        var iframe = container.find('iframe')
 
-        $(`#popup__container${elementIndex}`).removeClass('hide')
-        $('.popup__bg').removeClass('hide')
+        console.log($(this))
+
+        if($(this).hasClass('cc')) {
+          $('.popup__bg').addClass('hide')
+        } else {
+          $('.popup__bg').removeClass('hide')
+        }
+
+        container.removeClass('hide')
         $navPrev.addClass('off')
         $navNext.addClass('off')
+        iframe.attr('src', iframe.data('src'))
+
+        $('.bda-pagination').addClass('hide')
 
         $(document).keydown(function (event) {
           if (event.keyCode == 27) {
-            $(`#popup__container${elementIndex}`).addClass('hide')
+            container.addClass('hide')
             $('.popup__bg').addClass('hide')
 
             if (itemsCount == 1) {
@@ -231,12 +280,21 @@ require([
         })
 
         $('.popup__close').on('click', () => {
-          $(`#popup__container${elementIndex}`).addClass('hide')
+          container.addClass('hide')
           $('.popup__bg').addClass('hide')
 
-          if (itemsCount == 1) {
-            $navPrev.addClass('off')
-            $navNext.addClass('off')
+          $('.bda-pagination').removeClass('hide')
+          $('.cc').removeClass('hide')
+
+          if (video.hasClass("bda-video__iframe")) {
+            video.parent().removeClass('bda-video--active')
+            video.attr("src", "")
+          }
+
+          iframe.attr('src', '')
+
+          if ((current + 1) == itemsCount) {
+            updateNavigation(itemsCount - 1)
           } else {
             updateNavigation(itemsCount - 1)
           }
@@ -244,7 +302,7 @@ require([
       })
       // PopUp End
 
-      // Frases Beginc
+      // Frases Begin
       $(".bda-phrases__button-validate").on("click", function () {
         const phrases = `.phrase-${$(this).data("group")}`
         let nphrases = $(phrases).length

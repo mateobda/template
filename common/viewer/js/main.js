@@ -50,7 +50,7 @@ $(function() {
     $topbar = $("#topbar");
     $content = $("#content");
     $sidebar = $("#sidebar").append($con);
-    $frame = $('<iframe id="iframe" frameborder="0" scrolling="no"></iframe>').appendTo($content);
+    $frame = $('<iframe allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" id="iframe" frameborder="0" scrolling="no"></iframe>').appendTo($content);
 
     $window = $(window).bind("resize", function(e) {
       frameResize();

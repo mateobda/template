@@ -23,12 +23,8 @@
 }
 
 
-.bda-video__image--hu {
+.bda-video__image {
   background-image: url('img/image-video-HU.jpg');
-}
-
-.bda-video__image--le {
-  background-image: url('img/image-video-LE.jpg');
 }
 
 .bda-word-search__content {
@@ -60,4 +56,29 @@
 
 .drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
   background-color: #D6D83A;
+}
+/*cc*/
+.popup__container--cc {
+  border: 1px solid #D6D83A;
+  background: #fff;
+}
+.popup__close--cc{
+  border: solid 1px #D6D83A;
+  background: #D6D83A;
+
+}
+.cc{
+  border: solid 3px #D6D83A;
+  color: #a3a52d;
+}
+/*HEADER*/
+.icon-asignatura {
+  background-image: url('/common/base/img/icon-humanidades.png');
+  width: 92px;
+  height: 92px;
+  background-size: cover;
+}
+
+.bda-header__title::before{
+  content: "Humanidades"
 }

@@ -1,79 +1,79 @@
 .bda-header {
-  background: #C76A1F;
+  background: #73AB40;
 }
 
 .bda-main-nav span {
-  color: #C76A1F;
+  color: #73AB40;
 }
 
 .bda-title {
-  border-color: #C76A1F;
+  border-color: #73AB40;
 }
 
 .bda-description i {
-  color: #C76A1F
+  color: #73AB40
 }
 
 .bda-pagination__line {
-  color: #C76A1F;
+  color: #73AB40;
 }
 
 .popup__close {
-  background: #C76A1F;
+  background: #73AB40;
 }
 
 .bda-video__image {
-  background-image: url('img/image-video-CS.jpg');
+  background-image: url('img/image-video-CM.jpg');
 }
 
 .bda-word-search__content {
-  border-color: #C76A1F;
+  border-color: #73AB40;
 }
 
 /* Tabs horizontal color */
 .bda-tabs-hor__tab.active {
-  background: #a2591e;
+  background: #4f6b3b;
 }
 
 .bda-tabs-hor__content {
-  border-top: 8px solid #a2591e;
+  border-top: 8px solid #4f6b3b;
 }
 
 .bda-tabs-hor__tab {
-  background: #C76A1F;
+  background: #73AB40;
 }
 
 /* Tabs vertical colors*/
 .bda-tabs-ver__tab.active {
-  background: #a2591e;
-  border-color: #a2591e;
+  background: #4f6b3b;
+  border-color: #4f6b3b;
 }
 
 .bda-tabs-ver__tab {
-  background: #C76A1F;
+  background: #73AB40;
 }
 
 .drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
-  background-color: #C76A1F;
+  background-color: #73AB40;
 }
 /*cc*/
 .popup__container--cc {
-  border: 1px solid #C76A1F;
+  border: 1px solid #73AB40;
   background: #fff;
 }
 .popup__close--cc{
-  border: solid 1px #C76A1F;
-  background: #C76A1F;
+  border: solid 1px #73AB40;
+  background: #73AB40;
 
 }
 .cc{
-  border: solid 3px #C76A1F;
-  color: #a2591e;
+  border: solid 3px #73AB40;
+  color: #4f6b3b;
 }
 /*header*/
 .icon-asignatura::before {
-  content: "\69";
+  content: "\65";
 }
 .bda-header__title::before{
-  content: "Ciencias sociales"
+  content: "Cátedra del medio ambiente"
 }
