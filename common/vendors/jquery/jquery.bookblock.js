@@ -173,28 +173,30 @@
 
 				});
 
-			}
+      }
 
-			if (this.options.keyboard == true) {
-				$(document).keydown(function(e) {
-					var keyCode = e.keyCode || e.which,
-						arrow = {
-							left : 37,
-							up : 38,
-							right : 39,
-							down : 40
-						};
+      // Navigation with keywords
 
-					switch (keyCode) {
-						case arrow.left:
-							self._action('prev');
-							break;
-						case arrow.right:
-							self._action('next');
-							break;
-					}
-				});
-			}
+			// if (this.options.keyboard == true) {
+			// 	$(document).keydown(function(e) {
+			// 		var keyCode = e.keyCode || e.which,
+			// 			arrow = {
+			// 				left : 37,
+			// 				up : 38,
+			// 				right : 39,
+			// 				down : 40
+			// 			};
+
+			// 		switch (keyCode) {
+			// 			case arrow.left:
+			// 				self._action('prev');
+			// 				break;
+			// 			case arrow.right:
+			// 				self._action('next');
+			// 				break;
+			// 		}
+			// 	});
+			// }
 
 			$window.on( 'debouncedresize', function() {
 
