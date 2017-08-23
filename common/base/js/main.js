@@ -8,6 +8,7 @@ requirejs.config({
     'sg-attr-draggable': 'vendors/sg/sg.attr.draggable-1.2',
     'sg-tag-defaultPack': 'vendors/sg/sg.tag.defaultPack-1.5',
     'jquery-ui': 'vendors/jquery/jquery-ui-1.10.4.custom.min',
+    'jquery-touch-punch': 'vendors/jquery/jquery.ui.touch-punch.min',
     'jquery-bookblock': 'vendors/jquery/jquery.bookblock',
     'jquery-easytabs': 'vendors/jquery/jquery.easytabs.custom',
     'jquerypp': 'vendors/jquery/jquerypp.custom',
@@ -22,6 +23,9 @@ requirejs.config({
   shim: {
     'jquery-ui': {
       deps: ['jquery']
+    },
+    'jquery-touch-punch': {
+      deps: ['jquery', 'jquery-ui']
     },
     'jquery-easytabs': {
       deps: ['jquery']
@@ -63,6 +67,7 @@ require([
   'jquery',
   'sg',
   'jquery-ui',
+  'jquery-touch-punch',
   'jquery-easytabs',
   'jquery-bookblock',
   'modernizr',
@@ -129,7 +134,7 @@ require([
         }),
         $navNext = $('#bb-nav-next'),
         $navPrev = $('#bb-nav-prev').addClass('off'),
-        $successGames = '<div class="success-modal hide animated rubberBand"><span>&#10004;</span><strong>Felicitaciones, Presiona clic para continuar</strong></div><div class="bda-bg-modal hide animated fadeIn"></div>'
+        $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
 
       function saiv(orientation) {
         console.log(orientation)
@@ -185,6 +190,13 @@ require([
         $(".bda-game__modal, .bda-game__message").on('click', () => {
           $(".bda-game__modal").addClass("hide")
           $(".bda-game__message").addClass("hide")
+
+/*           if (itemsCount == 1) {
+            $navPrev.addClass('off')
+            $navNext.addClass('off')
+          } else {
+            updateNavigation(itemsCount - 1)
+          } */
 
           if (itemsCount == 1) {
             $navPrev.addClass('off')
