@@ -13,5 +13,7 @@
 @import url("components/video.css");
 @import url("components/word-search.css");
 @import url("components/tabs.css");
+@import url("components/phrases.css");
 
 @import url("utils/helpers.css");
+@import url("utils/messages.css");

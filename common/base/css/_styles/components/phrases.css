@@ -1,0 +1,49 @@
+.bda-phrases {
+  position: relative;
+  margin-top: 20px;
+  line-height: 30px;
+}
+
+.bda-phrases__button-validate {
+  position: absolute;
+  top: -30px;
+  right: 30px;
+}
+
+.bda-phrases__content {
+  margin-right: 30px;
+  height: 460px;
+  overflow-y: auto;
+}
+
+.bda-phrases__content--tab {
+  height: 380px;
+}
+
+.bda-phrases__input {
+  width: 30px;
+  margin-right: 5px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.bda-phrases__input:focus {
+  border: 1px solid #000;
+  outline: none;
+}
+
+.bda-phrases__input::-webkit-outer-spin-button,
+.bda-phrases__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bda-phrases__input--success {
+  border: 1px solid #4CAF50;
+}
+
+.bda-phrases__input--error {
+  border: 1px solid #F44336;
+}

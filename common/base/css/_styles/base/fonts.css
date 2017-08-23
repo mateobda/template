@@ -83,3 +83,7 @@
 .icon-lenguaje::before {
   content: "\72";
 }
+
+.icon-creative-commons::before {
+  content: "\62";
+}

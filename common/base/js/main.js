@@ -71,14 +71,14 @@ require([
   'sg-attr-defaultPack',
   'sg-attr-draggable',
   'sg-tag-defaultPack',
-], function() {
+], function () {
   sg.setStage("#stage")
   sg.setScaleMode("showall")
   sg.setLoadingImage("../common/base/img/loader.gif")
 
-  sg.init(function() {
+  sg.init(function () {
     const $items = $('.bb-item'),
-    count = $items.length
+      count = $items.length
 
     window.triggered = false
 
@@ -101,23 +101,22 @@ require([
 
     function pagination(index, $element) {
       let paginationNumber = `<span>${index + 1}<span class="bda-pagination__line"> | </span>${count}</span>`,
-      paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
+        paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
       paginationContainer.appendTo($element)
     }
 
-    setInHeight("#bb-bookblock", sg.stageHeight - getOutHeight("#content > header"));
+    setInHeight(".bb-bookblock", sg.stageHeight - getOutHeight("#content > header"));
 
     $items.each((index, element) => {
       let $element = $(element)
       pagination(index, $element)
     })
 
-    var Page = (function() {
-      var $bookBlock = $('#bb-bookblock'),
-        $items = $bookBlock.children(),
+    var Page = (function () {
+      var $items = $('.bb-item'),
         itemsCount = $items.length,
         current = 0,
-        bb = $('#bb-bookblock').bookblock({
+        bb = $('.bb-bookblock').bookblock({
           speed: 600,
           perspective: 5000,
           shadowSides: 0.8,
@@ -130,7 +129,7 @@ require([
         }),
         $navNext = $('#bb-nav-next'),
         $navPrev = $('#bb-nav-prev').addClass('off'),
-        $successGames = '<div class="success-modal hide animated rubberBand"><span>&#10004;</span><strong>Felicitaciones, Presiona clic para continuar</strong></div><div class="bda-bg-modal hide animated fadeIn"></div>'
+        $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
 
       function init() {
         itemsCount == 1 ? $navNext.addClass("off") : ""
@@ -156,6 +155,20 @@ require([
         }
       }
 
+      function closeBgWin() {
+        $(".bda-game__modal, .bda-game__message").on('click', () => {
+          $(".bda-game__modal").addClass("hide")
+          $(".bda-game__message").addClass("hide")
+
+          if (itemsCount == 1) {
+            $navPrev.addClass('off')
+            $navNext.addClass('off')
+          } else {
+            updateNavigation(itemsCount - 1)
+          }
+        })
+      }
+
       // Video Begin
       function videoPlay($wrapper) {
         let $iframe = $wrapper.find('.bda-video__iframe')
@@ -164,19 +177,7 @@ require([
         $iframe.attr('src', src)
       }
 
-      // function videoStop($wrapper) {
-      //   if (!$wrapper) {
-      //     let $wrapper = $('.bda-video__container')
-      //     let $iframe = $('.bda-video__iframe')
-      //   } else {
-      //     let $iframe = $wrapper.find('.bda-video__iframe')
-      //   }
-
-      //   $wrapper.removeClass('bda-video--active')
-      //   $iframe.attr('src', '')
-      // }
-
-      $(document).on('click', '.bda-video__image', function(event) {
+      $(document).on('click', '.bda-video__image', function (event) {
         event.preventDefault()
         let $poster = $(this)
         let $wrapper = $poster.closest('.bda-video__container')
@@ -186,98 +187,108 @@ require([
 
       // Drag & Drop Begin
       sg.setDraggable(
-        ".drop", {
+        ".drag-and-drop__item-drop", {
           success: function () {
-            $(this).addClass('drag_bda')
             $(this).addClass('drag_bda--success')
+
             var nWords = $(this).siblings().length + 1
             var matches = $(this).siblings('.drag_bda--success').length + 1
-            if (nWords === matches){
+
+            if (nWords === matches) {
               $(this).closest(".bb-item").prepend($successGames)
-              $(".bda-bg-modal, .success-modal").removeClass("hide")
+              $(".bda-game__modal, .bda-game__message").removeClass("hide")
             }
-            $(".bda-bg-modal, .success-modal").click(function () {
-              $(".success-modal").addClass("hide")
-              $(".bda-bg-modal").addClass("hide")
-            })
+
+            closeBgWin()
           },
-          fail: function() {},
+          fail: function () {},
           revert: true
         }
       )
       // Drag & Drop End
 
       // PopUp Begin
-      $('.bda-btn--popup').click(function() {
+      $('.bda-btn--popup').on('click', function () {
         let elementIndex = $(this).attr("data-pop")
 
-        $(`#popup__container${elementIndex}`).css('display', 'block')
-        $(`#popup__bg${elementIndex}`).css('display', 'block')
+        $(`#popup__container${elementIndex}`).removeClass('hide')
+        $('.popup__bg').removeClass('hide')
         $navPrev.addClass('off')
         $navNext.addClass('off')
 
-        $(document).keydown(function(event) {
+        $(document).keydown(function (event) {
           if (event.keyCode == 27) {
-            $(`#popup__container${elementIndex}`).css('display', 'none')
-            $(`#popup__bg${elementIndex}`).css('display', 'none')
-            if ((current + 1) == itemsCount) {
-              updateNavigation(itemsCount - 1)
+            $(`#popup__container${elementIndex}`).addClass('hide')
+            $('.popup__bg').addClass('hide')
+
+            if (itemsCount == 1) {
+              $navPrev.addClass('off')
+              $navNext.addClass('off')
             } else {
-              updateNavigation()
+              updateNavigation(itemsCount - 1)
             }
           }
         })
 
-        $(`#close${elementIndex}`).click(() => {
-          $(`#popup__container${elementIndex}`).css('display', 'none')
-          $(`#popup__bg${elementIndex}`).css('display', 'none')
+        $('.popup__close').on('click', () => {
+          $(`#popup__container${elementIndex}`).addClass('hide')
+          $('.popup__bg').addClass('hide')
 
-          if ((current + 1) == itemsCount) {
-            updateNavigation(itemsCount - 1)
+          if (itemsCount == 1) {
+            $navPrev.addClass('off')
+            $navNext.addClass('off')
           } else {
-            updateNavigation()
+            updateNavigation(itemsCount - 1)
           }
         })
       })
       // PopUp End
 
-      /*** Frases START ***/
-      $(".validate-phrase").on("click", function() {
+      // Frases Beginc
+      $(".bda-phrases__button-validate").on("click", function () {
         const phrases = `.phrase-${$(this).data("group")}`
         let nphrases = $(phrases).length
         let respuestasCorrectas = 0
-        $(phrases).each(function(index, value) {
+
+        $(phrases).each(function (index, value) {
           const t = $(this)
           let response = t.data("res")
           let inputUser = t.val()
-          t.removeClass("success").removeClass("error")
+
+          t.removeClass("bda-phrases__input--success").removeClass("bda-phrases__input--error")
+
           if (response == inputUser) {
             respuestasCorrectas++
-            t.addClass("success")
+            t.addClass("bda-phrases__input--success")
           } else {
-            t.addClass("error")
+            t.addClass("bda-phrases__input--error")
             t.val("")
           }
+
           if (respuestasCorrectas === nphrases) {
-            t.addClass("success")
-            $(".bda-bg-modal, .error-modal").addClass("hide")
-            $(".bda-bg-modal, .success-modal").removeClass("hide")
+            t.addClass("bda-phrases__input--success")
+            $navPrev.addClass('off')
+            $navNext.addClass('off')
+            $(".bda-game__modal, .bda-game__error").addClass("hide")
+            $(".bda-game__modal, .bda-game__win").removeClass("hide")
+
           } else {
-            $(".bda-bg-modal, .success-modal").addClass("hide")
-            $(".bda-bg-modal, .error-modal").removeClass("hide")
+            $navPrev.addClass('off')
+            $navNext.addClass('off')
+            $(".bda-game__modal, .bda-game__win").addClass("hide")
+            $(".bda-game__modal, .bda-game__error").removeClass("hide")
           }
         })
       })
-      $(".bda-bg-modal, .success-modal, .error-modal").click(function() {
-        $(".success-modal").addClass("hide")
-        $(".error-modal").addClass("hide")
-        $(".bda-bg-modal").addClass("hide")
-      })
-      /*** Frases END ***/
+
+      closeBgWin()
+      // Frases End
 
       bb.jump(location.hash.substr(1))
 
-      return { init: init }
+      return {
+        init: init
+      }
     })()
 
     Page.init()

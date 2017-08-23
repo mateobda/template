@@ -299,11 +299,9 @@
 
             } else {
 
-              for (var i = 0; i < palabrasencontradas.length; i++) {
-                if (palabrasencontradas[i] == this) {
-                  verificar = true
-                }
-              }
+              palabrasencontradas.forEach((value, index) => {
+                if (palabrasencontradas[index] == this) verificar = true
+              })
 
               if (!verificar) {
                 palabrasencontradas[palabrasencontradas.length] = this
@@ -312,15 +310,13 @@
 
             }
 
-            cfin++;
+            cfin++
 
             if (!verificar) miradorpalabras += selecion + ", "
 
             $(`#${idElement}td[class='']`).addClass("noborrar")
 
-            if (successWord == options.words.length) {
-              $g.win()
-            }
+            if (successWord == options.words.length) $g.win()
           }
 
         })
@@ -384,12 +380,14 @@
       }
     }
 
-    this.win = function () {
-      $(".bda-win-game__modal, .bda-win-game__message").removeClass("hide")
+    this.win = () => {
+      $('.bda-main-nav').addClass('hide')
+      $(".bda-game__modal, .bda-game__message").removeClass("hide")
 
-      $(".bda-win-game__modal, .bda-win-game__message").click(() => {
-        $(".bda-win-game__modal").addClass("hide")
-        $(".bda-win-game__message").addClass("hide")
+      $(".bda-game__modal, .bda-game__message").click(() => {
+        $('.bda-main-nav').removeClass('hide')
+        $(".bda-game__modal").addClass("hide")
+        $(".bda-game__message").addClass("hide")
       })
     }
 

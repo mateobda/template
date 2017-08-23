@@ -47,7 +47,6 @@ $(function() {
         });
       });
     });
-    //console.log(linkList);
     $topbar = $("#topbar");
     $content = $("#content");
     $sidebar = $("#sidebar").append($con);
@@ -80,15 +79,11 @@ function loc(i) {
 }
 
 function next() {
-  if(idx + 1 < linkList.length) {
-    loc(idx + 1);
-  }
+  if(idx + 1 < linkList.length) loc(idx + 1)
 }
 
 function prev() {
-  if(idx - 1 >= 0) {
-    loc(idx - 1);
-  }
+  if(idx - 1 >= 0) loc(idx - 1)
 }
 
 var isAnimating = false
