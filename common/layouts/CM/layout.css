@@ -53,27 +53,32 @@
   background: #73AB40;
 }
 
-.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+.drag-and-drop__item-drop {
   background-color: #73AB40;
 }
-/*cc*/
+
+/* creative commons */
 .popup__container--cc {
   border: 1px solid #73AB40;
   background: #fff;
 }
-.popup__close--cc{
+
+.popup__close--cc {
   border: solid 1px #73AB40;
   background: #73AB40;
+}
 
+.creative-commons {
+  color: #73AB40;
 }
-.cc{
-  border: solid 3px #73AB40;
-  color: #4f6b3b;
-}
+/* creative commons */
+
 /*header*/
-.icon-asignatura::before {
+.icon-subject::before {
   content: "\65";
 }
-.bda-header__title::before{
+
+.icon-subject::after {
   content: "Cátedra del medio ambiente"
 }
+/*header*/

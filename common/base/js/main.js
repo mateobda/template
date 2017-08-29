@@ -83,7 +83,7 @@ require([
 
   sg.init(function () {
     const $items = $('.bb-item'),
-      count = $items.length
+    count = $items.length
 
     window.triggered = false
 
@@ -106,7 +106,7 @@ require([
 
     function pagination(index, $element) {
       let paginationNumber = `<span>${index + 1}<span class="bda-pagination__line"> | </span>${count}</span>`,
-        paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
+      paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
       paginationContainer.appendTo($element)
     }
 
@@ -118,27 +118,40 @@ require([
     })
 
     var Page = (function () {
-      var $items = $('.bb-item'),
-        itemsCount = $items.length,
-        current = 0,
-        bb = $('.bb-bookblock').bookblock({
-          speed: 600,
-          perspective: 5000,
-          shadowSides: 0.8,
-          shadowFlip: 0.4,
-          onEndFlip: (old, page, isLimit) => {
-            current = page
-            updateNavigation(isLimit)
-            window.triggered = true
-          }
-        }),
-        $navNext = $('#bb-nav-next'),
-        $navPrev = $('#bb-nav-prev').addClass('off'),
-        $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
 
-      function saiv(orientation) {
-        console.log(orientation)
-        $(orientation.origin).find("iframe").each(function (k, v) {
+      var $items = $('.bb-item'),
+      itemsCount = $items.length,
+      current = 0,
+      bb = $('.bb-bookblock').bookblock({
+        speed: 600,
+        perspective: 5000,
+        shadowSides: 0.8,
+        shadowFlip: 0.4,
+        onEndFlip: (old, page, isLimit) => {
+          current = page
+          updateNavigation(isLimit)
+          window.triggered = true
+        }
+      }),
+      $navNext = $('#bb-nav-next'),
+      $navPrev = $('#bb-nav-prev').addClass('off'),
+      $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
+
+      function init() {
+        itemsCount == 1 ? $navNext.addClass("off") : ""
+
+        $navPrev.on('click touchstart', () => {
+          performAssets(bb.prev())
+        })
+
+        $navNext.on('click touchstart', () => {
+          performAssets(bb.next())
+          return false
+        })
+      }
+
+      function performAssets(orientation) {
+        $(orientation.origin).find("iframe").each((k, v) => {
           if ($(v).hasClass("bda-video__iframe")) {
             $(v).parent().removeClass('bda-video--active')
             $(v).attr("src", "")
@@ -147,29 +160,16 @@ require([
           }
         })
 
-        $(orientation.destination).find("iframe").each(function (k, v) {
+        $(orientation.destination).find("iframe").each((k, v) => {
           if (!$(v).hasClass("bda-video__iframe")) {
             $(v).attr("src", $(v).data("src"))
           }
         })
 
-        $(orientation.destination).find("img").each(function (k, v) {
+        $(orientation.destination).find("img").each((k, v) => {
           if ($(v).data('src') != undefined) {
             $(v).attr('src', $(v).data('src'))
           }
-        })
-      }
-
-      function init() {
-        itemsCount == 1 ? $navNext.addClass("off") : ""
-
-        $navPrev.on('click touchstart', () => {
-          saiv(bb.prev())
-        })
-
-        $navNext.on('click touchstart', () => {
-          saiv(bb.next())
-          return false
         })
       }
 
@@ -190,20 +190,6 @@ require([
         $(".bda-game__modal, .bda-game__message").on('click', () => {
           $(".bda-game__modal").addClass("hide")
           $(".bda-game__message").addClass("hide")
-
-/*           if (itemsCount == 1) {
-            $navPrev.addClass('off')
-            $navNext.addClass('off')
-          } else {
-            updateNavigation(itemsCount - 1)
-          } */
-
-          if (itemsCount == 1) {
-            $navPrev.addClass('off')
-            $navNext.addClass('off')
-          } else {
-            updateNavigation(itemsCount - 1)
-          }
         })
       }
 
@@ -229,7 +215,9 @@ require([
         mozallowfullscreen: 'mozallowfullscreen',
         msallowfullscreen: 'msallowfullscreen',
         oallowfullscreen: 'oallowfullscreen',
-        webkitallowfullscreen: 'webkitallowfullscreen'
+        webkitallowfullscreen: 'webkitallowfullscreen',
+        scrolling: 'no',
+        frameborder: '0'
       })
       // Iframe fullscreen End
 
@@ -237,10 +225,10 @@ require([
       sg.setDraggable(
         ".drag-and-drop__item-drop", {
           success: function () {
-            $(this).addClass('drag_bda--success')
+            $(this).addClass('drag-and-drop__item--success')
 
             var nWords = $(this).siblings().length + 1
-            var matches = $(this).siblings('.drag_bda--success').length + 1
+            var matches = $(this).siblings('.drag-and-drop__item--success').length + 1
 
             if (nWords === matches) {
               $(this).closest(".bb-item").prepend($successGames)
@@ -262,32 +250,19 @@ require([
         var video = container.find('.bda-video__iframe')
         var iframe = container.find('iframe')
 
-        console.log($(this))
-
-        if($(this).hasClass('cc')) {
+        if($(this).hasClass('creative-commons')) {
           $('.popup__bg').addClass('hide')
         } else {
           $('.popup__bg').removeClass('hide')
         }
 
         container.removeClass('hide')
-        $navPrev.addClass('off')
-        $navNext.addClass('off')
         iframe.attr('src', iframe.data('src'))
-
-        $('.bda-pagination').addClass('hide')
 
         $(document).keydown(function (event) {
           if (event.keyCode == 27) {
             container.addClass('hide')
             $('.popup__bg').addClass('hide')
-
-            if (itemsCount == 1) {
-              $navPrev.addClass('off')
-              $navNext.addClass('off')
-            } else {
-              updateNavigation(itemsCount - 1)
-            }
           }
         })
 
@@ -295,8 +270,7 @@ require([
           container.addClass('hide')
           $('.popup__bg').addClass('hide')
 
-          $('.bda-pagination').removeClass('hide')
-          $('.cc').removeClass('hide')
+          $('.creative-commons').removeClass('hide')
 
           if (video.hasClass("bda-video__iframe")) {
             video.parent().removeClass('bda-video--active')
@@ -304,12 +278,6 @@ require([
           }
 
           iframe.attr('src', '')
-
-          if ((current + 1) == itemsCount) {
-            updateNavigation(itemsCount - 1)
-          } else {
-            updateNavigation(itemsCount - 1)
-          }
         })
       })
       // PopUp End

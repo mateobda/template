@@ -19,7 +19,7 @@
 
       <header class="bda-header">
         <div class="bda-header__logo">
-          <i class="icon-matematicas"></i>
+          <i class="icon-asignatura"></i>
         </div>
         <span class="bda-header__title"></span>
         <span class="bda-header__line"> | </span> Módulo
@@ -28,12 +28,12 @@
         <span class="bda-header__line"> | </span> Tema
       </header>
 
-      <nav class="bda-main-nav">
-        <span id="bb-nav-prev"><i class="icon-arrow-prev"></i></span>
-        <span id="bb-nav-next"><i class="icon-arrow-next"></i></span>
-      </nav>
-
       <section class="bb-bookblock">
+
+        <nav class="bda-main-nav">
+          <span id="bb-nav-prev"><i class="icon-arrow-prev"></i></span>
+          <span id="bb-nav-next"><i class="icon-arrow-next"></i></span>
+        </nav>
 
         <div class="popup__bg hide"></div>
 
@@ -72,29 +72,37 @@
         </article>
 
         <article class="bb-item" id="item2">
+
           <div class="popup__container hide animated fadeIn" id="popup__container3">
+            <div class="popup__close">X<span>Cerrar</span></div>
+
             <div class="popup__content">
+              <div class="bda-guide bda-guide--modal">
+                <i class="icon-clic"></i> Haz clic sobre las imagenes para visualizar el contenido
+              </div>
+
               <div class="bda-item__content-drag-and-drop bda--container-pg1">
-                <div class="drag-and-drop__drag">
-                  <div class="drag" id="drp7"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
-                  <div class="drag" id="drp8"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
-                  <div class="drag" id="drp9"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
-                  <div class="drag" id="drp10"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
-                  <div class="drag" id="drp11"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
-                  <div class="drag" id="drp12"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
+                <div class="drag-and-drop__container">
+                  <div class="drag-and-drop__item drag-and-drop__item-drag" id="drp7"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drag" id="drp8"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drag" id="drp9"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drag" id="drp10"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drag" id="drp11"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drag" id="drp12"><img src="images/IL_C3HUM10201_CO02_06.png" alt=""></div>
                 </div>
-                <div class="drag-and-drop__drag">
-                  <div class="drag_bda drop" sg-drop-selector="#drp7"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop" sg-drop-selector="#drp8"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop" sg-drop-selector="#drp9"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop" sg-drop-selector="#drp10"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop" sg-drop-selector="#drp11"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop" sg-drop-selector="#drp12"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+
+                <div class="drag-and-drop__container">
+                  <div class="drag-and-drop__item drag-and-drop__item-drop" sg-drop-selector="#drp7"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drop" sg-drop-selector="#drp8"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drop" sg-drop-selector="#drp9"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drop" sg-drop-selector="#drp10"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drop" sg-drop-selector="#drp11"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item drag-and-drop__item-drop" sg-drop-selector="#drp12"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
                 </div>
               </div>
             </div>
-            <div class="popup__close">X<span>Cerrar</span></div>
           </div>
+
           <header class="bda-item__header">
             <h1 class="bda-title">Título de la página</h1>
             <span class="bda-description">
@@ -120,46 +128,34 @@
           </header>
 
           <section class="bda-item__content">
-            <div class="bda-item__content-drag-and-drop--text bda--container-pg1">
+            <div class="drag-and-drop--text">
               <div class="drag-and-drop__drag--text-fill">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni accusantium aspernatur architecto dolore totam sapiente aut
                 natus laboriosam? Et explicabo ipsum nihil in qui quis mollitia incidunt soluta est excepturi?
-                <div class="drag drag--text" id="drp13">
-                  <p>______________________</p>
-                </div>
+                <div class="drag-and-drop__item--text drag-and-drop__item-drag--text" id="drp13"></div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error tenetur harum quia autem, sequi, aspernatur qui sit reprehenderit
                 sunt! Ut aliquam quaerat asperiores tenetur, quod sequi doloremque officiis dolorum eum!
-                <div class="drag drag--text" id="drp14">
-                  <p>______________________</p>
-                </div>
+                <div class="drag-and-drop__item--text drag-and-drop__item-drag--text" id="drp14"></div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex dolore aliquid aliquam porro odit vel quisquam labore suscipit
                 repellat, laborum laboriosam sed placeat! Aspernatur rerum pariatur molestias perspiciatis voluptates corporis!
-                <div class="drag drag--text" id="drp15">
-                  <p>______________________</p>
-                </div>
+                <div class="drag-and-drop__item--text drag-and-drop__item-drag--text" id="drp15"></div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis a minima, delectus odit mollitia itaque atque cum deleniti
                 praesentium consequatur voluptate reprehenderit soluta aspernatur tenetur, veniam illum minus tempore dolorem.
-                <div class="drag drag--text" id="drp16">
-                  <p>______________________</p>
-                </div>
+                <div class="drag-and-drop__item--text drag-and-drop__item-drag--text" id="drp16"></div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. At enim suscipit officia corporis. Unde architecto earum, amet
                 sequi, quibusdam placeat ipsa nam similique vel molestias quo magnam, ad debitis quis.
-                <div class="drag drag--text" id="drp17">
-                  <p>______________________</p>
-                </div>
+                <div class="drag-and-drop__item--text drag-and-drop__item-drag--text" id="drp17"></div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam suscipit vero facilis quod eius, obcaecati illum impedit distinctio
                 accusantium veniam ducimus assumenda? Nihil quod necessitatibus non rem accusamus animi voluptatem.
-                <div class="drag drag--text" id="drp18">
-                  <p>______________________</p>
-                </div>.
+                <div class="drag-and-drop__item--text drag-and-drop__item-drag--text" id="drp18"></div>.
               </div>
               <div class="drag-and-drop__drag--text-words">
-                <div class="drag_bda drop drag_bda--text" sg-drop-selector="#drp13"><span>HelLeeee</span></div>
-                <div class="drag_bda drop drag_bda--text" sg-drop-selector="#drp14"><span>ñosrgnña</span></div>
-                <div class="drag_bda drop drag_bda--text" sg-drop-selector="#drp15"><span>ñosrgnña</span></div>
-                <div class="drag_bda drop drag_bda--text" sg-drop-selector="#drp16"><span>ñosrgnña</span></div>
-                <div class="drag_bda drop drag_bda--text" sg-drop-selector="#drp17"><span>ñosrgnña</span></div>
-                <div class="drag_bda drop drag_bda--text" sg-drop-selector="#drp18"><span>ñosrgnña</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item--text drag-and-drop__item-drop--text" sg-drop-selector="#drp13"><span>HelLeeee</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item--text drag-and-drop__item-drop--text" sg-drop-selector="#drp14"><span>ñosrgnña</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item--text drag-and-drop__item-drop--text" sg-drop-selector="#drp15"><span>ñosrgnña</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item--text drag-and-drop__item-drop--text" sg-drop-selector="#drp16"><span>ñosrgnña</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item--text drag-and-drop__item-drop--text" sg-drop-selector="#drp17"><span>ñosrgnña</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item--text drag-and-drop__item-drop--text" sg-drop-selector="#drp18"><span>ñosrgnña</span></div>
               </div>
             </div>
           </section>
@@ -177,22 +173,22 @@
           </header>
 
           <section class="bda-item__content">
-            <div class="bda-item__content-drag-and-drop--words bda--container-pg1">
+            <div class="drag-and-drop--words">
               <div class="drag-and-drop__drag--words">
-                <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp19"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp20"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp21"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp22"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp23"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp24"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item-drop--words drag-and-drop__item--words" sg-drop-selector="#drp19"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item-drop--words drag-and-drop__item--words" sg-drop-selector="#drp20"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item-drop--words drag-and-drop__item--words" sg-drop-selector="#drp21"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item-drop--words drag-and-drop__item--words" sg-drop-selector="#drp22"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item-drop--words drag-and-drop__item--words" sg-drop-selector="#drp23"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item-drop drag-and-drop__item-drop--words drag-and-drop__item--words" sg-drop-selector="#drp24"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
               </div>
               <div class="drag-and-drop__drag--words">
-                <div class="drag drag--words" id="drp19"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag drag--words" id="drp20"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag drag--words" id="drp21"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag drag--words" id="drp22"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag drag--words" id="drp23"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                <div class="drag drag--words" id="drp24"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item--words" id="drp19"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item--words" id="drp20"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item--words" id="drp21"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item--words" id="drp22"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item--words" id="drp23"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                <div class="drag-and-drop__item--words" id="drp24"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
               </div>
             </div>
           </section>
@@ -201,29 +197,33 @@
 
         <article class="bb-item" id="item5">
 
-          <div class="popup__bg" id="popup__bg4"></div>
-          <div class="popup__container animated fadeIn" id="popup__container4">
+          <div class="popup__container hide animated fadeIn" id="popup__container4">
+            <div class="popup__close" id="close4">X<span>Cerrar</span></div>
+
             <div class="popup__content">
-              <div class="bda-item__content-drag-and-drop--words bda--container-pg1">
+              <div class="bda-guide bda-guide--modal">
+                <i class="icon-clic"></i> Haz clic sobre las imagenes para visualizar el contenido
+              </div>
+              <div class="drag-and-drop--words">
                 <div class="drag-and-drop__drag--words">
-                  <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp25"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp26"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp27"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp28"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp29"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag_bda drop drag_bda--words" sg-drop-selector="#drp30"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item-drop drag-and-drop__item--words drag-and-drop__item-drop--words" sg-drop-selector="#drp25"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item-drop drag-and-drop__item--words drag-and-drop__item-drop--words" sg-drop-selector="#drp26"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item-drop drag-and-drop__item--words drag-and-drop__item-drop--words" sg-drop-selector="#drp27"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item-drop drag-and-drop__item--words drag-and-drop__item-drop--words" sg-drop-selector="#drp28"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item-drop drag-and-drop__item--words drag-and-drop__item-drop--words" sg-drop-selector="#drp29"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item-drop drag-and-drop__item--words drag-and-drop__item-drop--words" sg-drop-selector="#drp30"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
                 </div>
                 <div class="drag-and-drop__drag--words">
-                  <div class="drag drag--words" id="drp25"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag drag--words" id="drp26"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag drag--words" id="drp27"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag drag--words" id="drp28"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag drag--words" id="drp29"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
-                  <div class="drag drag--words" id="drp30"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item--words" id="drp25"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item--words" id="drp26"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item--words" id="drp27"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item--words" id="drp28"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item--words" id="drp29"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
+                  <div class="drag-and-drop__item--words" id="drp30"><span>lauevblaebvlj aeju ikaje  kasbkjear</span></div>
                 </div>
               </div>
             </div>
-            <div class="popup__close" id="close4">X<span>Cerrar</span></div>
+
           </div>
           <header class="bda-item__header">
             <h1 class="bda-title">Título de la página</h1>

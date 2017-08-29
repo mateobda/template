@@ -1,9 +1,9 @@
 .bda-main-nav span {
   display: inline-block;
   position: absolute;
-  top: 50%;
+  top: 45%;
   font-size: 42px;
-  z-index: 101;
+  z-index: 1;
   cursor: pointer;
 }
 

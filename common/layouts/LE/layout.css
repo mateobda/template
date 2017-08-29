@@ -53,27 +53,32 @@
   background: #c0c142;
 }
 
-.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+.drag-and-drop__item-drop {
   background-color: #D6D83A;
 }
-/*cc*/
+
+/* creative commons */
 .popup__container--cc {
   border: 1px solid #D6D83A;
   background: #fff;
 }
-.popup__close--cc{
+
+.popup__close--cc {
   border: solid 1px #D6D83A;
   background: #D6D83A;
+}
 
+.creative-commons {
+  color: #D6D83A;
 }
-.cc{
-  border: solid 3px #D6D83A;
-  color: #a3a52d;
-}
+/* creative commons */
+
 /*header*/
-.icon-asignatura::before {
+.icon-subject::before {
   content: "\72";
 }
-.bda-header__title::before{
+
+.icon-subject::after {
   content: "Lenguaje"
 }
+/* header */

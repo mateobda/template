@@ -8,30 +8,34 @@
   <title></title>
   <link href="../common/base/css/vendors.css" rel="stylesheet">
   <link href="../common/base/css/main.css" rel="stylesheet">
-  <link href="../common/layouts/CP/layout.css" rel="stylesheet">
+  <link href="../common/layouts/MA/layout.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
 </head>
 
 <body>
   <div id="stage" sg-scalemode="showall">
+
     <div id="content">
+
       <header class="bda-header">
-        <div class="bda-header__logo">
-          <i class="icon-asignatura"></i>
-        </div>
-        <span class="bda-header__title"></span>
+        <i class="icon-subject"></i>
         <span class="bda-header__line"> | </span> Módulo
         <span class="bda-header__line"> | </span> Unidad
         <span class="bda-header__line"> | </span> Lección
         <span class="bda-header__line"> | </span> Tema
       </header>
-      <nav class="bda-main-nav">
-        <span id="bb-nav-prev"><i class="icon-arrow-prev"></i></span>
-        <span id="bb-nav-next"><i class="icon-arrow-next"></i></span>
-      </nav>
+
       <section class="bb-bookblock">
 
+        <nav class="bda-main-nav">
+          <span id="bb-nav-prev"><i class="icon-arrow-prev"></i></span>
+          <span id="bb-nav-next"><i class="icon-arrow-next"></i></span>
+        </nav>
+
+        <div class="popup__bg hide"></div>
+
         <article class="bb-item" id="item1">
+
           <header class="bda-item__header">
             <h1 class="bda-title">Título de la página</h1>
             <span class="bda-description">
@@ -41,12 +45,13 @@
           </header>
 
           <section class="bda-item__content">
-            <iframe id="iframe1" src="LO/prueba.html" data-src="LO/prueba.html" style="width:100%; height:500px;" frameborder="0"></iframe>
+            <iframe id="iframe1" src="iframes/prueba.html" data-src="iframes/prueba.html"></iframe>
           </section>
 
         </article>
 
         <article class="bb-item" id="item2">
+
           <header class="bda-item__header">
             <h1 class="bda-title">Título de la página</h1>
             <span class="bda-description"><i class="icon-pencil"></i>
@@ -54,7 +59,7 @@
             </span>
           </header>
 
-          <section class="b.da-item__content">
+          <section class="bda-item__content">
             <img data-src="images\s3SCda5.png" src="" style="width:500px; height:500px;" alt="">
           </section>
 
@@ -62,30 +67,34 @@
 
         <article class="bb-item" id="item3">
 
-          <div class="popup__bg hide"></div>
-
           <div class="popup__container--cc hide animated fadeIn" id="popup__container20">
-            <div class="popup__content popup__content--cc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nihil hic placeat itaque ipsum explicabo </div>
+            <div class="popup__content popup__content--cc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nihil hic placeat itaque ipsum explicabo
+            </div>
             <div class="popup__close popup__close--cc">X</div>
           </div>
 
           <div class="popup__container hide animated fadeIn" id="popup__container21">
+            <div class="popup__close">X<span>Cerrar</span></div>
+
             <div class="popup__content">
               <div class="bda-video">
                 <div class="bda-video__container">
-                  <iframe data-src="https://www.youtube.com/embed/-o_ZQDOzQdQ?autoplay=1" class="bda-video__iframe" frameborder="0"></iframe>
+                  <iframe data-src="https://www.youtube.com/embed/-o_ZQDOzQdQ?autoplay=1" class="bda-video__iframe"></iframe>
                   <button class="bda-video__image icon-play"></button>
                 </div>
               </div>
             </div>
-            <div class="popup__close">X<span>Cerrar</span></div>
+
           </div>
 
           <div class="popup__container hide animated fadeIn" id="popup__container22">
-            <div class="popup__content">
-              <iframe id="iframe1" data-src="LO/prueba.html" src="" style="width:100%; height:500px;" frameborder="0"></iframe>
-            </div>
             <div class="popup__close">X<span>Cerrar</span></div>
+
+            <div class="popup__content">
+              <iframe id="iframe1" data-src="iframes/prueba.html" src=""></iframe>
+            </div>
+
           </div>
 
           <header class="bda-item__header">
@@ -99,8 +108,9 @@
           <section class="bda-item__content">
             <span class="bda-btn--popup" data-pop="21">Soy un popup</span><br><br>
             <span class="bda-btn--popup" data-pop="22">Soy un popup--iframe</span>
-            <div class="bda-btn--popup cc" data-pop="20">CC</div>
           </section>
+
+          <span class="bda-btn--popup creative-commons" data-pop="20"><i class="icon-creative-commons"></i></span>
         </article>
 
       </section>

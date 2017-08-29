@@ -6,26 +6,11 @@
 }
 
 .drag-and-drop--vertical,
-.drag-and-drop--words {
-  display: flex;
-  flex-flow: row nowrap;
-}
-
+.drag-and-drop--words,
 .drag-and-drop--text {
   display: flex;
   flex-flow: row nowrap;
-  padding: 30px;
-}
-
-.popup__content .drag-and-drop,
-.popup__content .drag-and-drop--vertical {
-  padding-top: 60px;
-}
-
-.drag-and-drop__container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: center
 }
 
 .drag-and-drop__container--vertical,
@@ -38,22 +23,28 @@
   height: 480px;
 }
 
+.drag-and-drop__container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
 .drag-and-drop__item--words {
   flex-flow: column nowrap;
 }
 
 .drag-and-drop__item--text-fill {
-  height: 480px;
   width: 80%;
-  text-align: justify;
+  height: 480px;
   padding-right: 30px;
+  text-align: justify;
 }
 
 .drag-and-drop__item--text-words {
-  height: 480px;
-  width: 20%;
   display: flex;
   flex-flow: column wrap;
+  width: 20%;
+  height: 480px;
 }
 
 .drag-and-drop__item {
@@ -88,40 +79,56 @@
 
 .drag-and-drop__item--text {
   display: inline-block;
+  width: 170px;
+  height: 40px;
   margin: 5px 0px;
-  font-size: 16px;
+  padding: 10px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 20px;
+  color: #000;
+  font-size: 16px;
   text-align: center;
-  padding: 9px;
-  color: #fff;
-  height: 40px;
-  width: 170px;
-  cursor: pointer;
 }
 
-.drag--text {
-  background-color: #fff;
-  color: black;
+.drag-and-drop__item-drag--text {
+  margin-bottom: 0;
+  border-bottom: 1px solid #000;
+  border-radius: 0;
 }
 
-.bda-item__content-drag-and-drop--text .drag_bda--success {
+.drag-and-drop__item-drop--text {
+  background-color: gray;
+  color: white;
+}
+
+.drag-and-drop--text .drag-and-drop__item--success {
   padding-top: 20px;
   color: black;
   background: white;
+  border-radius: 0;
+}
+
+.drag-and-drop--words {
+  justify-content: space-around
 }
 
 .drag-and-drop__item--words {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  margin: 5px 0px;
-  font-size: 16px;
+  width: 400px;
+  height: 55px;
+  margin: 15px 0px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 20px;
-  text-align: center;
   color: #fff;
-  height: 55px;
-  width: 400px;
+  font-size: 16px;
+  text-align: center;
   cursor: pointer;
+  background-color: #999999;
+}
+
+.popup__content .drag-and-drop,
+.popup__content .drag-and-drop--vertical {
+  padding-top: 60px;
 }

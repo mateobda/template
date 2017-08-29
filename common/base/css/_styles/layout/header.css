@@ -8,22 +8,26 @@
   border-radius: 0px 80px 0px 80px;
   background-color: #f7f7f7;
   color: #fff;
-  font-size: 1.4em;
+  font-size: 24px;
   text-transform: uppercase;
 }
 
-.bda-header__logo i {
+.icon-subject::before {
   display: inline-block;
-  margin-right: 30px;
+  width: 90px;
+  height: 75px;
+  margin-right: 10px;
+  background-position: 0px;
+  background-repeat: no-repeat;
+  background-size: contain;
   font-size: 75px;
 }
 
-.bda-header__logo img {
-  margin-right: 30px;
-  height: 75px;
-}
-
-.bda-header__title {
+.icon-subject::after {
+  position: relative;
+  bottom: 28px;
+  font-family: 'Open Sans';
+  font-style: normal;
   font-weight: bold;
 }
 

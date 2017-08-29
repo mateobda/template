@@ -14,6 +14,7 @@
 @import url("components/word-search.css");
 @import url("components/tabs.css");
 @import url("components/phrases.css");
+@import url("components/dragdrop.css");
 
 @import url("utils/helpers.css");
 @import url("utils/messages.css");

@@ -54,31 +54,33 @@
   background: #3F6D38;
 }
 
-.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+.drag-and-drop__item-drop {
   background-color: #3F6D38;
 }
-/*cc*/
+
+/* creative commons */
 .popup__container--cc {
   border: 1px solid #3F6D38;
   background: #fff;
 }
-.popup__close--cc{
+
+.popup__close--cc {
   border: solid 1px #3F6D38;
   background: #3F6D38;
+}
 
+.creative-commons {
+  color: #3F6D38;
 }
-.cc{
-  border: solid 3px #3F6D38;
-  color: #294a24;
-}
-/*HEADER*/
-.icon-asignatura {
+/* creative commons */
+
+/* header */
+.icon-subject::before {
+  content: "";
   background-image: url('/common/base/img/icon-ingles.png');
-  width: 77px;
-height: 75px;
-  background-size: cover;
 }
 
-.bda-header__title::before{
+.icon-subject::after {
   content: "Ingles"
 }
+/* header */

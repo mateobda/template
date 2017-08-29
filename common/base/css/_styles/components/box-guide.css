@@ -10,15 +10,20 @@
   font-size: 14px;
 }
 
+.bda-guide i {
+  position: relative;
+  top: 5px;
+  font-size: 22px;
+}
+
 .bda-guide--alt {
   position: static;
   margin-left: 70px;
 }
 
-.bda-guide i {
-  position: relative;
-  top: 5px;
-  font-size: 22px;
+.bda-guide--modal {
+  position: static;
+  margin-bottom: 20px;
 }
 
 .bda-guide--center {

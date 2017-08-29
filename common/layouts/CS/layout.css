@@ -53,27 +53,32 @@
   background: #C76A1F;
 }
 
-.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+.drag-and-drop__item-drop {
   background-color: #C76A1F;
 }
-/*cc*/
+
+/* creative commons */
 .popup__container--cc {
   border: 1px solid #C76A1F;
   background: #fff;
 }
-.popup__close--cc{
+
+.popup__close--cc {
   border: solid 1px #C76A1F;
   background: #C76A1F;
+}
 
+.creative-commons {
+  color: #C76A1F;
 }
-.cc{
-  border: solid 3px #C76A1F;
-  color: #a2591e;
-}
-/*header*/
-.icon-asignatura::before {
+/* creative commons */
+
+/* header */
+.icon-subject::before {
   content: "\69";
 }
-.bda-header__title::before{
+
+.icon-subject::after {
   content: "Ciencias sociales"
 }
+/* header */

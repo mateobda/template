@@ -53,33 +53,33 @@
   background: #73AB40;
 }
 
-.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+.drag-and-drop__item-drop {
   background-color: #73AB40;
 }
-/*cc*/
+
+/* creative commons */
 .popup__container--cc {
   border: 1px solid #73AB40;
   background: #fff;
 }
-.popup__close--cc{
+
+.popup__close--cc {
   border: solid 1px #73AB40;
   background: #73AB40;
-
-}
-.cc{
-  border: solid 3px #73AB40;
-  color: #4f6b3b;
 }
 
-/*HEADER*/
+.creative-commons {
+  color: #73AB40;
+}
+/* creative commons */
 
-.icon-asignatura {
+/* header */
+.icon-subject::before {
+  content: "";
   background-image: url('/common/base/img/icon-ciencias-naturales.png');
-  width: 92px;
-  height: 80px;
-  background-size: cover;
 }
 
-.bda-header__title::before{
+.icon-subject::after {
   content: "Ciencias naturales"
 }
+/* header */

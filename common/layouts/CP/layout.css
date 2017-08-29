@@ -53,28 +53,32 @@
   background: #d46919;
 }
 
-.drag_bda--text, .drag--text,.drag_bda ,.drag_bda--words {
+.drag-and-drop__item-drop {
   background-color: #d46919;
 }
 
-/*cc*/
+/* creative commons */
 .popup__container--cc {
   border: 1px solid #d46919;
   background: #fff;
 }
-.popup__close--cc{
+
+.popup__close--cc {
   border: solid 1px #d46919;
   background: #d46919;
+}
 
+.creative-commons {
+  color: #d46919;
 }
-.cc{
-  border: solid 3px #d46919;
-  color: #B0520C;
-}
+/* creative commons */
+
 /*header*/
-.icon-asignatura::before {
+.icon-subject::before {
   content: "\68";
 }
-.bda-header__title::before{
+
+.icon-subject::after {
   content: "Cátedra de la paz"
 }
+/*header*/
