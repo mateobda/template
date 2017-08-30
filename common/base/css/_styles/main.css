@@ -8,6 +8,7 @@
 @import url("layout/header-item.css");
 @import url("layout/item.css");
 
+@import url("components/btns.css");
 @import url("components/box-guide.css");
 @import url("components/popup.css");
 @import url("components/video.css");

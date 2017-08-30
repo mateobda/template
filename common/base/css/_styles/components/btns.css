@@ -1,0 +1,58 @@
+.bda-btn {
+  display: inline-block;
+  padding: 20px 30px;
+  border: 0;
+  border-radius: 0 40px;
+  background-color: #999;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.35s ease-out;
+  outline: none;
+}
+
+.bda-btn:hover {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.bda-btn--small {
+  padding: 10px 25px;
+  font-size: 18px;
+}
+
+.bda-btn--medium {
+  padding: 15px 30px;
+  font-size: 20px;
+}
+
+.bda-link-know {
+  display: inline-block;
+  position: relative;
+  padding: 25px 50px 20px 20px;
+  border-radius: 0px 0px 0px 28px;
+  background-color: #999;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 22px;
+  text-transform: uppercase;
+  text-align: right;
+  cursor: pointer;
+}
+
+.bda-link-know::before {
+  position: absolute;
+  left: 5px;
+  top: 0px;
+  font-size: 15px;
+  content: "+";
+}
+
+.bda-link-know::after {
+  position: absolute;
+  top: 30px;
+  font-size: 72px;
+  content: "?";
+}

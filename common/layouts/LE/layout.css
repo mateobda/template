@@ -82,3 +82,13 @@
   content: "Lenguaje"
 }
 /* header */
+
+/* btn */
+.bda-btn--primary {
+  background-color: #D6D83A;
+}
+
+.bda-link-know {
+  background-color: #D6D83A;
+}
+/* btn */

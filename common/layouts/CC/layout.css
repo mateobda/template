@@ -83,3 +83,13 @@
   content: "Cátedra de convivencia";
 }
 /* header */
+
+/* btn */
+.bda-btn--primary {
+  background-color: #d46919;
+}
+
+.bda-link-know {
+  background-color: #d46919;
+}
+/* btn */

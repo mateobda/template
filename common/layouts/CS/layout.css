@@ -82,3 +82,13 @@
   content: "Ciencias sociales"
 }
 /* header */
+
+/* btn */
+.bda-btn--primary {
+  background-color: #C76A1F;
+}
+
+.bda-link-know {
+  background-color: #C76A1F;
+}
+/* btn */

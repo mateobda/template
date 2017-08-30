@@ -3,33 +3,14 @@ const browserSync = require('browser-sync').create()
 const uglify = require('gulp-uglify')
 const imagemin = require('gulp-imagemin')
 const cache = require('gulp-cache')
-const del = require('del')
 const runSequence = require('run-sequence')
 const autoprefixer = require('gulp-autoprefixer')
-const concat = require('gulp-concat')
 const babel = require('gulp-babel')
-const plumber = require('gulp-plumber')
-const sourcemaps = require('gulp-sourcemaps')
 const htmlmin = require('gulp-htmlmin')
 const cssmin = require('gulp-cssmin')
 const cssimport = require("gulp-cssimport")
-const gulpif = require('gulp-if')
 const path = require('path')
 const nameOVA = path.basename(__dirname)
-
-const reload = browserSync.reload;
-
-gulp.task('styles', () => {
-  return gulp.src('BDA/css/dev/*.css')
-  .pipe(plumber())
-  .pipe(sourcemaps.init())
-  .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
-  .pipe(concat('main.css'))
-  .pipe(cssmin())
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest('BDA/css'))
-  .pipe(reload({ stream: true }))
-})
 
 gulp.task('vendors', () => {
   return gulp.src('common/base/css/_vendors/vendors.css')
@@ -45,28 +26,16 @@ gulp.task('styles:common', () => {
   .pipe(gulp.dest('common/base/css/'))
 })
 
-gulp.task('scripts', () => {
-  return gulp.src('BDA/js/dev/*.js')
-  .pipe(plumber())
-  .pipe(sourcemaps.init())
-  .pipe(babel({ presets: ['es2015'] }))
-  .pipe(concat('index.js'))
-  .pipe(uglify())
-  .pipe(sourcemaps.write('.'))
-  .pipe(gulp.dest('BDA/js'))
-  .pipe(reload({ stream: true }))
-})
-
-gulp.task('watch', ['styles', 'scripts'], () => {
+gulp.task('watch', () => {
   browserSync.init({
     startPath: 'BDA',
     server: { baseDir: '.' }
   })
 
-  gulp.watch('BDA/*.html', browserSync.reload)
   gulp.watch('common/**/*', browserSync.reload)
-  gulp.watch('BDA/css/**/*.css', ['styles'])
-  gulp.watch('BDA/js/**/*.js', ['scripts'])
+  gulp.watch('BDA/*.html', browserSync.reload)
+  gulp.watch('BDA/css/**/*.css', browserSync.reload)
+  gulp.watch('BDA/js/**/*.js', browserSync.reload)
 })
 
 gulp.task('html:prod', () => {
@@ -91,12 +60,16 @@ gulp.task('images:prod', () => {
 })
 
 gulp.task('styles:prod', () => {
-  return gulp.src(['BDA/css/*.css', '!BDA/css/dev'])
+  return gulp.src('BDA/css/*.css')
+  .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
+  .pipe(cssmin())
   .pipe(gulp.dest(`../${nameOVA}_build/BDA/css`))
 })
 
 gulp.task('scripts:prod', () => {
-  return gulp.src(['BDA/js/*.js', '!BDA/js/dev'])
+  return gulp.src('BDA/js/*.js')
+  .pipe(babel({ presets: ['es2015'] }))
+  .pipe(uglify())
   .pipe(gulp.dest(`../${nameOVA}_build/BDA/js`))
 })
 
@@ -105,13 +78,16 @@ gulp.task('iframes:prod', () => {
   .pipe(gulp.dest(`../${nameOVA}_build/BDA/iframes`))
 })
 
+gulp.task('audios:prod', () => {
+  return gulp.src('BDA/audio/**/*')
+  .pipe(gulp.dest(`../${nameOVA}_build/BDA/audio`))
+})
+
 gulp.task('common:prod', () => {
   return gulp.src('common/**/*')
   .pipe(gulp.dest(`../${nameOVA}_build/common`))
 })
 
-gulp.task('clean', () => del.sync(`../${nameOVA}_build`))
-
 gulp.task('build', (callback) => {
-  runSequence('clean', ['html:prod', 'styles:prod', 'scripts:prod', 'images:prod', 'iframes:prod', 'common:prod'], callback)
+  runSequence(['common:prod', 'html:prod', 'styles:prod', 'scripts:prod', 'images:prod', 'audios:prod', 'iframes:prod'], callback)
 })

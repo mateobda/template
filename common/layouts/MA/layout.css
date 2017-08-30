@@ -81,3 +81,13 @@
   content: "Matemáticas"
 }
 /*header*/
+
+/* btn */
+.bda-btn--primary {
+  background-color: #B71017;
+}
+
+.bda-link-know {
+  background-color: #B71017;
+}
+/* btn */

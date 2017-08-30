@@ -263,6 +263,13 @@ require([
           if (event.keyCode == 27) {
             container.addClass('hide')
             $('.popup__bg').addClass('hide')
+
+            if (video.hasClass("bda-video__iframe")) {
+              video.parent().removeClass('bda-video--active')
+              video.attr("src", '')
+            }
+
+            iframe.attr('src', '')
           }
         })
 
@@ -274,7 +281,7 @@ require([
 
           if (video.hasClass("bda-video__iframe")) {
             video.parent().removeClass('bda-video--active')
-            video.attr("src", "")
+            video.attr("src", '')
           }
 
           iframe.attr('src', '')

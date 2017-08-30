@@ -83,3 +83,14 @@
   content: "Ciencias naturales"
 }
 /* header */
+
+/* btn */
+.bda-btn--primary {
+  background-color: #73AB40;
+}
+
+
+.bda-link-know {
+  background-color: #73AB40;
+}
+/* btn */

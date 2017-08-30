@@ -84,3 +84,13 @@
   content: "Ingles"
 }
 /* header */
+
+/* btn */
+.bda-btn--primary {
+  background-color: #3F6D38;
+}
+
+.bda-link-know {
+  background-color: #3F6D38;
+}
+/* btn */
