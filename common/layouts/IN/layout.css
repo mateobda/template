@@ -94,3 +94,10 @@
   background-color: #3F6D38;
 }
 /* btn */
+
+/* pagination */
+.btn-next,
+.btn-back {
+  color: #3F6D38;
+}
+/* pagination */

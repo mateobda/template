@@ -1,0 +1,28 @@
+.btn-next,
+.btn-back {
+  position: absolute;
+  font-size: 30px;
+  top: 550px;
+  cursor: pointer;
+}
+
+.btn-next {
+  left: 90%;
+}
+
+.btn-back {
+  left: 87%;
+}
+
+.btn-next--modal,
+.btn-back--modal {
+  top: 500px;
+}
+
+.btn-next--modal {
+  left: 95%;
+}
+
+.btn-back--modal {
+  left: 92%;
+}

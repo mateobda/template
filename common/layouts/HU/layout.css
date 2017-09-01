@@ -94,3 +94,10 @@
   background-color: #D6D83A;
 }
 /* btn */
+
+/* pagination */
+.btn-next,
+.btn-back {
+  color: #D6D83A;
+}
+/* pagination */
