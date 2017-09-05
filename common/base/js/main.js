@@ -105,7 +105,7 @@ require([
     }
 
     function pagination(index, $element) {
-      let paginationNumber = `<span>${index + 1}<span class="bda-pagination__line"> | </span>${count}</span>`,
+      let paginationNumber = `${index + 1}<span class="bda-pagination__line"> | </span>${count}`,
         paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
       paginationContainer.appendTo($element)
     }
@@ -217,6 +217,7 @@ require([
       $(document).on('click', '.close_zoom, .popup__bg', () => {
         $('.zoom').remove()
         $('.popup__bg').addClass('hide')
+        $('.popup__container').addClass('hide')
       })
 
       function updateNavigation(isLastPage) {
@@ -303,7 +304,10 @@ require([
         }
 
         container.removeClass('hide')
-        iframe.attr('src', iframe.data('src'))
+
+        if (!iframe.hasClass('bda-video__iframe')) {
+          iframe.attr('src', iframe.data('src'))
+        }
 
         $(document).keydown(function (event) {
           if (event.keyCode == 27) {
@@ -319,7 +323,7 @@ require([
           }
         })
 
-        $('.popup__close').on('click', () => {
+        $('.popup__close, .popup__bg').on('click', () => {
           container.addClass('hide')
           $('.popup__bg').addClass('hide')
 
@@ -334,6 +338,21 @@ require([
         })
       })
       // PopUp End
+
+      // fullscreen video popup Begin
+      function videoFullScreen(e) {
+        if (e.target == document) {
+          $('.popup__bg').css('z-index', '2')
+          $('.bda-main-nav span, .bda-pagination').css('z-index', '1')
+        } else {
+          $('.popup__bg, .bda-main-nav span, .bda-pagination').css('z-index', '-1')
+        }
+      }
+
+      document.addEventListener("fullscreenchange", videoFullScreen, false)
+      document.addEventListener("webkitfullscreenchange", videoFullScreen, false)
+      document.addEventListener("mozfullscreenchange", videoFullScreen, false)
+      // fullscreen video popup End
 
       // Frases Begin
       $(".bda-phrases__button-validate").on("click", function () {

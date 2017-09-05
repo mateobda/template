@@ -14,6 +14,4 @@ function init() {
   $('#bda-tab-container--number').easytabs()
 
   $('#bda-tab-container-ver').easytabs()
-
-  $('#bda-tab-container--phrases').easytabs()
 }

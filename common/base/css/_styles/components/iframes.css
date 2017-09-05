@@ -1,0 +1,9 @@
+iframe {
+  width: 100%;
+  height: 510px;
+}
+
+.iframe--tab {
+  margin-top: -20px;
+  height: 450px;
+}

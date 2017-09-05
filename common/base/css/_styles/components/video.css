@@ -47,3 +47,11 @@
   height: 0;
   transition-delay: 0s, 800ms;
 }
+
+.bda-video--tab {
+  margin-top: -10px;
+}
+
+.bda-video--tab .bda-video__container {
+  margin: 0 auto;
+}

@@ -1,0 +1,90 @@
+.images {
+  position: relative;
+}
+
+.images img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.hoverimages {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+}
+
+.hoverimages i {
+  font-size: 45px;
+}
+
+.hoverimages span {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  padding: 50px 0;
+  border: 1px solid white;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hoverimages strong {
+  display: block;
+  font-weight: normal;
+}
+
+.square {
+  position: absolute;
+  left: 50%;
+  background: #FFFFFF;
+  width: 595px;
+  top: 20px;
+  padding: 10px;
+  height: auto;
+  transform: translateX(-50%);
+  z-index: 5;
+  max-height: 595px;
+}
+
+.horizontal {
+  position: absolute;
+  left: 50%;
+  background: #FFFFFF;
+  width: 1200px;
+  top: 20px;
+  padding: 10px;
+  transform: translateX(-50%);
+  z-index: 5;
+  max-height: 595px;
+}
+
+.vertical {
+  position: absolute;
+  left: 50%;
+  background: #FFFFFF;
+  width: 800px;
+  top: 20px;
+  padding: 10px;
+  transform: translateX(-50%);
+  z-index: 5;
+  height: 595px;
+}
+
+.close_zoom {
+  position: absolute;
+  top: -16px;
+  left: 98%;
+  background: #313131;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
+}

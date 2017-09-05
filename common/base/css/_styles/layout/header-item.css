@@ -1,12 +1,12 @@
 .bda-title {
-  height: 60px;
-  margin: 0 0 15px;
-  padding: 12px 0 0 70px;
+  height: 50px;
+  margin: 0 0 10px;
+  padding: 10px 0 0 70px;
   border-top: 4px solid #000;
-  background: -webkit-linear-gradient(left, #4f6b3b 26%, #5da331 26%, #5da331 26%, #5da331 47%, #cbcd30 47%, #cbcd30 68%, #d46919 68%, #d46919 85%, #c91b17 86%);
+  background: -webkit-linear-gradient(left,#4f6b3b 26%,#5da331 26%,#5da331 26%,#5da331 47%,#cbcd30 47%,#cbcd30 68%,#d46919 68%,#d46919 85%,#c91b17 86%);
   background-repeat: no-repeat;
-  background-position-y: 52px;
-  font-size: 22px;
+  background-position-y: 42px;
+  font-size: 1.2em;
   font-weight: 100;
 }
 
@@ -20,11 +20,11 @@
 .bda-description i {
   display: inline-block;
   margin-right: 5px;
-  font-size: 22px;
+  font-size: 1.2em;
 }
 
 .bda-description strong {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 100;
   text-align: justify;
 }
@@ -34,5 +34,5 @@
 }
 
 .bda-description--alt strong {
-  font-size: 14px;
+  font-size: 0.8em;
 }
