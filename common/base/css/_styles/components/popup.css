@@ -56,11 +56,11 @@
 
 .popup__container--cc {
   position: absolute;
-  left: 5%;
+  left: 4%;
   bottom: 9%;
-  width: auto;
+  width: 55%;
   height: auto;
-  max-height: 61%;
+  max-height: 60%;
   font-size: 16px;
   border-radius: 20px 0px 0px;
   padding: 10px;
@@ -76,13 +76,13 @@
 
 .popup__close--cc {
   position: absolute;
-  top: -30%;
+  top: -20px;
   left: 97%;
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  font-size: 16px;
-  padding: 9px;
+  font-size: 1.4em;
+  padding: 8px;
   cursor: pointer;
   text-align: center;
   color: #fff;

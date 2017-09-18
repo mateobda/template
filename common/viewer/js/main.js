@@ -16,7 +16,7 @@ $(function() {
       $(this).children("organization").each(function(i, e) {
         $(this).children("item").each(function(i, e) {
           var $arrowIcon = '<span class="fa fa-arrow-up" aria-hidden="true"></span>';
-          var $div = $(`<div class="main-nav__tab"><i class="fa fa-${ i == 0 ? 'sign-out' : i == 1 ? 'pencil' : i == '2' ? 'info-circle' : 'file-text-o' }" aria-hidden="true"></i>${$(this).children("title").text()} ${$arrowIcon}`);
+          var $div = $(`<div class="main-nav__tab"><i class="fa fa-${ i == 0 ? 'files-o' : 'file-text-o' }" aria-hidden="true"></i>${$(this).children("title").text()} ${$arrowIcon}`);
           var $cld = $(`<ul class="main-nav__list"></ul>`);
 
           $div.click(function(e) {
