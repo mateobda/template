@@ -1,10 +1,12 @@
 .images {
+  width: 100%;
   position: relative;
 }
 
 .images img {
-  width: 100%;
   cursor: pointer;
+  max-height: 502px;
+  max-width: 100%;
 }
 
 .hoverimages {
@@ -74,7 +76,7 @@
   height: 595px;
 }
 
-.close_zoom {
+.close_zoom, .close_zoom_popup {
   position: absolute;
   top: -16px;
   left: 98%;

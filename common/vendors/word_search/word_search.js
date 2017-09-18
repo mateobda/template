@@ -398,6 +398,7 @@
 
   $.fn.wordSearch = function (options) {
     let list = $("<ul>/").addClass("bda-word-search__list-words")
+    $(".bda-game__error").addClass("hide")
 
     $.each(options.words, function (k, v) {
       list.append($("<li class='bda-word-search__word'>").attr("name", v).html(`<span>${v.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())}</span>`))
