@@ -83,7 +83,7 @@ require([
 
   sg.init(function () {
     const $items = $('.bb-item'),
-      count = $items.length
+    count = $items.length
 
     window.triggered = false
 
@@ -106,7 +106,7 @@ require([
 
     function pagination(index, $element) {
       let paginationNumber = `${index + 1}<span class="bda-pagination__line"> | </span>${count}`,
-        paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
+      paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
       paginationContainer.appendTo($element)
     }
 
@@ -120,22 +120,22 @@ require([
     var Page = (function () {
 
       var $items = $('.bb-item'),
-        itemsCount = $items.length,
-        current = 0,
-        bb = $('.bb-bookblock').bookblock({
-          speed: 600,
-          perspective: 5000,
-          shadowSides: 0.8,
-          shadowFlip: 0.4,
-          onEndFlip: (old, page, isLimit) => {
-            current = page
-            updateNavigation(isLimit)
-            window.triggered = true
-          }
-        }),
-        $navNext = $('#bb-nav-next'),
-        $navPrev = $('#bb-nav-prev').addClass('off'),
-        $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
+      itemsCount = $items.length,
+      current = 0,
+      bb = $('.bb-bookblock').bookblock({
+        speed: 600,
+        perspective: 5000,
+        shadowSides: 0.8,
+        shadowFlip: 0.4,
+        onEndFlip: (old, page, isLimit) => {
+          current = page
+          updateNavigation(isLimit)
+          window.triggered = true
+        }
+      }),
+      $navNext = $('#bb-nav-next'),
+      $navPrev = $('#bb-nav-prev').addClass('off'),
+      $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
 
       itemsCount == 1 ? $navNext.addClass("off") : ""
 
@@ -175,7 +175,27 @@ require([
         const dataShape = $(this).data('img')
         const src_img = $(this).attr('src');
 
-        $(this).replaceWith(`<div class="images"><img src="${src_img}" data-src="${src_img}" data-img="${dataShape}"></div>`)
+        if ($(this).closest('.bb-item').attr('id') === 'item1') {
+          $(this).replaceWith(`<div class="images"><img src="${src_img}" data-img="${dataShape}"></div>`)
+        } else {
+          $(this).replaceWith(`<div class="images"><img src="" data-src="${src_img}" data-img="${dataShape}"></div>`)
+
+        }
+        //
+        // console.log($(this).closest('.bb-item').attr('id'));
+      })
+      $('iframe').each(function (index, value) {
+
+        const src_frame = $(this).attr('src');
+
+        if ($(this).closest('.bb-item').attr('id') === 'item1') {
+          $(this).replaceWith(`<iframe   src="${src_frame}" scrolling="no">`)
+        } else {
+          $(this).replaceWith(`<iframe src=""  data-src="${src_frame}" scrolling="no">`)
+
+        }
+        //
+        // console.log($(this).closest('.bb-item').attr('id'));
       })
 
       $(document).on('click', '.images img', function () {
@@ -185,22 +205,28 @@ require([
         const width = $(this)[0].naturalWidth
         const height = $(this)[0].naturalHeight
         var new_height = Math.floor(height * 1200 / width)
-
         new_height >= 575 ? new_height = 575 : new_height
+
+console.log($(this).parents('.popup__container').length);
+        if ($(this).parents('.popup__container').length == 0) {
+          var closeFlag = 'close_zoom'
+        } else {
+          closeFlag = 'close_zoom_popup'
+        }
 
         switch (dataShape) {
           case 'square':
-            item.append(`<div class="zoom square animated fadeIn"><img style="width:100%;" src="${src_img}"><div class="close_zoom">X</div></div>`)
-            $('.popup__bg').removeClass('hide')
-            break
+          item.append(`<div class="zoom square animated fadeIn"><img style="width:100%;" src="${src_img}"><div class="${closeFlag}">X</div></div>`)
+          $('.popup__bg').removeClass('hide')
+          break
           case 'horizontal':
-            item.append(`<div class="zoom horizontal animated fadeIn "><img style="width:100%; height:${new_height}px" src="${src_img}"><div class="close_zoom">X</div></div>`)
-            $('.popup__bg').removeClass('hide')
-            break
+          item.append(`<div class="zoom horizontal animated fadeIn "><img style="width:100%; height:${new_height}px" src="${src_img}"><div class="${closeFlag}">X</div></div>`)
+          $('.popup__bg').removeClass('hide')
+          break
           case 'vertical':
-            item.append(`<div class="zoom vertical animated fadeIn "><div style="height:575px; overflow-y:auto"><img style="width:100%;" src="${src_img}"></div><div class="close_zoom">X</div></div>`)
-            $('.popup__bg').removeClass('hide')
-            break
+          item.append(`<div class="zoom vertical animated fadeIn "><div style="height:575px; overflow-y:auto"><img style="width:100%;" src="${src_img}"></div><div class="${closeFlag}">X</div></div>`)
+          $('.popup__bg').removeClass('hide')
+          break
         }
       })
 
@@ -214,10 +240,27 @@ require([
         $('.hoverimages').remove()
       })
 
-      $(document).on('click', '.close_zoom, .popup__bg', () => {
+      $(document).on('click', '.popup__bg', () => {
         $('.zoom').remove()
         $('.popup__bg').addClass('hide')
         $('.popup__container').addClass('hide')
+      })
+
+      // $(document).on('click', '.close_zoom', () => {
+      //   console.log($('.zoom').length);
+      //   if ($('.zoom').length != 0) {
+      //     $('.zoom').remove()
+      //   } else {
+      //
+      //   }
+      // })
+
+      $(document).on('click', '.close_zoom', () => {
+        $('.popup__bg').addClass('hide')
+        $('.zoom').remove()
+      })
+      $(document).on('click', '.close_zoom_popup', () => {
+        $('.zoom').remove()
       })
 
       function updateNavigation(isLastPage) {
@@ -280,6 +323,7 @@ require([
             if (nWords === matches) {
               $(this).closest(".bb-item").prepend($successGames)
               $(".bda-game__modal, .bda-game__message").removeClass("hide")
+              $(".bda-game__error").addClass("hide")
             }
 
             closeBgWin()
@@ -377,14 +421,10 @@ require([
 
           if (respuestasCorrectas === nphrases) {
             t.addClass("bda-phrases__input--success")
-            $navPrev.addClass('off')
-            $navNext.addClass('off')
             $(".bda-game__modal, .bda-game__error").addClass("hide")
             $(".bda-game__modal, .bda-game__win").removeClass("hide")
 
           } else {
-            $navPrev.addClass('off')
-            $navNext.addClass('off')
             $(".bda-game__modal, .bda-game__win").addClass("hide")
             $(".bda-game__modal, .bda-game__error").removeClass("hide")
           }
@@ -393,6 +433,11 @@ require([
 
       closeBgWin()
       // Frases End
+
+      //Add target: blank to links in creative-commons
+      $('.popup__content--cc').children('a').attr('target','_blank')
+      // End Add target blank
+
 
       // Begin Pagination
       var pg = {}
@@ -406,14 +451,14 @@ require([
 
         if ($(this).hasClass("btn-next")) {
           pg[id]++
-            $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
+          $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
 
           if (pg[id] > 1) $(this).parent().children('.btn-back').removeClass('hide')
 
           if (pg[id] === npag) $(this).parent().children('.btn-next').addClass('hide')
         } else {
           pg[id]--
-            $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
+          $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
 
           if (pg[id] === 1) $(this).parent().children('.btn-back').addClass('hide')
 

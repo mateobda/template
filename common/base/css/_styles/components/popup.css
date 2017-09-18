@@ -58,12 +58,13 @@
   position: absolute;
   left: 4%;
   bottom: 9%;
-  width: 55%;
+  max-width: 55%;
   height: auto;
   max-height: 60%;
   font-size: 16px;
   border-radius: 20px 0px 0px;
   padding: 10px;
+  z-index: 1;
 }
 
 .popup__content--cc {
