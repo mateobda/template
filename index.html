@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nomenclatura de la OVA</title>
+  <link href="common/viewer/css/main.css" rel="stylesheet">
+  <link href="common/base/css/vendors.css" rel="stylesheet">
+  <link href="common/base/css/main.css" rel="stylesheet">
+  <link href="common/layouts/MA/layout.css" rel="stylesheet">
+  <!-- OVA BEGIN -->
+  <style>
+
+
+  </style>
+  <!-- OVA END -->
+</head>
+
+<body>
+  <section id="container_ova">
+
+    <aside id="sidebar">
+
+      <header class="toogle-menu">
+        <span class="toogle-menu__item hide">Ocultar Menú</span>
+        <div class="toogle-menu__button">
+          <div class="toogle-menu__lines toogle-menu__lines-top"></div>
+          <div class="toogle-menu__lines toogle-menu__lines-middle"></div>
+          <div class="toogle-menu__lines toogle-menu__lines-bottom"></div>
+        </div>
+      </header>
+
+      <nav class="main-nav">
+        <div class="main-nav__tab on">
+          <i class="fa fa-files-o" aria-hidden="true"></i> Contenido <span class="fa fa-arrow-down" aria-hidden="true"></span>
+        </div>
+        <ul class="main-nav__list content-tab on"></ul>
+
+        <div class="main-nav__tab">
+          <i class="fa fa-file-text-o" aria-hidden="true"></i> Resumen <span class="fa fa-arrow-down" aria-hidden="true"></span>
+        </div>
+        <ul class="main-nav__list resume-tab"></ul>
+
+        <ul class="main-nav__arrows">
+          <li>
+            <button class="main-nav__arrows-item hide viewer_prev">
+							<i class="fa fa-arrow-left"></i>Anterior
+						</button>
+          </li>
+          <li>
+            <button class="main-nav__arrows-item viewer_next">
+							Siguiente<i class="fa fa-arrow-right"></i>
+						</button>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="btn-welcome-back"><i class="fa fa-mail-reply"></i> Regresar al curso</button>
+    </aside>
+
+    <div id="content_ova">
+      <div id="stage" sg-scalemode="showall"></div>
+    </div>
+  </section>
+
+  <script src="common/viewer/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script src="common/vendors/require/require.js" type="text/javascript"></script>
+  <script src="common/base/js/main.js" type="text/javascript"></script>
+  <script src="common/viewer/js/index.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    function init() {
+      $("#bda-word-search__content").wordSearch({
+        dificulty: 8,
+        words: ['cultura', 'paz']
+      })
+
+      $("#bda-word-search__content--modal").wordSearch({
+        dificulty: 8,
+        words: ['hola', 'mundo']
+      })
+
+      $('#bda-tab-container').easytabs()
+
+      $('#bda-tab-container--number').easytabs()
+
+      $('#bda-tab-container-ver').easytabs()
+    }
+  </script>
+</body>
+
+</html>

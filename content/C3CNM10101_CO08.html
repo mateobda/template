@@ -1,0 +1,103 @@
+<header class="bda-header">
+  <i class="icon-subject"></i>
+  <span class="bda-header__line"> | </span> Módulo
+  <span class="bda-header__line"> | </span> Unidad
+  <span class="bda-header__line"> | </span> Lección
+  <span class="bda-header__line"> | </span> Videos
+</header>
+
+<section class="bb-bookblock">
+
+  <nav class="bda-main-nav">
+    <span id="bb-nav-prev"><i class="icon-arrow-prev"></i></span>
+    <span id="bb-nav-next"><i class="icon-arrow-next"></i></span>
+  </nav>
+
+  <div class="popup__bg hide"></div>
+
+  <article class="bb-item" id="item1">
+
+    <header class="bda-item__header">
+      <h1 class="bda-title">Título de la página</h1>
+      <span class="bda-description">
+                  <i class="icon-pencil"></i>
+                  <strong>Descripción de la página</strong>
+                </span>
+    </header>
+
+    <section class="bda-item__content">
+      <div class="bda-video">
+        <div class="bda-video__container">
+          <iframe data-src="https://www.youtube.com/embed/-o_ZQDOzQdQ?autoplay=1" class="bda-video__iframe"></iframe>
+          <button class="bda-video__image icon-play"></button>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <article class="bb-item" id="item2">
+
+    <div class="popup__container hide animated fadeIn" id="popup__container1">
+      <div class="popup__close">X<span>Cerrar</span></div>
+
+      <div class="popup__content">
+        <div class="bda-video">
+          <div class="bda-video__container">
+            <iframe data-src="https://www.youtube.com/embed/-o_ZQDOzQdQ?autoplay=1" class="bda-video__iframe"></iframe>
+            <button class="bda-video__image icon-play"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="bda-item__header">
+      <h1 class="bda-title">Título de la página</h1>
+      <span class="bda-description">
+                  <i class="icon-pencil"></i>
+                  <strong>Descripción de la página</strong>
+                </span>
+    </header>
+
+    <section class="bda-item__content">
+      <span class="bda-btn bda-btn--popup" data-pop="1">Video popup</span>
+    </section>
+
+  </article>
+
+  <article class="bb-item" id="item3">
+
+    <header class="bda-item__header">
+      <h1 class="bda-title">Título de la página</h1>
+      <div class="bda-guide bda-guide--alt">
+        <i class="icon-clic"></i> Haz clic sobre las pestañas para visualizar el contenido
+      </div>
+    </header>
+
+    <section class="bda-item__content">
+      <div id="bda-tab-container" class="bda-tabs__container">
+        <ul class='bda-tabs-hor__list-tabs'>
+          <li class='bda-tabs-hor__tab'><a href="#tab0">Lorem ipsum</a></li>
+          <li class='bda-tabs-hor__tab'><a href="#tab1">Lorem ipsum</a></li>
+        </ul>
+
+        <div class="bda-tabs-hor__content">
+          <div id="tab0">
+            <div class="bda-video bda-video--tab">
+              <div class="bda-video__container">
+                <iframe data-src="https://www.youtube.com/embed/-o_ZQDOzQdQ?autoplay=1" class="bda-video__iframe"></iframe>
+                <button class="bda-video__image icon-play"></button>
+              </div>
+            </div>
+          </div>
+          <div id="tab1">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam animi labore odit doloribus hic ex quia est debitis illum
+            molestiae minima, ipsa deleniti quasi rerum assumenda sapiente voluptatibus repudiandae similique.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+</section>

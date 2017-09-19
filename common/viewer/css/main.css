@@ -1,76 +1,74 @@
 body {
-  font-family: 'Open Sans', sans-serif;
-	margin: 0;
-	padding: 0;
 	overflow: hidden;
 }
 
 a { text-decoration: none; color: rgb(61, 105, 55); }
 
-a:hover { text-decoration: none; }
-
-a:visited, a.visited { color: rgb(93, 163, 52); }
-
-a:active, a.active { color: rgb(89, 185, 76); }
-
-#container {
-	width: 100%;
-	margin: 0 auto;
-	overflow: hidden;
+#content_ova {
+  -webkit-filter: blur(0);
+  -moz-filter: blur(0);
+  -o-filter: blur(0);
+  -ms-filter: blur(0);
+  filter: blur(0);
+  cursor: default;
 }
 
-#topbar {
-  display: flex;
-	height: 70px;
-	background-color: rgb(93, 163, 52);
-}
-
-#topbar a {
-  color: rgb(255, 255, 255);
+#content_ova.on {
+  left: 300px;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+  transition: filter 0.40s cubic-bezier(0.4, 0.0, 0.2, 1);
+  cursor: pointer;
+  pointer-events: none;
 }
 
 #sidebar {
-	width: 300px;
-  float: left;
-  padding-bottom: 10px;
-	background-color: rgb(93, 163, 52);
-	overflow-x: auto;
+  width: 70px;
+  height: 70px;
+  box-shadow: none;
+  overflow: hidden;
 }
 
-#content {
-	position: absolute;
-	left: 301px;
-	top: 71px;
-  width: auto;
-	margin: 0px;
-	padding: 0px;
-	z-index: 99;
+#sidebar.on {
+  position: absolute;
+  width: 300px;
+  height: 100vh;
+  transition: width 0.35s cubic-bezier(0.4, 0.0, 0.2, 1);
+  background: linear-gradient(rgb(93, 163, 52), rgb(56, 134, 59));
+  box-shadow: 0px 2px 5px #2c612b;
+  overflow-x: auto;
+  z-index: 1;
 }
 
 .toogle-menu {
   display: flex;
   position: relative;
-  width: 300px;
-  height: 100%;
-  background-color: rgb(61, 105, 55);
+  height: 70px;
+  background-color: rgb(60, 137, 59);
   text-align: center;
+  cursor: pointer;
 }
 
 .toogle-menu__item {
   align-self: center;
   justify-content: center;
   width: 100%;
+  padding: 25px 0;
+  color: rgb(255, 255, 255);
+  font-size: 1.2em;
   text-transform: uppercase;
 }
 
 .toogle-menu__button {
-	position: absolute;
-	top: 33%;
-	right: 10%;
+  position: absolute;
+	top: 23px;
+  right: 30%;
   height: 25px;
   width: 30px;
-  transition: all 0.35s ease-out;
-	cursor: pointer;
+  transition: all 0.37s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .toogle-menu__lines {
@@ -82,16 +80,40 @@ a:active, a.active { color: rgb(89, 185, 76); }
   backface-visibility: hidden;
 }
 
-.toogle-menu__button.on .toogle-menu__lines-top {
-  transform: rotate(45deg) translate(0px, 8px);
+.toogle-menu__lines-top {
+  transform: rotate(0) translate(0, 0);
 }
 
-.toogle-menu__button.on .toogle-menu__lines-middle {
+.toogle-menu__lines-middle {
+  opacity: 1;
+
+}
+
+.toogle-menu__lines-bottom {
+  transform: rotate(0) translate(0, 0);
+}
+
+.on .toogle-menu__button {
+	right: 10%;
+}
+
+.on .toogle-menu__lines-top {
+  transform: rotate(45deg) translate(0, 8px);
+}
+
+.on .toogle-menu__lines-middle {
   opacity: 0;
 }
 
-.toogle-menu__button.on .toogle-menu__lines-bottom {
+.on .toogle-menu__lines-bottom {
   transform: rotate(-45deg) translate(0, -10px);
+}
+
+.on .main-nav,
+.on .btn-welcome-back {
+  position: relative;
+  left: 0;
+  opacity: 1;
 }
 
 .nav-arrows {
@@ -104,13 +126,24 @@ a:active, a.active { color: rgb(89, 185, 76); }
   margin-right: 50px;
 }
 
+.main-nav {
+  position: absolute;
+  left: -400px;
+  opacity: 0;
+  transition: left 0.37s ease-out, opacity 0.40s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
 .main-nav__tab {
   position: relative;
   padding: 15px 10px 15px 30px;
-  border: 1px solid #fff;
   color: #fff;
   text-transform: uppercase;
   cursor: pointer;
+  box-shadow: 0px 1px 3px #297128;
+}
+
+.main-nav__tab.on span {
+  transform: rotate(180deg)
 }
 
 .main-nav__tab i {
@@ -125,25 +158,135 @@ a:active, a.active { color: rgb(89, 185, 76); }
 	transition: all 0.25s ease-in;
 }
 
-.animate-arrow {
-  transform: rotate(180deg);
+.main-nav__list {
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  transition: all 0.37s cubic-bezier(0.4, 0.0, 0.2, 1);
+  background-color: #fff;
+  color: rgb(93, 163, 52);
+  overflow: hidden;
+  opacity: 0;
 }
 
-.main-nav__list {
-  margin: 0;
-  padding-left: 0;
-  background-color: #fff;
-	color: rgb(93, 163, 52);
+.main-nav__list.on {
+  padding: 10px 0;
+  max-height: 500px;
+  overflow: hidden;
+  opacity: 1;
 }
 
 .main-nav__item {
-	padding: 3px 0 3px 50px;
-	border: 1px solid rgb(93, 163, 52);
-  border-bottom: 0;
+  position: relative;
+}
+
+.main-nav__item a {
+  display: block;
+  padding: 5px 0 5px 50px;
   text-transform: uppercase;
 }
 
-.main-nav__item::before {
-	margin-right: 5px;
-	content: "•";
+.main-nav__item.active a {
+  color: rgb(93, 163, 52);
+  font-family: 'Open Sans';
+  font-weight: bolder;
+}
+
+.main-nav__item.active::before {
+  position: absolute;
+  top: 5px;
+  left: 35px;
+  content: "\f0da";
+}
+
+.main-nav__arrows {
+  margin-top: 1.8em;
+  padding-left: 0;
+  text-align: center;
+  list-style-type: none;
+}
+
+.main-nav__arrows li {
+  display: inline-block;
+}
+
+.main-nav__arrows-item {
+  display: inline-block;
+  padding: .5em;
+  border: 2px solid #59a034;
+  border-radius: 0.5em;
+  background: #3b893a;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.main-nav__arrows-item i,
+.btn-welcome-back i {
+  margin: 0 0.5em 0 0.5em;
+}
+
+.btn-welcome-back {
+  display: block;
+  padding: .5em;
+  border: 2px solid #59a034;
+  border-radius: 0.5em;
+  transition: left 0.40s ease-out, opacity 0.35s ease-out;
+  background: #3b893a;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 3em auto 0;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .toogle-menu {
+    height: 50px;
+  }
+
+  .toogle-menu__item {
+    padding: 20px 0;
+    font-size: 1em;
+  }
+
+  .toogle-menu__button {
+    top: 14px;
+    width: 25px;
+  }
+
+  .main-nav__tab {
+    padding: 10px 10px 10px 30px;
+  }
+
+  .main-nav__tab span {
+    bottom: 13px;
+  }
+
+  .main-nav__list {
+    padding: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #sidebar {
+    width: 70%;
+  }
+
+  .on#sidebar {
+    width: 50px;
+  }
+
+  .btn-welcome-back {
+    font-size: 0.8em;
+  }
+
+  .on .toogle-menu__button {
+    top: 12px;
+    right: 27%;
+  }
+
+  .toogle-menu__item {
+    font-size: 0.9em;
+  }
 }
