@@ -24,6 +24,10 @@ $(document).on('ready', () => {
     .then(data => data.json())
     .then(data => {
       buildMenu(data)
+
+      const firstContent = `content/${$('.main-nav').find("[data-nav='content-1']").data("ova")}`
+      $.get(firstContent, (data, status) => $("#stage").html(data))
+
       return data
     })
     .then(data => {
@@ -153,8 +157,6 @@ $(document).on('ready', () => {
       }
     })
   }
-
-  $.get("content/C3CNM10101_CO01.html", (data, status) => $("#stage").html(data))
 })
 
 $(document).on("click", ".navigation", function (e) {
