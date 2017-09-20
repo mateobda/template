@@ -73,13 +73,9 @@ $(document).on('ready', () => {
   const toggleArrowNext = () => {
     $('.content-tab').prev().addClass('on')
     $('.content-tab').addClass('on')
-    $('.resume-tab').prev().removeClass('on')
-    $('.resume-tab').removeClass('on')
   }
 
   const toggleArrowPrev = () => {
-    $('.content-tab').prev().removeClass('on')
-    $('.content-tab').removeClass('on')
     $('.resume-tab').prev().addClass('on')
     $('.resume-tab').addClass('on')
   }
@@ -131,8 +127,7 @@ $(document).on('ready', () => {
       const conType = $('.active').children().data("nav").split("-")[0]
       const contNum = parseInt($('.active').children().data("nav").split("-")[1])
 
-      if (((conType === 'content') && (contNum > 1)) || ((conType === 'resume') && (contNum <= numRes) && (contNum >
-        1))) {
+      if (((conType === 'content') && (contNum > 1)) ) {
           $('.fa-arrow-right').parent().removeClass('hide')
           let theme = contNum - 1
           theme = conType + '-' + (theme)
@@ -148,10 +143,12 @@ $(document).on('ready', () => {
 
         } else if ((conType == 'resume') && (contNum == 1)) {
           var theme = 'content-' + numCont
+
           $('.fa-arrow-right').parent().removeClass('hide')
-          if (numCont==1){
-            $('.fa-arrow-left').parent().adClass('hide')
+          if (numCont==1) {
+            $('.fa-arrow-left').parent().addClass('hide')
           }
+
           toggleArrowNext()
 
           $('.main-nav__item').removeClass('active fa')

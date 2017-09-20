@@ -34,7 +34,7 @@ for (; !fc.atEnd(); fc.moveNext() ) {
  		co += '{"order" : "'+ sectionNumber +'", "title": "Tema '+ sectionNumber +'", "link":"'+fileName+'"},';
  	}
  	if(sectionName == "re"){
- 		re += '{"order" : "'+ sectionNumber +'", "title": "Resumen '+ sectionNumber +'", "link":"'+fileName+'"},';
+ 		re += '{"order" : "'+ sectionNumber +'", "title": "Resumen", "link":"'+fileName+'"},';
  	}
  }
 }

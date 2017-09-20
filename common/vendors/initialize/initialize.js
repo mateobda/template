@@ -104,9 +104,9 @@ function startPage() {
         const src_frame = $(this).attr('src');
 
         if ($(this).closest('.bb-item').attr('id') === 'item1') {
-          $(this).replaceWith(`<iframe   src="${src_frame}" scrolling="no">`)
+          $(this).replaceWith(`<iframe src="${src_frame}" data-src="${src_frame}" scrolling="no">`)
         } else {
-          $(this).replaceWith(`<iframe src=""  data-src="${src_frame}" scrolling="no">`)
+          $(this).replaceWith(`<iframe src="" data-src="${src_frame}" scrolling="no">`)
 
         }
       })
