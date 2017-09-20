@@ -22,3 +22,5 @@
 
 @import url("utils/helpers.css");
 @import url("utils/messages.css");
+
+@import url("viewer/viewer.css");

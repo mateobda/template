@@ -5,20 +5,12 @@ body {
 a { text-decoration: none; color: rgb(61, 105, 55); }
 
 #content_ova {
-  -webkit-filter: blur(0);
-  -moz-filter: blur(0);
-  -o-filter: blur(0);
-  -ms-filter: blur(0);
   filter: blur(0);
   cursor: default;
 }
 
 #content_ova.on {
   left: 300px;
-  -webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
-  -ms-filter: blur(2px);
   filter: blur(2px);
   transition: filter 0.40s cubic-bezier(0.4, 0.0, 0.2, 1);
   cursor: pointer;
@@ -39,7 +31,7 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
   transition: width 0.35s cubic-bezier(0.4, 0.0, 0.2, 1);
   background: linear-gradient(rgb(93, 163, 52), rgb(56, 134, 59));
   box-shadow: 0px 2px 5px #2c612b;
-  overflow-x: auto;
+  overflow-y: auto;
   z-index: 1;
 }
 
