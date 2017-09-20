@@ -90,7 +90,7 @@ $(document).on('ready', () => {
       removeNavButtons(numRes)
     })
 
-    $(document).on('click touchstart', '.viewer_next', function () {
+    $(document).on('click', '.viewer_next', function () {
       const conType = $('.active').children().data("nav").split("-")[0]
       const contNum = parseInt($('.active').children().data("nav").split("-")[1])
 
@@ -123,7 +123,7 @@ $(document).on('ready', () => {
       }
     })
 
-    $(document).on('click touchstart', '.viewer_prev', function () {
+    $(document).on('click', '.viewer_prev', function () {
       const conType = $('.active').children().data("nav").split("-")[0]
       const contNum = parseInt($('.active').children().data("nav").split("-")[1])
 
