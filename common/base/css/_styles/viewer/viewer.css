@@ -19,7 +19,7 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
 
 #sidebar {
   width: 70px;
-  height: 70px;
+  height: 100vh;
   box-shadow: none;
   overflow: hidden;
 }
@@ -27,7 +27,6 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
 #sidebar.on {
   position: absolute;
   width: 300px;
-  height: 100vh;
   transition: width 0.35s cubic-bezier(0.4, 0.0, 0.2, 1);
   background: linear-gradient(rgb(93, 163, 52), rgb(56, 134, 59));
   box-shadow: 0px 2px 5px #2c612b;
@@ -221,16 +220,24 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
 
 .btn-welcome-back {
   display: block;
+  position: relative;
+  left: -200%;
   padding: .5em;
   border: 2px solid #59a034;
   border-radius: 0.5em;
-  transition: left 0.40s ease-out, opacity 0.35s ease-out;
+  transition: left 0.37s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.37s cubic-bezier(0.4, 0.0, 0.2, 1);
   background: #3b893a;
   color: #fff;
   text-transform: uppercase;
   margin: 3em auto 0;
   font-size: 1em;
   cursor: pointer;
+  opacity: 0;
+}
+
+.btn-welcome-back.on {
+  left: 0;
+  opacity: 1;
 }
 
 @media (max-width: 1024px) {
