@@ -9,7 +9,7 @@
     if (typeof jQuery.ui == 'undefined') throw new Error("require jQuery-ui for sg-draggable");
 
     if (typeof $.fn.hitTestPoint == 'undefined') {
-        /*	
+        /*
          *	jQuery hitTest plugin
          *	Demo and documentation:
          *	http://e-smartdev.com/#!jsPluginList/hittestJQuery
@@ -84,7 +84,7 @@
                         return;
 
                     var canvas = getCanvasFromElement(elementTarget);
-                    if (canvas == null) { // the browser is not compatible with canvas element 
+                    if (canvas == null) { // the browser is not compatible with canvas element
                         chk = $(this);
                         return;
                     }
@@ -170,7 +170,7 @@
                         objectCanvas = getCanvasFromElement(this);
                         objectToTestCanvas = getCanvasFromElement($object[i]);
 
-                        if (objectCanvas == null || objectToTestCanvas == null) { // the browser is not compatible with canvas element 
+                        if (objectCanvas == null || objectToTestCanvas == null) { // the browser is not compatible with canvas element
                             //return true;
                             chk = true;
                             break;
@@ -187,7 +187,7 @@
                             break;
                         }
 
-                        // get the intersectionRect bitmap of the 2 objects to test  
+                        // get the intersectionRect bitmap of the 2 objects to test
                         objectImageData = ctxObject.getImageData(intersectionRect.x - objectRect.x, intersectionRect.y - objectRect.y, intersectionRect.width > 0 ? intersectionRect.width : 1, intersectionRect.height > 0 ? intersectionRect.height : 1);
                         objectToTestImageData = ctxObjectToTest.getImageData(intersectionRect.x - objectToTestRect.x, intersectionRect.y - objectToTestRect.y, intersectionRect.width > 0 ? intersectionRect.width : 1, intersectionRect.height > 0 ? intersectionRect.height : 1);
 
@@ -235,7 +235,7 @@
 
                 var canvas = isImg ? document.createElement('canvas') : jqElement;
 
-                if (!canvas.getContext) // the browser is not compatible with canvas element 
+                if (!canvas.getContext) // the browser is not compatible with canvas element
                     return null;
 
                 var ctx;
@@ -299,7 +299,7 @@
     //if( !("hitTestPoint" in $( document )) ) throw new Error("require jQuery plugin [jquery.hittest.js] for sg-draggable");
 
 
-    //#150211	
+    //#150211
     /*
 	****getTargetOffset function option type****
 	//target left top value
@@ -477,7 +477,7 @@
                                 top: hit[0].offsetTop + (hit.height() - this.height()) * 0.5
                             };
 
-                            //#150211					
+                            //#150211
                             //this.css( nop ).data( "originPos", nop );
                             this.data("originPos", nop);
 
@@ -587,13 +587,13 @@
                         .data("disPos", {
                             left: ui.position.left - e.clientX,
                             top: ui.position.top - e.clientY
-                        }).css("z-index", zidx++);
+                        }).css("z-index", 2);
 
 
                     if (op && op.clone) {
                         $this.data("helper", ui.helper);
                         //#150211
-                        ui.helper.css("z-index", zidx++);
+                        ui.helper.css("z-index", 2);
                     }
                 },
 
