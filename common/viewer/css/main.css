@@ -50,6 +50,7 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
   background-color: rgb(60, 137, 59);
   text-align: center;
   cursor: pointer;
+	z-index: 1;
 }
 
 .toogle-menu__item {
