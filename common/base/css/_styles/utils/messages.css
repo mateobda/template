@@ -63,3 +63,15 @@
   background: rgb(255, 255, 255);
   cursor: pointer;
 }
+
+.icon-sound {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  width: 1.2em;
+  height: 1.2em;
+  background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-play-128.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 1.2em;
+}
