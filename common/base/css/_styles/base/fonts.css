@@ -87,3 +87,19 @@
 .icon-creative-commons::before {
   content: "\62";
 }
+
+.icon-arrow-nav::before {
+  content: "\6a";
+}
+
+.icon-resume::before {
+  content: "\6b";
+}
+
+.icon-content::before {
+  content: "\6c";
+}
+
+.icon-welcome-back::before {
+  content: "\6e";
+}

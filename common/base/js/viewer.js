@@ -41,7 +41,7 @@ $(document).on('ready', () => {
     jsonInfo.menu.content.forEach((value, index) => {
 
       const itemContent =
-      `<li class="main-nav__item ${(value.order == 1) ? 'fa active' : ''}"><a href="" class="navigation" data-nav="content-${value.order}" data-ova="${value.link}">${value.title}</a></li>`
+      `<li class="main-nav__item ${(value.order == 1) ? 'active' : ''}"><a href="" class="navigation" data-nav="content-${value.order}" data-ova="${value.link}">${value.title}</a></li>`
       $('.content-tab').append(itemContent)
     })
 
@@ -58,15 +58,15 @@ $(document).on('ready', () => {
     const contNum = parseInt($('.active').children().data("nav").split("-")[1])
 
     if (dataNav !== "content-1") {
-      $('.fa-arrow-left').parent().removeClass('off')
+      $('.viewer_prev').removeClass('off')
     } else {
-      $('.fa-arrow-left').parent().addClass('off')
+      $('.viewer_prev').addClass('off')
     }
 
     if (dataNav == `resume-${numRes}`) {
-      $('.fa-arrow-right').parent().addClass('off')
+      $('.viewer_next').addClass('off')
     } else {
-      $('.fa-arrow-right').parent().removeClass('off')
+      $('.viewer_next').removeClass('off')
     }
   }
 
@@ -84,9 +84,9 @@ $(document).on('ready', () => {
     const numCont = jsonInfo.menu.content.length
     const numRes = jsonInfo.menu.resume.length
 
-    $(document).on('click touchstart', '.main-nav__item', function () {
-      $('.main-nav__item').removeClass('active fa')
-      $(this).addClass('active fa')
+    $(document).on('click', '.main-nav__item', function () {
+      $('.main-nav__item').removeClass('active')
+      $(this).addClass('active')
       removeNavButtons(numRes)
     })
 
@@ -95,28 +95,28 @@ $(document).on('ready', () => {
       const contNum = parseInt($('.active').children().data("nav").split("-")[1])
 
       if (((conType === 'content') && (contNum < numCont)) || ((conType === 'resume') && (contNum < numRes))) {
-        $('.fa-arrow-left').parent().removeClass('off')
+        $('.viewer_prev').removeClass('off')
         let theme = contNum + 1
         theme = conType + '-' + (theme)
         const file = `content/${$('.main-nav').find("[data-nav='"+ theme + "']").data("ova")}`
 
         $.get(file, (data, status) => $("#stage").html(data).promise().done(startPage()))
 
-        $('.main-nav__item').removeClass('active fa')
-        $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active fa')
+        $('.main-nav__item').removeClass('active')
+        $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active')
         if ((conType == 'resume') && (contNum == numRes - 1)) {
-          $('.fa-arrow-right').parent().addClass('off')
+          $('.viewer_next').addClass('off')
         }
 
       } else if ((conType == 'content') && (contNum == numCont)) {
         var theme = 'resume-1'
-        $('.fa-arrow-right').parent().addClass('off')
-        $('.fa-arrow-left').parent().removeClass('off')
+        $('.viewer_next').addClass('off')
+        $('.viewer_prev').removeClass('off')
 
         toggleArrowPrev()
 
-        $('.main-nav__item').removeClass('active fa')
-        $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active fa')
+        $('.main-nav__item').removeClass('active')
+        $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active')
         const file = `content/${$('.main-nav').find("[data-nav='" + theme + "']").data("ova")}`
 
         $.get(file, (data, status) => $("#stage").html(data).promise().done(startPage()))
@@ -128,31 +128,31 @@ $(document).on('ready', () => {
       const contNum = parseInt($('.active').children().data("nav").split("-")[1])
 
       if (((conType === 'content') && (contNum > 1)) ) {
-          $('.fa-arrow-right').parent().removeClass('off')
+          $('.viewer_next').removeClass('off')
           let theme = contNum - 1
           theme = conType + '-' + (theme)
           const file = `content/${$('.main-nav').find("[data-nav='"+ theme + "']").data("ova")}`
 
           $.get(file, (data, status) => $("#stage").html(data).promise().done(startPage()))
 
-          $('.main-nav__item').removeClass('active fa')
-          $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active fa')
+          $('.main-nav__item').removeClass('active')
+          $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active')
           if ((conType == 'content') && (contNum == 2)) {
-            $('.fa-arrow-left').parent().addClass('off')
+            $('.viewer_prev').addClass('off')
           }
 
         } else if ((conType == 'resume') && (contNum == 1)) {
           var theme = 'content-' + numCont
 
-          $('.fa-arrow-right').parent().removeClass('off')
+          $('.viewer_next').removeClass('off')
           if (numCont==1) {
-            $('.fa-arrow-left').parent().addClass('off')
+            $('.viewer_prev').addClass('off')
           }
 
           toggleArrowNext()
 
-          $('.main-nav__item').removeClass('active fa')
-          $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active fa')
+          $('.main-nav__item').removeClass('active')
+          $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active')
           const file = `content/${$('.main-nav').find("[data-nav='" + theme + "']").data("ova")}`
 
           $.get(file, (data, status) => $("#stage").html(data).promise().done(startPage()))

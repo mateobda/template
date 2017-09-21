@@ -1,13 +1,11 @@
 /* Vendors styles */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i|Open+Sans:400,700');
 @import url("_vendors/sg.css");
 @import url("_vendors/bookblock.css");
 @import url("_vendors/animate.css");
 @import url("_vendors/grid.css");
-@import url("_vendors/font-awesome.min.css");
 
 /* Custom styles */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i|Open+Sans:400,700');
-
 @import url("_styles/base/fonts.css");
 @import url("_styles/base/reset.css");
 

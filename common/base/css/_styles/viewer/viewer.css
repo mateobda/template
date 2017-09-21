@@ -135,7 +135,8 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
 }
 
 .main-nav__tab.on span {
-  transform: rotate(180deg)
+  transform: rotate(180deg);
+  bottom: 18px;
 }
 
 .main-nav__tab i {
@@ -146,7 +147,7 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
 .main-nav__tab span {
   position: absolute;
   right: 30px;
-  bottom: 18px;
+  bottom: 13px;
 	transition: all 0.25s ease-in;
 }
 
@@ -188,7 +189,8 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
   position: absolute;
   top: 5px;
   left: 35px;
-  content: "\f0da";
+  font-size: 0.8em;
+  content: "➤";
 }
 
 .main-nav__arrows {
@@ -211,6 +213,18 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
   color: #fff;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.main-nav__arrows-item i {
+  display: inline-block;
+}
+
+.viewer_prev i {
+  transform: rotate(90deg);
+}
+
+.viewer_next i {
+  transform: rotate(-90deg);
 }
 
 .main-nav__arrows-item i,
