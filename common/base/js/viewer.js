@@ -2,7 +2,7 @@ $(document).on('click', '.btn-welcome-back', () => window.close())
 
 $(document).on('click touchstart', 'html', () => {
   $('#sidebar, #content_ova').removeClass('on')
-  $('.toogle-menu__item').addClass('hide')
+  $('.toogle-menu__item').addClass('off')
 })
 
 $(document).on('click touchstart', '#sidebar', function (e) {
@@ -11,7 +11,7 @@ $(document).on('click touchstart', '#sidebar', function (e) {
 
 $(document).on('click', '.toogle-menu', () => {
   $('#sidebar, #content_ova').toggleClass('on')
-  $('.toogle-menu__item').toggleClass('hide')
+  $('.toogle-menu__item').toggleClass('off')
 })
 
 $(document).on('click', '.main-nav__tab', function () {
@@ -58,15 +58,15 @@ $(document).on('ready', () => {
     const contNum = parseInt($('.active').children().data("nav").split("-")[1])
 
     if (dataNav !== "content-1") {
-      $('.fa-arrow-left').parent().removeClass('hide')
+      $('.fa-arrow-left').parent().removeClass('off')
     } else {
-      $('.fa-arrow-left').parent().addClass('hide')
+      $('.fa-arrow-left').parent().addClass('off')
     }
 
     if (dataNav == `resume-${numRes}`) {
-      $('.fa-arrow-right').parent().addClass('hide')
+      $('.fa-arrow-right').parent().addClass('off')
     } else {
-      $('.fa-arrow-right').parent().removeClass('hide')
+      $('.fa-arrow-right').parent().removeClass('off')
     }
   }
 
@@ -95,7 +95,7 @@ $(document).on('ready', () => {
       const contNum = parseInt($('.active').children().data("nav").split("-")[1])
 
       if (((conType === 'content') && (contNum < numCont)) || ((conType === 'resume') && (contNum < numRes))) {
-        $('.fa-arrow-left').parent().removeClass('hide')
+        $('.fa-arrow-left').parent().removeClass('off')
         let theme = contNum + 1
         theme = conType + '-' + (theme)
         const file = `content/${$('.main-nav').find("[data-nav='"+ theme + "']").data("ova")}`
@@ -105,13 +105,13 @@ $(document).on('ready', () => {
         $('.main-nav__item').removeClass('active fa')
         $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active fa')
         if ((conType == 'resume') && (contNum == numRes - 1)) {
-          $('.fa-arrow-right').parent().addClass('hide')
+          $('.fa-arrow-right').parent().addClass('off')
         }
 
       } else if ((conType == 'content') && (contNum == numCont)) {
         var theme = 'resume-1'
-        $('.fa-arrow-right').parent().addClass('hide')
-        $('.fa-arrow-left').parent().removeClass('hide')
+        $('.fa-arrow-right').parent().addClass('off')
+        $('.fa-arrow-left').parent().removeClass('off')
 
         toggleArrowPrev()
 
@@ -128,7 +128,7 @@ $(document).on('ready', () => {
       const contNum = parseInt($('.active').children().data("nav").split("-")[1])
 
       if (((conType === 'content') && (contNum > 1)) ) {
-          $('.fa-arrow-right').parent().removeClass('hide')
+          $('.fa-arrow-right').parent().removeClass('off')
           let theme = contNum - 1
           theme = conType + '-' + (theme)
           const file = `content/${$('.main-nav').find("[data-nav='"+ theme + "']").data("ova")}`
@@ -138,15 +138,15 @@ $(document).on('ready', () => {
           $('.main-nav__item').removeClass('active fa')
           $('.main-nav').find("[data-nav='" + theme + "']").parent().addClass('active fa')
           if ((conType == 'content') && (contNum == 2)) {
-            $('.fa-arrow-left').parent().addClass('hide')
+            $('.fa-arrow-left').parent().addClass('off')
           }
 
         } else if ((conType == 'resume') && (contNum == 1)) {
           var theme = 'content-' + numCont
 
-          $('.fa-arrow-right').parent().removeClass('hide')
+          $('.fa-arrow-right').parent().removeClass('off')
           if (numCont==1) {
-            $('.fa-arrow-left').parent().addClass('hide')
+            $('.fa-arrow-left').parent().addClass('off')
           }
 
           toggleArrowNext()
@@ -168,5 +168,5 @@ $(document).on('ready', () => {
     $.get(file, (data, status) => $("#stage").html(data).promise().done(startPage()))
 
     $('#sidebar, #content_ova').removeClass('on')
-    $('.toogle-menu__item').addClass('hide')
+    $('.toogle-menu__item').addClass('off')
   })

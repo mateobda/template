@@ -102,7 +102,7 @@ gulp.task('common:base', ['styles:prod', 'scripts:viewer', 'scripts:main'], () =
 })
 
 gulp.task('common:prod', ['common:base'], () => {
-  return gulp.src(['./common/*/*', '!./common/base/**/*'])
+  return gulp.src(['./common/*/**', '!./common/base/**/*'])
     .pipe(gulp.dest(`../${nameOVA}_build/common/`))
 })
 

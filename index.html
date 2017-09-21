@@ -21,7 +21,7 @@
     <aside id="sidebar">
 
       <header class="toogle-menu">
-        <span class="toogle-menu__item hide">Ocultar Menú</span>
+        <span class="toogle-menu__item off">Ocultar Menú</span>
         <div class="toogle-menu__button">
           <div class="toogle-menu__lines toogle-menu__lines-top"></div>
           <div class="toogle-menu__lines toogle-menu__lines-middle"></div>
@@ -42,7 +42,7 @@
 
         <ul class="main-nav__arrows">
           <li>
-            <button class="main-nav__arrows-item hide viewer_prev">
+            <button class="main-nav__arrows-item off viewer_prev">
 							<i class="fa fa-arrow-left"></i>Anterior
 						</button>
           </li>
@@ -61,12 +61,11 @@
       <div id="stage" sg-scalemode="showall"></div>
     </div>
   </section>
-
   <script src="common/vendors/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
   <script src="common/vendors/require/require.js" type="text/javascript"></script>
-  <script src="common/base/js/main.js" type="text/javascript"></script>
+  <script async src="common/base/js/main.js" type="text/javascript"></script>
   <script src="common/base/js/viewer.js" type="text/javascript"></script>
-  <script type="text/javascript">
+  <script>
     function init() {
       $("#bda-word-search__content").wordSearch({
         dificulty: 8,
