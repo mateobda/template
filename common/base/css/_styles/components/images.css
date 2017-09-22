@@ -1,12 +1,9 @@
-.images {
-  width: 100%;
+.zoom-images {
   position: relative;
 }
 
-.images img {
+.zoom-images img {
   cursor: pointer;
-  max-height: 502px;
-  max-width: 100%;
 }
 
 .hoverimages {
@@ -23,15 +20,20 @@
 }
 
 .hoverimages span {
-  display: inline-block;
+  display: flex;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px;
-  padding: 50px 0;
-  border: 1px solid white;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 135px;
+  height: auto;
+  padding: 1em;
+  border-radius: 10px;
+  border: 1px solid #fff;
   transform: translate(-50%, -50%);
-  text-align: center;
+  line-height: 2em;
 }
 
 .hoverimages strong {
@@ -39,54 +41,58 @@
   font-weight: normal;
 }
 
-.square {
+.zoom-vertical {
   position: absolute;
+  top: 5%;
   left: 50%;
+  width: 50%;
+  padding: 1em;
+  transform: translateX(-50%);
   background: #FFFFFF;
-  width: 595px;
-  top: 20px;
-  padding: 10px;
+  z-index: 5;
+}
+
+.zoom-vertical div {
+  height: 570px;
+  overflow-y: auto;
+}
+
+.zoom-vertical img {
+  width: 100%;
   height: auto;
-  transform: translateX(-50%);
-  z-index: 5;
-  max-height: 595px;
 }
 
-.horizontal {
+.zoom-horizontal {
   position: absolute;
+  top: 5%;
   left: 50%;
+  width: auto;
+  height: 90%;
+  padding: 1em;
   background: #FFFFFF;
-  width: 1200px;
-  top: 20px;
-  padding: 10px;
   transform: translateX(-50%);
+  text-align: center;
   z-index: 5;
-  max-height: 595px;
 }
 
-.vertical {
-  position: absolute;
-  left: 50%;
-  background: #FFFFFF;
-  width: 800px;
-  top: 20px;
-  padding: 10px;
-  transform: translateX(-50%);
-  z-index: 5;
-  height: 595px;
+.zoom-horizontal img {
+  width: auto;
+  height: 100%;
 }
 
-.close_zoom, .close_zoom_popup {
+.close_zoom,
+.close_zoom_popup {
   position: absolute;
-  top: -16px;
+  top: -15px;
   left: 98%;
   background: #313131;
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   color: #fff;
-  padding: 5px;
+  padding: 6px;
   text-align: center;
   font-weight: bolder;
   cursor: pointer;
+  font-size: 1.3em;
 }

@@ -274,7 +274,11 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
   }
 
   .main-nav__tab span {
-    bottom: 13px;
+    bottom: 8px;
+  }
+
+  .main-nav__tab.on span {
+    bottom: 12px;
   }
 
   .main-nav__list {
@@ -283,11 +287,11 @@ a { text-decoration: none; color: rgb(61, 105, 55); }
 }
 
 @media (max-width: 480px) {
-  #sidebar {
+  .on#sidebar {
     width: 70%;
   }
 
-  .on#sidebar {
+  #sidebar {
     width: 50px;
   }
 

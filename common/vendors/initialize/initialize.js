@@ -88,84 +88,6 @@ function startPage() {
         })
       }
 
-      $('img').each(function (index, value) {
-        const dataShape = $(this).data('img')
-        const src_img = $(this).attr('src');
-
-        if ($(this).closest('.bb-item').attr('id') === 'item1') {
-          $(this).replaceWith(`<div class="images"><img src="${src_img}" data-img="${dataShape}"></div>`)
-        } else {
-          $(this).replaceWith(`<div class="images"><img src="" data-src="${src_img}" data-img="${dataShape}"></div>`)
-
-        }
-      })
-      $('iframe').each(function (index, value) {
-
-        const src_frame = $(this).attr('src');
-
-        if ($(this).closest('.bb-item').attr('id') === 'item1') {
-          $(this).replaceWith(`<iframe src="${src_frame}" data-src="${src_frame}" scrolling="no">`)
-        } else {
-          $(this).replaceWith(`<iframe src="" data-src="${src_frame}" scrolling="no">`)
-
-        }
-      })
-
-      $(document).on('click', '.images img', function () {
-        const dataShape = $(this).data('img')
-        const src_img = $(this).attr('src');
-        const item = $(this).closest('.bb-item')
-        const width = $(this)[0].naturalWidth
-        const height = $(this)[0].naturalHeight
-        var new_height = Math.floor(height * 1200 / width)
-        new_height >= 575 ? new_height = 575 : new_height
-
-        if ($(this).parents('.popup__container').length == 0) {
-          var closeFlag = 'close_zoom'
-        } else {
-          closeFlag = 'close_zoom_popup'
-        }
-
-        switch (dataShape) {
-          case 'square':
-            item.append(`<div class="zoom square animated fadeIn"><img style="width:100%;" src="${src_img}"><div class="${closeFlag}">X</div></div>`)
-            $('.popup__bg').removeClass('hide')
-            break
-          case 'horizontal':
-            item.append(`<div class="zoom horizontal animated fadeIn "><img style="width:100%; height:${new_height}px" src="${src_img}"><div class="${closeFlag}">X</div></div>`)
-            $('.popup__bg').removeClass('hide')
-            break
-          case 'vertical':
-            item.append(`<div class="zoom vertical animated fadeIn "><div style="height:575px; overflow-y:auto"><img style="width:100%;" src="${src_img}"></div><div class="${closeFlag}">X</div></div>`)
-            $('.popup__bg').removeClass('hide')
-            break
-        }
-      })
-
-      $(document).on('mouseover', '.images img', function () {
-        $(this).css('opacity', '0.4')
-        $(this).before(`<div class="hoverimages"><span><i class="icon-clic"></i><strong>Haz clic aquí</strong></span></div>`)
-      })
-
-      $(document).on('mouseout', '.images img', function () {
-        $(this).css('opacity', '1')
-        $('.hoverimages').remove()
-      })
-
-      $(document).on('click', '.popup__bg', () => {
-        $('.zoom').remove()
-        $('.popup__bg').addClass('hide')
-        $('.popup__container').addClass('hide')
-      })
-
-      $(document).on('click', '.close_zoom', () => {
-        $('.popup__bg').addClass('hide')
-        $('.zoom').remove()
-      })
-      $(document).on('click', '.close_zoom_popup', () => {
-        $('.zoom').remove()
-      })
-
       function updateNavigation(isLastPage) {
         if (current === 0) {
           $navNext.removeClass('off')
@@ -186,6 +108,87 @@ function startPage() {
         })
       }
 
+      // Iframe Begin
+      $('iframe').each(function (index, value) {
+        $(this).attr({
+          allowfullscreen: 'allowfullscreen',
+          mozallowfullscreen: 'mozallowfullscreen',
+          msallowfullscreen: 'msallowfullscreen',
+          oallowfullscreen: 'oallowfullscreen',
+          webkitallowfullscreen: 'webkitallowfullscreen',
+          scrolling: 'no',
+          frameborder: '0'
+        })
+
+        if (!$(this).hasClass('bda-video__iframe')) {
+          const srcIframe = $(this).attr('src')
+
+          if ($(this).closest('.bb-item').attr('id') === 'item1') {
+            $(this).attr('data-src', srcIframe)
+          } else {
+            $(this).attr({
+              'src': '',
+              'data-src': srcIframe
+            })
+          }
+        }
+      })
+      // Iframe End
+
+      // Images Begin
+      $('img').wrap('<div class="zoom-images"></div>')
+
+      $('img').on('click', function () {
+        const srcImage = $(this).attr('src')
+        const itemClosest = $(this).closest('.bb-item')
+        const widthImage = $(this)[0].naturalWidth
+        const heightImage = $(this)[0].naturalHeight
+        const ratio = widthImage / heightImage
+        const dif = 1 - ratio
+
+        if ($(this).parents('.popup__container').length == 0) {
+          var closeFlag = 'close_zoom'
+        } else {
+          closeFlag = 'close_zoom_popup'
+        }
+
+        if (dif > 0.1) {
+          itemClosest.append(`<div class="zoom-vertical animated fadeIn remove-zoom"><div><img src="${srcImage}"></div><span class="${closeFlag}">X</span></div>`)
+          $('.popup__bg').removeClass('hide')
+
+        } else  {
+          itemClosest.append(`<div class="zoom-horizontal animated fadeIn remove-zoom"><img src="${srcImage}"><span class="${closeFlag}">X</span></div>`)
+          $('.popup__bg').removeClass('hide')
+        }
+      })
+
+      $(document).on('click', '.popup__bg', () => {
+        $('.remove-zoom').remove()
+        $('.popup__bg').addClass('hide')
+        $('.popup__container').addClass('hide')
+      })
+
+      $(document).on('click', '.close_zoom', () => {
+        $('.popup__bg').addClass('hide')
+        $('.remove-zoom').remove()
+      })
+      $(document).on('click', '.close_zoom_popup', () => {
+        $('.remove-zoom').remove()
+      })
+
+      $('img').on('mouseover', function () {
+        const height = $(this)[0].height
+        const width = $(this)[0].width
+        $(this).css('opacity', '0.4')
+        $(this).before(`<div class="hoverimages" style="height:${height}px; width: ${width}px"><span><i class="icon-clic"></i><strong>Haz clic aquí</strong></span></div>`)
+      })
+
+      $(document).on('mouseout', 'img', function () {
+        $(this).css('opacity', '1')
+        $('.hoverimages').remove()
+      })
+      // Images End
+
       // Video Begin
       function videoPlay($wrapper) {
         let $iframe = $wrapper.find('.bda-video__iframe')
@@ -201,18 +204,6 @@ function startPage() {
         videoPlay($wrapper)
       })
       // Video End
-
-      // Iframe fullscreen Begin
-      $('iframe').attr({
-        allowfullscreen: 'allowfullscreen',
-        mozallowfullscreen: 'mozallowfullscreen',
-        msallowfullscreen: 'msallowfullscreen',
-        oallowfullscreen: 'oallowfullscreen',
-        webkitallowfullscreen: 'webkitallowfullscreen',
-        scrolling: 'no',
-        frameborder: '0'
-      })
-      // Iframe fullscreen End
 
       // Drag & Drop Begin
       sg.setDraggable(
@@ -290,9 +281,10 @@ function startPage() {
       function videoFullScreen(e) {
         if (e.target == document) {
           $('.popup__bg').css('z-index', '2')
-          $('.bda-main-nav span, .bda-pagination').css('z-index', '1')
+          $('.bda-main-nav span, .bda-pagination, .toogle-menu').css('z-index', '1')
+          $('.creative-commons').css('z-index', '')
         } else {
-          $('.popup__bg, .bda-main-nav span, .bda-pagination').css('z-index', '-1')
+          $('.popup__bg, .bda-main-nav span, .bda-pagination, .toogle-menu, .creative-commons').css('z-index', '-1')
         }
       }
 
