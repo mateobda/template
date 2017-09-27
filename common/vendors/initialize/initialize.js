@@ -279,12 +279,14 @@ function startPage() {
 
       // fullscreen video popup Begin
       function videoFullScreen(e) {
-        if (e.target == document) {
+        if (document.fullscreenEnabled || document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement) {
+          $('.popup__bg, .bda-main-nav span, .bda-pagination, .toogle-menu, .creative-commons').css('z-index', '-1')
+          console.log("Entra a fullscreen")
+        } else {
           $('.popup__bg').css('z-index', '2')
           $('.bda-main-nav span, .bda-pagination, .toogle-menu').css('z-index', '1')
           $('.creative-commons').css('z-index', '')
-        } else {
-          $('.popup__bg, .bda-main-nav span, .bda-pagination, .toogle-menu, .creative-commons').css('z-index', '-1')
+          console.log("Sale de fullscreen")
         }
       }
 
