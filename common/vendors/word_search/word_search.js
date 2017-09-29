@@ -1,4 +1,4 @@
-﻿﻿var cfin = 0;
+var cfin = 0;
 
 (function ($) {
   oWs = function ($el, options) {
@@ -383,7 +383,8 @@
     this.win = () => {
       $('.bda-main-nav').addClass('hide')
       $(".bda-game__modal, .bda-game__message").removeClass("hide")
-
+      $(".bda-game__error").addClass("hide")
+      
       $(".bda-game__modal, .bda-game__message").click(() => {
         $('.bda-main-nav').removeClass('hide')
         $(".bda-game__modal").addClass("hide")
@@ -398,7 +399,7 @@
 
   $.fn.wordSearch = function (options) {
     let list = $("<ul>/").addClass("bda-word-search__list-words")
-    $(".bda-game__error").addClass("hide")
+
 
     $.each(options.words, function (k, v) {
       list.append($("<li class='bda-word-search__word'>").attr("name", v).html(`<span>${v.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())}</span>`))
