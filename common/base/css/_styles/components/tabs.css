@@ -7,22 +7,22 @@
 
 .bda-tabs-hor__tab {
   display: inline-block;
-  width: 19%;
+  width: 18%;
+  margin: 0 0.2em;
   border: none;
   border-radius: 20px 20px 0 0;
-  font-size: 15px;
+  font-size: 0.9em;
   text-align: center;
 }
 
 .bda-tabs-hor__tab--number {
   width: auto;
-  font-size: 16px;
+  font-size: 1em;
 }
 
 .bda-tabs-hor__tab a {
   display: block;
   padding: 5px 25px;
-  outline: none;
   color: #fff;
   text-decoration: none;
   line-height: 20px;

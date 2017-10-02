@@ -55,22 +55,22 @@
 }
 
 .drag-and-drop__item-drop {
-  background-color: #D6D83A;
+  background-color: #c0c142;
 }
 
 /* creative commons */
 .popup__container--cc {
-  border: 1px solid #D6D83A;
+  border: 1px solid #c0c142;
   background: #fff;
 }
 
 .popup__close--cc {
-  border: solid 1px #D6D83A;
-  background: #D6D83A;
+  border: solid 1px #c0c142;
+  background: #c0c142;
 }
 
 .creative-commons {
-  color: #D6D83A;
+  color: #c0c142;
 }
 /* creative commons */
 
@@ -87,17 +87,17 @@
 
 /* btn */
 .bda-btn {
-  background-color: #D6D83A;
+  background-color: #c0c142;
 }
 
 .bda-link-know {
-  background-color: #D6D83A;
+  background-color: #c0c142;
 }
 /* btn */
 
 /* pagination */
 .btn-next,
 .btn-back {
-  color: #D6D83A;
+  color: #c0c142;
 }
 /* pagination */

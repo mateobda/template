@@ -160,6 +160,14 @@ function startPage() {
           itemClosest.append(`<div class="zoom-horizontal animated fadeIn remove-zoom"><img src="${srcImage}"><span class="${closeFlag}">X</span></div>`)
           $('.popup__bg').removeClass('hide')
         }
+
+        $(document).on('keydown', (keyword) => {
+          if (keyword.which === 27) {
+            $('.remove-zoom').remove()
+            $('.popup__bg').addClass('hide')
+            $('.popup__container').addClass('hide')
+          }
+        })
       })
 
       $(document).on('click', '.popup__bg', () => {
@@ -172,6 +180,7 @@ function startPage() {
         $('.popup__bg').addClass('hide')
         $('.remove-zoom').remove()
       })
+
       $(document).on('click', '.close_zoom_popup', () => {
         $('.remove-zoom').remove()
       })
@@ -280,11 +289,11 @@ function startPage() {
       // fullscreen video popup Begin
       function videoFullScreen(e) {
         if (document.fullscreenEnabled || document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement) {
-          $('.popup__bg, .bda-main-nav span, .bda-pagination, .toogle-menu, .creative-commons').css('z-index', '-1')
+          $('.popup__bg, .bda-main-nav span, .bda-pagination, .toogle-menu, .creative-commons, .bda-guide').css('z-index', '-1')
           console.log("Entra a fullscreen")
         } else {
           $('.popup__bg').css('z-index', '2')
-          $('.bda-main-nav span, .bda-pagination, .toogle-menu').css('z-index', '1')
+          $('.bda-main-nav span, .bda-pagination, .toogle-menu, .bda-guide').css('z-index', '1')
           $('.creative-commons').css('z-index', '')
           console.log("Sale de fullscreen")
         }
