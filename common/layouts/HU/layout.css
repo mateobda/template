@@ -77,7 +77,7 @@
 /* header */
 .icon-subject::before {
   content: "";
-  background-image: url('/common/base/img/icon-humanidades.png');
+  background-image: url('../../../common/base/img/icon-humanidades.png');
 }
 
 .icon-subject::after {
