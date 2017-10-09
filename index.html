@@ -9,6 +9,9 @@
   <link href="common/layouts/HU/layout.css" rel="stylesheet">
   <!-- OVA BEGIN -->
   <style>
+  li, p {
+    line-height: 28px;
+  }
   </style>
   <!-- OVA END -->
 </head>
@@ -41,13 +44,13 @@
         <ul class="main-nav__arrows">
           <li>
             <button class="main-nav__arrows-item off viewer_prev">
-							<i class="icon-arrow-nav"></i>Anterior
-						</button>
+              <i class="icon-arrow-nav"></i>Anterior
+            </button>
           </li>
           <li>
             <button class="main-nav__arrows-item viewer_next">
-							Siguiente<i class="icon-arrow-nav"></i>
-						</button>
+              Siguiente<i class="icon-arrow-nav"></i>
+            </button>
           </li>
         </ul>
       </nav>
@@ -64,23 +67,56 @@
   <script src="common/vendors/require/require.js" type="text/javascript"></script>
   <script async src="common/base/js/main.js" type="text/javascript"></script>
   <script>
-    function init() {
-      $("#bda-word-search__content").wordSearch({
-        dificulty: 8,
-        words: ['cultura', 'paz']
-      })
+  function init() {
+    $("#bda-word-search__content").wordSearch({
+      dificulty: 8,
+      words: ['cultura', 'paz']
+    })
 
-      $("#bda-word-search__content--modal").wordSearch({
-        dificulty: 8,
-        words: ['hola', 'mundo']
-      })
+    $("#bda-word-search__content--modal").wordSearch({
+      dificulty: 8,
+      words: ['hola', 'mundo']
+    })
 
-      $('#bda-tab-container').easytabs()
+    $('#bda-tab-container').easytabs()
 
-      $('#bda-tab-container--number').easytabs()
+    $('#bda-tab-container--number').easytabs()
 
-      $('#bda-tab-container-ver').easytabs()
-    }
+    $('#bda-tab-container-ver').easytabs()
+
+    $('.validate-multiple').click(function () {
+      const $test = $(this).closest('.multiple-test')
+      const $nquestions = $test.find('.multiple-question').length
+      console.log($nquestions )
+      const $radios = $test.find('.multiple-answers li input')
+      $radios.attr('disabled', true)
+      const $selected = $test.find('input:checked')
+      if ($selected.length < $nquestions) {
+        $('.warning').html('<p style="color: red">Debes seleccionar al menos una respuesta para cada pregunta, presiona "corregir" para continuar.</p>')
+      } else {
+        $selected.each(function (value, index) {
+          const $option = $(this).parent()
+          $option.hasClass('correct-answer') ? $option.addClass('correct') : $option.addClass('incorrect')
+        })
+      }
+      const $ncorrect = $('.correct').length
+      if (($ncorrect < $nquestions)&&($selected.length == $nquestions)) {
+        $('.warning').html('<p style="color: red">Para corregir tus respuestas, haz click en "corregir".</p>')
+      }
+    })
+
+    $('.try-again').click(function(){
+      $('.warning').html('')
+      const $test = $(this).closest('.multiple-test')
+      const $options = $test.find('.multiple-answers li')
+      const $radios = $test.find('.multiple-answers li input')
+      console.log($radios)
+      $options.removeClass('correct')
+      $options.removeClass('incorrect')
+      $radios.attr('disabled', false)
+      $radios.attr('checked', false)
+    })
+  }
   </script>
 </body>
 
