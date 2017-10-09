@@ -30,14 +30,14 @@
 
 .bda-tabs-hor__content {
   padding: 25px 10px 0;
-  height: 475px;
+  height: 490px;
   overflow-y: auto;
 }
 
 /* vertical */
 .bda-tabs-ver__content {
   padding: 10px 10px 0 30px;
-  height: 475px;
+  height: 490px;
   text-align: justify;
   overflow-y: auto;
 }

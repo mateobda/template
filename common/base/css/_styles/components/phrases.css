@@ -12,12 +12,12 @@
 
 .bda-phrases__content {
   margin-right: 30px;
-  height: 460px;
+  height: 480px;
   overflow-y: auto;
 }
 
 .bda-phrases__content--tab {
-  height: 380px;
+  height: 400px;
 }
 
 .bda-phrases__input {
