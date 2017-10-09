@@ -1,7 +1,7 @@
 function startPage() {
   sg.init(function () {
     const $items = $('.bb-item'),
-    count = $items.length
+      count = $items.length
 
     window.triggered = false
 
@@ -24,7 +24,7 @@ function startPage() {
 
     function pagination(index, $element) {
       let paginationNumber = `<span>${index + 1}<span class="bda-pagination__line"> | </span>${count}</span>`,
-      paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
+        paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
       paginationContainer.appendTo($element)
     }
 
@@ -37,22 +37,22 @@ function startPage() {
 
     var Page = (function () {
       var $items = $('.bb-item'),
-      itemsCount = $items.length,
-      current = 0,
-      bb = $('.bb-bookblock').bookblock({
-        speed: 600,
-        perspective: 5000,
-        shadowSides: 0.8,
-        shadowFlip: 0.4,
-        onEndFlip: (old, page, isLimit) => {
-          current = page
-          updateNavigation(isLimit)
-          window.triggered = true
-        }
-      }),
-      $navNext = $('#bb-nav-next'),
-      $navPrev = $('#bb-nav-prev').addClass('off'),
-      $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
+        itemsCount = $items.length,
+        current = 0,
+        bb = $('.bb-bookblock').bookblock({
+          speed: 600,
+          perspective: 5000,
+          shadowSides: 0.8,
+          shadowFlip: 0.4,
+          onEndFlip: (old, page, isLimit) => {
+            current = page
+            updateNavigation(isLimit)
+            window.triggered = true
+          }
+        }),
+        $navNext = $('#bb-nav-next'),
+        $navPrev = $('#bb-nav-prev').addClass('off'),
+        $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
 
       itemsCount == 1 ? $navNext.addClass("off") : ""
 
@@ -156,7 +156,7 @@ function startPage() {
           itemClosest.append(`<div class="zoom-vertical animated fadeIn remove-zoom"><div><img src="${srcImage}"></div><span class="${closeFlag}">X</span></div>`)
           $('.popup__bg').removeClass('hide')
 
-        } else  {
+        } else {
           itemClosest.append(`<div class="zoom-horizontal animated fadeIn remove-zoom"><img src="${srcImage}"><span class="${closeFlag}">X</span></div>`)
           $('.popup__bg').removeClass('hide')
         }
@@ -381,14 +381,14 @@ function startPage() {
 
         if ($(this).hasClass("btn-next")) {
           pg[id]++
-          $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
+            $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
 
           if (pg[id] > 1) $(this).parent().children('.btn-back').removeClass('hide')
 
           if (pg[id] === npag) $(this).parent().children('.btn-next').addClass('hide')
         } else {
           pg[id]--
-          $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
+            $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
 
           if (pg[id] === 1) $(this).parent().children('.btn-back').addClass('hide')
 
@@ -396,6 +396,43 @@ function startPage() {
         }
       })
       // End Pagination
+
+      // Begin Multiple options
+      $('.validate-multiple').click(function () {
+        const $test = $(this).closest('.multiple-test')
+        const $nquestions = $test.find('.multiple-question').length
+        console.log($nquestions)
+        const $radios = $test.find('.multiple-answers li input')
+        $radios.attr('disabled', true)
+        const $selected = $test.find('input:checked')
+        if ($selected.length < $nquestions) {
+          $('.warning').html(
+            '<p style="color: red">Debes seleccionar al menos una respuesta para cada pregunta, presiona "corregir" para continuar.</p>'
+          )
+        } else {
+          $selected.each(function (value, index) {
+            const $option = $(this).parent()
+            $option.hasClass('correct-answer') ? $option.addClass('correct') : $option.addClass('incorrect')
+          })
+        }
+        const $ncorrect = $('.correct').length
+        if (($ncorrect < $nquestions) && ($selected.length == $nquestions)) {
+          $('.warning').html('<p style="color: red">Para corregir tus respuestas, haz click en "corregir".</p>')
+        }
+      })
+
+      $('.try-again').click(function () {
+        $('.warning').html('')
+        const $test = $(this).closest('.multiple-test')
+        const $options = $test.find('.multiple-answers li')
+        const $radios = $test.find('.multiple-answers li input')
+        console.log($radios)
+        $options.removeClass('correct')
+        $options.removeClass('incorrect')
+        $radios.attr('disabled', false)
+        $radios.attr('checked', false)
+      })
+      // End Multiple options
 
       bb.jump(location.hash.substr(1))
     })()

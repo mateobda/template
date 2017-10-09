@@ -1,0 +1,60 @@
+.multiple-contailner {
+  height: 480px;
+  overflow-y: auto;
+}
+
+.multiple-answers {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.multiple-test .validate-multiple {
+  position: absolute;
+  right: 180px;
+  top: 80px;
+}
+
+.multiple-test .try-again {
+  position: absolute;
+  right: 410px;
+  top: 80px;
+}
+
+.correct {
+  background: #00b047;
+  color: #fff;
+}
+
+.incorrect {
+  background: #d94444;
+  color: #fff;
+}
+
+.multiple-answers li {
+  padding-right: 35px;
+  line-height: 30px;
+  list-style: none;
+  position: relative;
+  border-radius: 10px;
+}
+
+.correct::after,
+.incorrect::after {
+  content: "";
+
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  background-size: 40px;
+  background-repeat: no-repeat
+}
+
+.correct::after {
+  background-image: url(../../../common/base/img/icon-wingame.png);
+}
+
+.incorrect::after {
+  background-image: url(../../../common/base/img/icon-errorgame.png);
+}
