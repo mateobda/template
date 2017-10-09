@@ -1,4 +1,3 @@
-const pkg = require('./package.json')
 const gulp = require('gulp')
 const $ = require('gulp-load-plugins')({ pattern: ["*"], scope: ["devDependencies"] })
 const browserSync = require('browser-sync').create()
@@ -19,7 +18,10 @@ gulp.task('styles', () => {
 
 gulp.task('default', () => {
   browserSync.init({
-    server: { baseDir: '.' },
+    notify: false,
+    server: {
+      baseDir: '.'
+    }
   })
 
   gulp.watch(['*.html', 'content/*.html', 'common/**/*'], browserSync.reload)
@@ -116,4 +118,11 @@ gulp.task('build', (callback) => {
     'iframes:prod'
   ],
   callback)
+
+  browserSync.init({
+    notify: false,
+    server: {
+      baseDir: `../${nameOVA}_build/`
+    }
+  })
 })

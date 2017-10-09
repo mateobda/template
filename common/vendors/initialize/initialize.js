@@ -1,7 +1,7 @@
 function startPage() {
   sg.init(function () {
     const $items = $('.bb-item'),
-      count = $items.length
+    count = $items.length
 
     window.triggered = false
 
@@ -24,7 +24,7 @@ function startPage() {
 
     function pagination(index, $element) {
       let paginationNumber = `<span>${index + 1}<span class="bda-pagination__line"> | </span>${count}</span>`,
-        paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
+      paginationContainer = $('<div class="bda-pagination">').html(paginationNumber)
       paginationContainer.appendTo($element)
     }
 
@@ -37,22 +37,22 @@ function startPage() {
 
     var Page = (function () {
       var $items = $('.bb-item'),
-        itemsCount = $items.length,
-        current = 0,
-        bb = $('.bb-bookblock').bookblock({
-          speed: 600,
-          perspective: 5000,
-          shadowSides: 0.8,
-          shadowFlip: 0.4,
-          onEndFlip: (old, page, isLimit) => {
-            current = page
-            updateNavigation(isLimit)
-            window.triggered = true
-          }
-        }),
-        $navNext = $('#bb-nav-next'),
-        $navPrev = $('#bb-nav-prev').addClass('off'),
-        $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
+      itemsCount = $items.length,
+      current = 0,
+      bb = $('.bb-bookblock').bookblock({
+        speed: 600,
+        perspective: 5000,
+        shadowSides: 0.8,
+        shadowFlip: 0.4,
+        onEndFlip: (old, page, isLimit) => {
+          current = page
+          updateNavigation(isLimit)
+          window.triggered = true
+        }
+      }),
+      $navNext = $('#bb-nav-next'),
+      $navPrev = $('#bb-nav-prev').addClass('off'),
+      $successGames = '<div class="bda-game__message bda-game__win hide animated fadeIn"><strong>¡Felicitaciones!</strong><span>Haz clic para continuar</span></div><div class="bda-game__modal hide animated fadeIn"></div>'
 
       itemsCount == 1 ? $navNext.addClass("off") : ""
 
@@ -197,6 +197,31 @@ function startPage() {
         $('.hoverimages').remove()
       })
       // Images End
+
+      // Audio image
+      $('.btn--sound').on('click', function () {
+        const currentAudio = $(this).find('audio')[0]
+        let check
+
+        $('.btn--sound').each(function (k, v) {
+          const currentChecked = $(this).find('audio')[0]
+          if (currentChecked.paused) {
+            check = true
+          } else {
+            check = false
+            return check
+          }
+        })
+
+        if (check) {
+          currentAudio.play()
+
+          $(this).next('.text-audio').slideDown()
+        } else {
+          currentAudio.pause()
+        }
+      })
+      // End Audio image
 
       // Video Begin
       function videoPlay($wrapper) {
@@ -356,14 +381,14 @@ function startPage() {
 
         if ($(this).hasClass("btn-next")) {
           pg[id]++
-            $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
+          $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
 
           if (pg[id] > 1) $(this).parent().children('.btn-back').removeClass('hide')
 
           if (pg[id] === npag) $(this).parent().children('.btn-next').addClass('hide')
         } else {
           pg[id]--
-            $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
+          $(this).parent().children(`.page${pg[id]}`).removeClass('hide')
 
           if (pg[id] === 1) $(this).parent().children('.btn-back').addClass('hide')
 
