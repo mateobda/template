@@ -77,7 +77,7 @@
 /* header */
 .icon-subject::before {
   content: "";
-  background-image: url('/common/base/img/icon-ingles.png');
+  background-image: url('../../../common/base/img/icon-ingles.png');
 }
 
 .icon-subject::after {
