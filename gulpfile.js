@@ -108,7 +108,7 @@ gulp.task('common:prod', ['common:base'], () => {
     .pipe(gulp.dest(`../${nameOVA}_build/common/`))
 })
 
-gulp.task('build', (callback) => {
+gulp.task('compile', (callback) => {
   runSequence([
     'common:prod',
     'html:content',
@@ -118,7 +118,9 @@ gulp.task('build', (callback) => {
     'iframes:prod'
   ],
   callback)
+})
 
+gulp.task('build', ['compile'], () => {
   browserSync.init({
     notify: false,
     server: {

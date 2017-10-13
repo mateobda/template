@@ -223,6 +223,12 @@ function startPage() {
       })
       // End Audio image
 
+      // Show content
+      $('.btn--show').on('click', function () {
+        $(this).siblings('div').slideDown()
+      })
+      // End Show content
+
       // Video Begin
       function videoPlay($wrapper) {
         let $iframe = $wrapper.find('.bda-video__iframe')

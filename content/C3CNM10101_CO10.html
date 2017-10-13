@@ -9,8 +9,12 @@
 <section class="bb-bookblock">
 
   <nav class="bda-main-nav">
-    <span id="bb-nav-prev"><i class="icon-arrow-prev"></i></span>
-    <span id="bb-nav-next"><i class="icon-arrow-next"></i></span>
+    <span id="bb-nav-prev">
+      <i class="icon-arrow-prev"></i>
+    </span>
+    <span id="bb-nav-next">
+      <i class="icon-arrow-next"></i>
+    </span>
   </nav>
 
   <div class="popup__bg hide"></div>
@@ -19,38 +23,43 @@
 
     <header class="bda-item__header">
       <h1 class="bda-title">Título de la página</h1>
-      <span class="bda-description"><i class="icon-pencil"></i>
+      <span class="bda-description">
+        <i class="icon-pencil"></i>
         <strong>Descripción de la página</strong>
       </span>
     </header>
 
     <section class="bda-item__content">
-
-        <h2>Text</h2>
-        <div class="container-sound btn--sound" style='background-image:            url("http://lorempixel.com/200/200/");'>
-          <audio>
-            <source src="audio/pum.mp3" type="audio/mpeg">
+      <div class="flex-container">
+        <div class="width-50">
+          <h2>Text</h2>
+          <div class="container-sound btn--sound" style='background-image: url("http://lorempixel.com/200/200/");'>
+            <audio>
+              <source src="audio/pum.mp3" type="audio/mpeg">
             </audio>
           </div>
           <span class='text-audio hide'>
             Lorem ipsum dolor sit mateo
           </span>
-
-
-
+          <div>
+            <span class="bda-btn bda-btn--medium btn--show">Hola mundo</span>
+            <div class="hide">Lorem ipsum dolor mateo</div>
+          </div>
+        </div>
+        <div class="width-50">
           <h2>Text2</h2>
-          <div class="container-sound btn--sound" style='background-image:url("http://lorempixel.com/200/200/");'>
+          <div class="container-sound btn--sound" style='background-image: url("http://lorempixel.com/200/200/");'>
             <audio>
               <source src="audio/pam.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-            <span class='text-audio hide'>
-              Lorem ipsum dolor sit david
-            </span>
-
-
-        </section>
-
-      </article>
-
+            </audio>
+          </div>
+          <span class='text-audio hide'>
+            Lorem ipsum dolor sit david
+          </span>
+        </div>
+      </div>
     </section>
+
+  </article>
+
+</section>
